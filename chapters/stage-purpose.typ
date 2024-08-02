@@ -1,6 +1,4 @@
-#import "../config/thesis-config.typ": useCase
-
-#pagebreak(to:"odd")
+#pagebreak(to:"even")
 
 = Scopo dello #emph[Stage]
 <cap:stage-purpose>

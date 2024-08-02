@@ -1,4 +1,4 @@
-#pagebreak(to:"odd")
+#pagebreak(to:"even")
 
 = Descrizione dello #emph[Stage]
 <cap:stage-description>
