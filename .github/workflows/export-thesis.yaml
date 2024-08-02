@@ -1,0 +1,19 @@
+name: Export thesis to PDF
+on:
+  push:
+    branches:
+      - main
+jobs:
+  compile-and-save-thesis:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: 'Setup Typst'
+        uses: typst-community/setup-typst@v3
+      - name: 'Compile Thesis'
+        run: typst compile thesis.typ Rango_Matteo.pdf
+      - name: 'Save Thesis'
+        uses: actions/upload-artifact@v4
+        with:
+          name: Rango_Matteo.pdf
+          path: Rango_Matteo.pdf
