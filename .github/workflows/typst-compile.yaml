@@ -1,0 +1,13 @@
+name: Export thesis to PDF
+on:
+  push:
+    branches:
+      - master
+jobs:
+  render-paper:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: typst-community/setup-typst@v3
+      # Now Typst is installed and packages will be cached!
+      - run: typst compile thesis.typ Rango_Matteo.pdf
