@@ -5,9 +5,9 @@
 #set page(numbering: "i")
 
 #align(right, [
-    #text(style: "italic", "Tieni l'infinito per ciò che lo merita...")
+    Non c'è limite al peggio, negli algoritmi come nella vita.
     #v(6pt)
-    #sym.dash#sym.dash#sym.dash Tullio Vardanega
+    #sym.dash#sym.dash#sym.dash Paolo Baldan
 ])
 
 #v(10em)

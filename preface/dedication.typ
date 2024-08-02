@@ -3,9 +3,9 @@
 #v(3cm)
 
 #align(center, [
-    Non c'è limite al peggio, negli algoritmi come nella vita.
+    #text(style: "italic", "La fortuna non arriva, te la crei.")
     #v(6pt)
-    #sym.dash#sym.dash#sym.dash Paolo Baldan
+    #sym.dash#sym.dash#sym.dash Mamma
 ])
 
 #v(2cm)
