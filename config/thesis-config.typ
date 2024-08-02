@@ -1,7 +1,7 @@
 #import "../config/constants.typ": chapter
 #let config(
-    myAuthor: "Nome cognome",
-    myTitle: "Titolo",
+    myAuthor: "Matteo Rango",
+    myTitle: "Modernizzazione delle Applicazioni dei Sistemi di Controllo",
     myLang: "it",
     myNumbering: "1.",
     body
