@@ -12,12 +12,10 @@
 #counter(page).update(1)
 
 #include "./chapters/introduction.typ"
-#include "./chapters/process.typ"
+#include "./chapters/business-context.typ"
+#include "./chapters/stage-purpose.typ"
 #include "./chapters/stage-description.typ"
-#include "./chapters/requirements.typ"
-#include "./chapters/product-design.typ"
-#include "./chapters/product-testing.typ"
-#include "./chapters/conclusion.typ"
+#include "./chapters/conclusions.typ"
 
 // // Appendix
 

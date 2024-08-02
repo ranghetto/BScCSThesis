@@ -3,31 +3,26 @@
 
 = Introduzione
 
-Introduzione al contesto applicativo.
+#v(1em)
+#text(style: "italic", [
+    Breve introduzione al capitolo
+])
 
-// TODO: aggiungere riferimenti a:
-// Termine nel glossario
-// Citazione in linea
-// Citazione nel pie' di pagina
+#v(1em)
 
-Al momento glossario e citazioni devo ancora capirli.
-
-== L'azienda
-
-Descrizione dell'azienda.
-
-== L'idea
-
-Introduzione all'idea dello stage.
+aggiungere riferimenti a:
+- Termine nel glossario
+- Citazione in linea
+- Citazione nel pie' di pagina
 
 == Organizzazione del testo
 
 #set par(first-line-indent: 0pt)
-/ #link(<cap:processi-metodologie>)[Il secondo capitolo]: descrive.
-/ #link(<cap:descrizione-stage>)[Il terzo capitolo]: descrive.
-/ #link(<cap:progettazione-codifica>)[Il quarto capitolo]: descrive.
-/ #link(<cap:verifica-validazione>)[Il quint capitolo]: descrive.
-/ #link(<cap:conclusioni>)[Il sesto capitolo]: descrive.
+
+/ #link(<cap:business-context>)[Il secondo capitolo]: descrive.
+/ #link(<cap:stage-purpose>)[Il terzo capitolo]: descrive.
+/ #link(<cap:stage-description>)[Il quarto capitolo]: descrive.
+/ #link(<cap:conclusions>)[Il quinto capitolo]: descrive.
 
 Riguardo la stesura del testo, relativamente al documento sono state adottate le seguenti convenzioni tipografiche:
 
