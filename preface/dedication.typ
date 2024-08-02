@@ -3,13 +3,13 @@
 #v(3cm)
 
 #align(center, [
-    Dice l'uomo ragno...
+    Non c'è limite al peggio, negli algoritmi come nella vita.
     #v(6pt)
-    #sym.dash#sym.dash#sym.dash Tullio Vardanega
+    #sym.dash#sym.dash#sym.dash Paolo Baldan
 ])
 
 #v(2cm)
 
 #align(center, [
-    Dedicato a ...
+    Dedicato a chi mi ha sempre sostenuto.
 ])
