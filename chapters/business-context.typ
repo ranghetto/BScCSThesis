@@ -5,7 +5,7 @@
 
 #v(1em)
 #text(style: "italic", [
-    Breve introduzione al capitolo
+    Nel presente capitolo si intende fornire una panoramica generale dell'azienda in cui si è svolto il tirocinio e qual è il rapporto tra quest'ultima e il rinnovamento tecnologico.
 ])
 #v(1em)
 

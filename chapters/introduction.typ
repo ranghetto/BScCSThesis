@@ -20,7 +20,7 @@
 / #link(<cap:conclusions>)[Il quinto capitolo]: porta una retrospettiva finale in termini di conoscenze acquisite e di soddifacimento delle parti coinvolte.
 
 == Convenzioni tipografiche
-Riguardo la stesura del testo, relativamente al documento sono state adottate le seguenti convenzioni tipografiche:
+Relativamente al presente documento, sono state adottate le seguenti convenzioni tipografiche:
 
 - gli acronimi, le abbreviazioni e i termini ambigui o di uso non comune menzionati vengono definiti nel #link(<cap:glossary>)[Glossario], situato alla fine del presente documento;
 - per la prima occorrenza dei termini riportati nel glossario viene utilizzata la seguente nomenclatura: #text(blue.darken(60%))[parola#sub[G]], si tratterà di ancore navigabili, che rimandano alla definizione nel glossario;
