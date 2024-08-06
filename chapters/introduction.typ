@@ -7,8 +7,8 @@
 
 /*#v(1em)
 #text(style: "italic", [
-])
-#v(1em)*/
+])*/
+#v(1em)
 
 == Organizzazione del testo
 
