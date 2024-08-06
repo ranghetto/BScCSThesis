@@ -6,9 +6,8 @@
 #v(1em)
 
 == Grado di Soddisfacimento
-sia mio che dell'azienda
+Descrizione del grado di soddisfacimento, sia personale, sia dell'azienda, in termini oggettivi e di raggiungimento del risultato finale e atteso.
+Descrizione di quale è stato l'apporto professionale di conoscenze e abilità acquisite.
 
-== Apporto professionale di conoscenze e abilità
-
-== Delta tra competenze pregresse e richieste
-pregresse ma comunque date dall'università
+== Delta tra Competenze Pregresse e Richieste
+Descrizione di quale è stata la differenza tra le conoscenze pregresse, guadagnate tramite il percorso universitario, e quelle richieste per affrontare il tirocinio in questione.

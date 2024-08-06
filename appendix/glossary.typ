@@ -9,6 +9,6 @@
 
 #print-glossary(
   (
-    (key: "foo", short: "Fool"),
+    //(key: "foo", short: "Fool"),
   )
 )
