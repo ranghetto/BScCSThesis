@@ -17,14 +17,7 @@
 #include "./chapters/stage-description.typ"
 #include "./chapters/conclusions.typ"
 
-// // Appendix
+// Appendix
 
-// #include "./appendix/appendice-a.typ"
-
-// // Backmatter
-
-// // Praticamente il glossario
-
-// Bibliography
-
+#include "./appendix/glossary.typ"
 #include("./appendix/bibliography/bibliography.typ")

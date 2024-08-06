@@ -19,6 +19,7 @@
     show raw: set text(font: "New Computer Modern Mono", size: 10pt, lang: myLang)
     show par: set block(spacing: 0.55em)
     show heading: set block(above: 1.4em, below: 1em)
+    show link: set text(fill: blue.darken(60%))
 
 
     show heading.where(level: 1): it => {
