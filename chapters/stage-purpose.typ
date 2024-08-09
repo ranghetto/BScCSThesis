@@ -9,11 +9,11 @@
 ])
 #v(1em)
 
-== Il punto di partenza
-Descrizione della visione d'insieme che dato vita alla proposta di tirocinio e come questa si lega col tema dell'innovazione trattato nel precedente capitolo.
-
-== Obiettivi e vincoli
-Descrizione degli obiettivi del tirocinio e dei vincoli imposti prima della sua partenza.
+== Rapporto azienda - _stage_
+Descrizione di come l'azienda ospitante interpreta gli stage (chi cercare, per fare cosa, relazione con obiettivi aziendali).
 
 == Prodotti attesi
 Descrizione di quali erano i prodotti attesi e di come essi potevano rispondere alle esigenze della ricerca.
+
+== Obiettivi personali
+Descrizione degli obiettivi personali da raggiungere per trarre vantaggio.
