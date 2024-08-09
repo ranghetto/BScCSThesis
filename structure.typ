@@ -11,7 +11,6 @@
 
 #counter(page).update(1)
 
-#include "./chapters/introduction.typ"
 #include "./chapters/business-context.typ"
 #include "./chapters/stage-purpose.typ"
 #include "./chapters/stage-description.typ"

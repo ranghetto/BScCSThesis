@@ -1,5 +1,3 @@
-#pagebreak(to:"even")
-
 = Il Contesto Aziendale
 <cap:business-context>
 

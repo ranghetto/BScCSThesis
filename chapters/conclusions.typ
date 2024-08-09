@@ -1,4 +1,4 @@
-#pagebreak(to:"even")
+#pagebreak(to:"odd")
 
 = Retrospettiva Finale
 <cap:conclusions>

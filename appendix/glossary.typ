@@ -1,7 +1,7 @@
 #import "@preview/glossarium:0.4.1": make-glossary, print-glossary
 #show: make-glossary
 
-#pagebreak(to: "even")
+#pagebreak(to: "odd")
 #set heading(numbering: none)
 
 = Glossario

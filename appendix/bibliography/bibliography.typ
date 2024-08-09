@@ -1,4 +1,4 @@
-#pagebreak(to: "even")
+#pagebreak(to: "odd")
 
 // Hayagriva format
 #bibliography("bibliography.yml")
