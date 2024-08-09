@@ -1,71 +1,27 @@
-# Introduzione
+# Bsc Computer Science Thesis 2025
+> Matteo Rango (2008066)
 
-Questa repository contiene un template per la tesi triennale in Informatica.
-Il template e stato realizzato con [Typst](https://typst.app/) e ispirandosi al [template LaTeX già esistente](https://github.com/FIUP/Thesis-template.git) e alla sua versione in [Markdown](https://github.com/FIUP/pandoc-thesis-template)
+## Revision History
+| Date | Description | Version |
+| --- | --- | --- |
+| 2024-08-06 | Initial structure proposal with chapter and sub-sections description | 0.0.1 |
+| 2024-08-09 | Summary definition with context description and document structure and conventions | 0.0.2 |
 
-## Problemi e mancanze
-
-- [ ] Aggiungere glossario
-- [ ] Aggiungere appendici
-- [x] Aggiungere bibliografia
-- [x] Gestione "Capitolo x - Titolo capitolo"
-- [x] Capitoli su pagina dispari
-- [ ] Supporto alla stampa
-- [ ] Supporto PDF/A
-
-### Aggiungere glossario
-
-Molto probabilmente tramite le [reference](https://typst.app/docs/reference/meta/ref/) presenti in Typst.
-
-### Aggiungere appendici
-
-Va aggiunta con la giusta numerazione e poi inserita nel template.
-
-### Aggiungere bibliografia
-
-I riferimenti bibliografici possono essere gestiti con BibTeX in `bibliography.bib` oppure con il nuovo formato Hayagriva in `bibliography.yml`. Dopo aver riempito quei file selezionare il formato desiderato in `bibliography.typ`. Le citazioni vanno inserite nel testo con `@citazione` e verranno automaticamente aggiunte alla bibliografia.
-
-### Capitoli su pagina dispari
-
-Inserendo il `pagebreak(to: "odd")` all'inizio del capitolo sembra funzionare. Attenzione a non metterlo nel primo capitolo, altrimenti lo si fa cominciare a pagina 3.
-
-### Supporto alla stampa
-
-Questo è legato al precedente.
-
-### Supporto PDF/A
-
-Non è ancora stato integrato in Typst.
-
-## Utilizzo
-
-Per compilare tramite Typst è necessario installarlo (`pacman -S typst` su Arch) oppure utilizzare l'[editor online](https://typst.app/).
-
-Durante la scrittura è molto comodo utilizzare la funzione `watch` di Typst che aggiorna il PDF ad ogni modifica.
-
-Struttura del template:
-
-- `chapters/`: qui vanno inseriti i capitoli con l'effettivo contenuto della tesi.
-- `appendix/`: contiene capitoli aggiuntivi, bibliografia e glossario
-  - `bibliography/`: contiene i file per la bibliografia
-    - `bibliography.bib`: file per la bibliografia in formato BibTeX
-    - `bibliography.yml`: file per la bibliografia in formato Hayagriva
-    - `bibliography.typ`: file incluso nella struttura dove viene selezionato il formato della bibliografia da utilizzare
-- `config/`: le varie configurazioni del template:
-  - `variables.typ`: qui vengono definite le variabili con i propri dati personali.
-- `images/`: tutte le immagini e simili raccolte qui per avere un po' di ordine.
-- `preface/`: contiene la struttura delle pagine che precedono il vero contenuto:
-  - `acknowledgements.typ`: ringraziamenti vari.
-  - `dedication.typ`: dediche e una piccola citazione.
-  - `summary.typ`: sommario in cui viene descritto di cosa tratta la tesi.
-- `structure.typ`: contiene la struttura e l'ordine dei capitoli.
-- `thesis.typ`: vera e propria tesi, file che andrà compilato per produrre il PDF.
-
-## Motivazioni
-
-Lo scopo di questo progetto è quello di creare un template funzionante in Typst, che sia il più simile possibile al template LaTeX già esistente e che sia facile da utilizzare. Adattate il template alle vostre esigenze e segnalate eventuali problemi o mancanze.
-
-## Fonti e utilità
-
-- [Documentazione Typst](https://typst.app/docs/)
-- [FIUP Code of Conduct](https://github.com/FIUP/Getting_Started/blob/master/CODE_OF_CONDUCT.md)
+## Roadmap
+### Sprint 1 - v0.1.0 (2024-08-05 -> 2024-08-11)
+- [x] Structure definition
+- [x] Summary definition
+- [ ] Business context definition
+### Sprint 2 - v0.2.0 (2024-08-12 -> 2024-08-18)
+- [ ] Sprint 1 refactoring (if needed)
+- [ ] Stage purpose definition
+- [ ] Stage description definition
+### Sprint 3 - v0.3.0 (2024-08-19 -> 2024-08-25)
+- [ ] Sprint 2 refactoring (if needed)
+- [ ] Stage description definition
+### Sprint 4 - v0.4.0 (2024-08-26 -> 2024-09-01)
+- [ ] Sprint 3 refactoring (if needed)
+- [ ] Stage conclusion definition
+### Sprint 5 - v1.0.0 (2024-09-02 -> 2024-09-08)
+- [ ] Sprint 4 refactoring (if needed)
+- [ ] Revision of the entire document
