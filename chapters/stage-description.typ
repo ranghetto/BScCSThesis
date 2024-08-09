@@ -1,6 +1,6 @@
 #pagebreak(to:"odd")
 
-= Gestione Operativa
+= Gestione operativa
 <cap:stage-description>
 
 #v(1em)
@@ -9,11 +9,11 @@
 ])
 #v(1em)
 
-== Metodo di Lavoro
+== Metodo di lavoro
 Descrizione di come è avvenuta la pianificazione e di come si sono svolte le iterazioni e le revisioni.
 Oltre a questo, una descrizione di quali sono state le tecniche di analisi e tracciamento di requisiti, unite all'uso di diagrammi, e quali sono stati gli strumenti utilizzati per la validazione dell'operato.
 
-== Problemi Progettuali e Tecnologici Affrontati
+== Problemi progettuali e tecnologici affrontati
 
 === Analisi
 Problemi affrontati durante l'analisi.
@@ -24,10 +24,10 @@ Problemi affrontati durante la progettazione.
 === Implementazione
 Problemi affrontati durante l'implmentazione.
 
-=== Verifica e Validazione
+=== Verifica e validazione
 Problemi affrontati durante la verifica.
 
-== Risultati Ottenuti
+== Risultati ottenuti
 
 === Qualitativi
 Descrizione della visione d'insieme del prodotto visto dal lato dell'utente.

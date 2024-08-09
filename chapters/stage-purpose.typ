@@ -1,6 +1,6 @@
 #pagebreak(to:"odd")
 
-= Scopo del Tirocinio
+= Scopo del tirocinio
 <cap:stage-purpose>
 
 #v(1em)
@@ -9,11 +9,11 @@
 ])
 #v(1em)
 
-== Il Punto di Partenza
+== Il punto di partenza
 Descrizione della visione d'insieme che dato vita alla proposta di tirocinio e come questa si lega col tema dell'innovazione trattato nel precedente capitolo.
 
-== Obiettivi e Vincoli
+== Obiettivi e vincoli
 Descrizione degli obiettivi del tirocinio e dei vincoli imposti prima della sua partenza.
 
-== Prodotti Attesi
+== Prodotti attesi
 Descrizione di quali erano i prodotti attesi e di come essi potevano rispondere alle esigenze della ricerca.
