@@ -26,3 +26,4 @@
 | 2024-08-06 | Initial structure proposal with chapter and sub-sections description | 0.0.1 |
 | 2024-08-09 | Summary definition with context description and document structure and conventions | 0.0.2 |
 | 2024-08-10 | Definition of the business context and its' sub-sections | 0.1.0 |
+| 2024-08-10 | Fix summary length | 0.1.1 |
