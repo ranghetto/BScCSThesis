@@ -5,7 +5,7 @@
 ### Sprint 1 - v0.1.0 (2024-08-05 -> 2024-08-11)
 - [x] Structure definition
 - [x] Summary definition
-- [ ] Business context definition
+- [x] Business context definition
 ### Sprint 2 - v0.2.0 (2024-08-12 -> 2024-08-18)
 - [ ] Sprint 1 refactoring (if needed)
 - [ ] Stage purpose definition
@@ -25,3 +25,4 @@
 | --- | --- | --- |
 | 2024-08-06 | Initial structure proposal with chapter and sub-sections description | 0.0.1 |
 | 2024-08-09 | Summary definition with context description and document structure and conventions | 0.0.2 |
+| 2024-08-10 | Definition of the business context and its' sub-sections | 0.1.0 |

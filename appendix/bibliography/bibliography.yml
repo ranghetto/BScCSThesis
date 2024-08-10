@@ -1,1 +1,5 @@
-
+manifesto_agile:
+    type: web
+    title: Manifesto for Agile Software Development
+    author: ["Robert C. Martin", "Kent Beck", "Martin Fowler", "altri"]
+    url: http://agilemanifesto.org/
