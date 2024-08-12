@@ -3,3 +3,15 @@ manifesto_agile:
     title: Manifesto for Agile Software Development
     author: ["Robert C. Martin", "Kent Beck", "Martin Fowler", "altri"]
     url: http://agilemanifesto.org/
+
+infineon_tc375:
+    type: web
+    title: Pagina ufficiale del kit di sviluppo Infineon TC375
+    author: ["Infineon Technologies"]
+    url: https://www.infineon.com/cms/en/product/evaluation-boards/kit_a2g_tc375_lite/
+
+sar_wikipedia:
+    type: web
+    title: Wikipedia - Successive Approximation ADC
+    author: ["EditingPencil"]
+    url: https://commons.wikimedia.org/w/index.php?curid=141483547

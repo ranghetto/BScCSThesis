@@ -37,7 +37,7 @@ ma anche nel miglioramento continuo del proprio ambiente di lavoro.
 prevede di portare un prodotto software, già esistente o meno, in una condizione tale per cui
 possa essere certificato, attraverso una complesso insieme di strumenti e _standard_ da seguire.
 Altra parte dei ricavi arriva dalla rivendita di prodotti e licenze sempre in ambito _embedded_,
-per programmi e librerie software delle aziende di cui _Bluewind_ è #gls("partner")#sub[G].
+per programmi e librerie software delle aziende di cui _Bluewind_ è _partner_.
 
 == Organizzazione interna
 
@@ -85,37 +85,92 @@ del _framework_ #gls("scrum")#sub[G], utilizzato per lo sviluppo software e
 che verrà descritto in dettaglio nella sezione #link(<cap:working-method>)["Metodo di lavoro"].
 
 == Tecnologie e strumenti
-La quantità di strumenti, tecnologie e servizi utlizzati all'interno dell'azienda mi
-impedisce di elencarli tutti, per questo ne farò una panoramica più ad alto livello di quelli
-legati in qualche forma al mio progetto.
-=== Hardware
-==== _STMicroelectronics_
-==== _Infineon Technologies_
-Lo sviluppo avviene principalemente su microcontrollori di due diverse ditte:
-_STMicroelectronics_ e _Infineon Technologies_.
 
-=== Software
-==== Compilatori _HighTec_
-==== _PLS UDE_
-In particolare per lo sviluppo in _Rust_ nei microcontrollori _Infineon Aurix_ è necessario
-usare delle librerie che permettano di compilare il codice per queste piattaforme,
-come quelle dell'azienda _HighTec_, oltre alla necessità di utilizzare strumenti di _debug_
-specifici, come il programma _UDE_, della ditta _PLS_.
-==== Sistemi operativi
+=== _Infineon Technologies Aurix TC375_
+
+I microcontrollori della ditta _Infineon Technologies_ sono dei prodotti ad altissime prestazioni e
+altamente affidabili. Infatti sono diventati lo standard in diversi settori tra cui quello
+automobilistico, quello spaziale, quello industriale e quello della sicurezza.
+
+La scheda di sviluppo che ho utilizzato era una _Aurix TC375 Lite Kit_, prodotta dalla stessa azienda,
+che offre un ambiente di sviluppo _hardware_ pre-configurato pensato per dimostrare tutte le
+funzionalità del microcontrollore saldato sulla scheda, che è proprio l'omonimo _Aurix TC375_.
+
+#figure(
+  image("../images/aurix_tc375_litekit.jpg", width: 80%),
+  caption: [
+    Foto della scheda sulla quale ho sviluppato il progetto di tirocinio. @infineon_tc375
+  ],
+)
+
+Di quest'ultimo, ho studiato in particolare il modulo #gls("evadc")#sub[G], ossia un orchestratore di
+diversi #gls("adc")#sub[G], componenti elettronici che sono in grado di convertire dei segnali analogici
+in segnali digitali attraverso un sistema chiamato #gls("sar")#sub[G].
+Ciò significa che prendono un segnale in Volt e lo trasformano in un numero che può essere utilizzato dal microcontrollore.
+Le caratteristiche principali sono:
+- la gamma, in inglese _range_, voltaggio, minimo e massimo, che possono accettare come valore in ingresso da convertire;
+- la risoluzione, il numero di bit del valore numerico convertito, questo determina anche il più piccolo incremento che può venire riconosciuto.
+
+\ Il loro funzionamento è molto semplice: il circuito parte con l'acquisizione del segnale da convertire e lo memorizza grazie ad un circuito chiamato
+_sample and hold_; successivamente genera un segnale analogico a partire da un segnale digitale, il cui valore è noto (nella prima iterazione
+corrisponde alla metà del _range_).
+I due segnali vengono comparati e il risultato è inserito in un registro che farà da base per l'iterazione
+successiva.
+In @sar_example si vede il funzionamento logico del componente, in particolare l'albero binario che porta alla soluzione finale di approssimazione.
+
+#figure(
+  image("../images/sar_example.jpg", width: 80%),
+  caption: [
+    Esempio di come avviene l'approssimazione digitale del valore analogico in ingresso di 5.5V, immaginando un ADC con range da 0V a 7V
+    ed una risoluzione di 3 bit.
+  ],
+) <sar_example>
+
+=== Linguaggio _Rust_
+_Rust_ è un linguaggio di programmazione che gode di un sistema di tipi molto ricco, è estremamente perfomante e ha una gestione della
+memoria che elimina un'intera classe di errori legati a quest'ultima, che si riflettono anche sulla sicurezza.
+Uno degli obiettivi del progetto, era proprio quello di utilizzare _Rust_ come linguaggio principale, non solo per i vantaggi che offre
+in termini di affidabilità, ma soprattutto per studiare i suoi limiti.
+Quando parlo di limiti non intendo quelli prestazionali, ma piuttosto in fatto di facilità di adozione e integrazioni nei sistemi
+esistenti.
+
+=== Compilatori _HighTec_
+
+_HighTec_ vende sotto licenza un compilatore per _Rust_ certificato _ISO 26262 ASIL D_, il che vuol dire che può essere usato
+per compilare codice di sistemi di controllo per il settore automobilistico.
+Il compilatore in questione compila il codice anche per la piattaforma _Aurix_ e, visti gli interessi di _Bluewind_ sia per il settore,
+sia per il microcontrollore, lo abbiamo scelto come strumento, in modo da studiarne ed analizzarne l'utilizzo.
+
+=== _PLS UDE_
+
+Per scrivere il codice all'interno dell'hardware, e farne il _debug_, abbiamo scelto uno strumento già utilizzato in azienda anche per il
+linguaggio _C_, l'_Universal Debug Engine_, comunemente chiamato _UDE_.
+Di questo strumento, vista la possibilità di fare il _debug_ nei microcontrollori _Aurix_, ne erano conosciute a fonodo caratteristiche e
+funzionalità ma, era stato provato poco per lo sviluppo _Rust_. Questo lo ha reso un interessante caso di studio per vedere come,
+passando da un linguaggio all'altro, si sarebbe comportato, rispetto anche alle promesse fatta dalla ditta che lo produce.
+
+=== Sistemi operativi
+
 Siccome il sistema operativo utilizzato nei computer aziendali è _Ubuntu_, e la maggior parte
-degli strumenti di sviluppo funziona solo su _Windows_, utilizzavo una macchina virtuale,
-creata con _VirtualBox_, al fine di provare il codice direttamente sulla scheda di test.
-==== Diagrammi
+degli strumenti di sviluppo funziona solo su _Windows_, utilizzavo una macchina virtuale.
+Essa funzionava grazie al programma _VirtualBox_, che attraverso alcune estensioni,
+mi permetteva di provare il codice direttamente sulla scheda di test collegata al sistema.
+
+=== Analisi e Progettazione
+
 Per la scrittura dei requisiti invece non ho utilizzato uno strumento specifico, ma ho usato
 _StarUML_ per fare delle rappresentazioni grafiche legate alla progettazione del software:
 - diagramma dei casi d'uso;
 - diagramma delle classi;
 - diagramma per la macchina a stati finiti;
 - digramma di sequenza.
-==== Strumenti di sviluppo
-\ Nell'uso quotidiano, come #gls("its")#sub[G], utilizzavamo _Gitlab_, unito al suo sistema di
-==== Strumenti di comunicazione
-controllo di versione, e _Telegram_ e _Zoom_ come canali di comunicazione.
+
+=== Altri strumenti
+
+\ Nella _routine_ quotidiana, come #gls("its")#sub[G], utilizzavamo _Gitlab_, unito al suo sistema di
+controllo di versione per il software.
+Infine abbiamo usato _Telegram_ e _Zoom_ come canali di comunicazione, rispettivamente per messaggi
+rapidi e video-conferenze.
 
 == Rapporto con l'innovazione
 \ _Bluewind_ ha un rapporto speciale con l'innovazione, facendo di essa il proprio cavallo di

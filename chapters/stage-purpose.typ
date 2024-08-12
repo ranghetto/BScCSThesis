@@ -1,4 +1,4 @@
-#pagebreak(to:"odd")
+#pagebreak()
 
 = Scopo del tirocinio
 <cap:stage-purpose>
