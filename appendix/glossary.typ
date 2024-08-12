@@ -10,6 +10,11 @@
 #print-glossary(
   (
     (
+      key: "partner",
+      short: "partner",
+      desc: [azienda collaboratrice con la quale si instaura un rapporto commerciale di aiuto reciproco.]
+    ),
+    (
       key: "rnd",
       short: "R&D",
       long: "Research and Development",
