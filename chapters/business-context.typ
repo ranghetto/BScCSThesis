@@ -51,7 +51,7 @@ ed è suddiviso in _team_, ognuno dei quali lavora ad un progetto, con persone
 che possono essere presenti in più _team_ diversi.
 Questi sono guidati da un #gls("po")#sub[G], persona che si occupa di interfacciarsi con il
 cliente e di assicurarsi che il lavoro venga consegnato nei modi e tempi previsti.
-Ogni _team_ poi include persone con diversi ruoli, tra cui:
+Ogni _team_ include persone con diversi ruoli, tra cui:
 - analisti software;
 - analisti della sicurezza;
 - progettisti;
