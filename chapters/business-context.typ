@@ -41,7 +41,7 @@ per programmi e librerie software delle aziende di cui _Bluewind_ è _partner_.
 
 == Organizzazione interna
 
-All'interno vi sono due reparti principali:
+All'interno dell'azienda vi sono due reparti principali:
 - #gls("rnd")#sub[G], ossia il reparto di ricerca e sviluppo, in cui ero presente anche io;
 - _Marketing_ and _Sales_, ossia il reparto che si occupa della vendita di prodotti e della
   parte pubblicitaria;
