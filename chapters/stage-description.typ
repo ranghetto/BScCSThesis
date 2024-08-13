@@ -1,4 +1,4 @@
-#pagebreak(to:"even")
+#pagebreak(to:"odd")
 
 = Gestione operativa
 <cap:stage-description>

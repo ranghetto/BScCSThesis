@@ -1,6 +1,8 @@
 #import "../config/constants.typ": figuresList, tablesList
 #set page(numbering: "i")
 
+#pagebreak(to: "odd");
+
 #[
   #show outline.entry.where(level: 1): it => {
     linebreak()

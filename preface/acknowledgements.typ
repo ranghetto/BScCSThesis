@@ -1,6 +1,8 @@
 #import "../config/variables.typ" : profTitle, myProf, myLocation, myTime, myName
 #import "../config/constants.typ" : acknlowledgements
 
+#pagebreak(to: "odd");
+
 #set par(first-line-indent: 0pt)
 #set page(numbering: "i")
 
