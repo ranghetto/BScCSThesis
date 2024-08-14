@@ -41,26 +41,26 @@
       key: "adc",
       short: "ADC",
       long: "analog-to-digital converter",
-      desc: [Componente elettronico in grado di effettuare conversioni da segnali analogici a digitali.]
+      desc: [componente elettronico in grado di effettuare conversioni da segnali analogici a digitali.]
     ),
     (
       key: "evadc",
       short: "EVADC",
       long: "Enhanced Versatile Analog-to-Digital Converter",
-      desc: [Modulo presente all'interno di alcuni microcontrollori _Infineon_ che controlla diversi _ADC_ di tipo _SAR_, offrendo capacità di sincronizzazione, parallelismo, etc.]
+      desc: [modulo presente all'interno di alcuni microcontrollori _Infineon_ che controlla diversi _ADC_ di tipo _SAR_, offrendo capacità di sincronizzazione, parallelismo, etc.]
     ),
     (
       key: "sar",
       short: "SAR",
       long: "successive approximation register",
-      desc: [Tipologia di _ADC_ che funziona attraverso l'approsimazione iterativa del valore analogico attraverso una ricerca binaria attraverso tutti i livelli
+      desc: [tipologia di _ADC_ che funziona attraverso l'approsimazione iterativa del valore analogico attraverso una ricerca binaria attraverso tutti i livelli
       di precisione che il componente stesso offre.]
     ),
     (
       key: "driver",
       short: "driver",
       desc: [
-        Componente software che astrae l'hardware sottostante,
+        componente software che astrae l'hardware sottostante,
         fornendo un'interfaccia più semplice da usare.
       ]
     ),
@@ -68,14 +68,14 @@
       key: "verfor",
       short: "verifica formale",
       desc: [
-        Una prova del software che si basa su principi formali matematici di correttezza.
+        una prova del software che si basa su principi formali matematici di correttezza.
       ]
     ),
     (
       key: "crate",
       short: "crate",
       desc: [
-        Nel gergo _Rust_ si tratta di una libreria software che racchiude delle funzionalità specifiche.
+        nel gergo _Rust_ si tratta di una libreria software che racchiude delle funzionalità specifiche.
       ]
     ),
     (
@@ -89,7 +89,7 @@
       key: "sfun",
       short: "sicurezza funzionale",
       desc: [
-        La sicurezza che in un sistema, solitamente elettronico, viene attuata in modo
+        sicurezza che in un sistema, solitamente elettronico, viene attuata in modo
         automatico, riducendo quindi il livello di rischio.
       ]
     ),
@@ -97,7 +97,7 @@
       key: "26262",
       short: "ISO 26262",
       desc: [
-        Standard internazionale per la sicurezza funzionale dei sistemi elettronici installati nei veicoli da strada.
+        standard internazionale per la sicurezza funzionale dei sistemi elettronici installati nei veicoli da strada.
       ]
     ),
     (
@@ -105,7 +105,7 @@
       short: "ASIL D",
       long: "Automotive Safety Integrity Level D",
       desc: [
-        Schema di classificazione del rischio più alto nella scala definita dallo standard _ISO 26262_.
+        schema di classificazione del rischio più alto nella scala definita dallo standard _ISO 26262_.
       ]
     ),
   )

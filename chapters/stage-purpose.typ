@@ -74,6 +74,14 @@ Gli obiettivi principali erano tre:
   raccomandato dallo standard _ISO 26262_ per alti livelli di integrità della
   _sicurezza funzionale_ @iecch.
 
+#figure(
+  image("../images/esempio_manuale_tc37x.png", width: 80%),
+  caption: [
+    Tabella 260 del manuale utente della famiglia di microcontrollori _Infineon Aurix TC37X_
+    che rappresenta la configurazione del modulo EVADC. @tc37x_user_manual
+  ],
+)
+
 A questi, durante il corso del progetto, ne sono stati aggiunti altri, che all'inizio non erano
 stati pensati, ma che sono risultati interessanti al fine di approfondire meglio i temi trattati:
 
