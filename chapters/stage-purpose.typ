@@ -52,7 +52,7 @@ Lo scopo del tirocinio era l’implementazione di un _driver_ in _Rust_ per la g
 periferica _EVADC_ su microcontrollori per applicazioni #gls("autom")#sub[G], in particolare l'_Infineon
 Aurix TC375_.
 A seguito o in parallelo alla parte implmentativa avevamo pensato ad una fase di analisi
-su due temi rilevanti per il dominio della #gls("sfun")#sub[G]:
+su due temi rilevanti per il dominio della #gls("sfun")#sub[G] @iecch:
 - un’indagine generale sui vantaggi e/o svantaggi di utilizzo di _Rust_ per librerie di basso livello;
 - un’indagine sulla possibilità ed eventuali modalità preferibili di progettazione dei driver per evitare
   errori di configurazione della periferica in modo statico, cioè a tempo di compilazione,
@@ -72,7 +72,7 @@ Gli obiettivi principali erano tre:
 + esperimento di integrazione di uno strumento di #gls("verfor")#sub[G] tramite il quale è possibile
   dichiarare e verificare proprietà logiche direttamente sul codice sorgente _Rust_, come
   raccomandato dallo standard _ISO 26262_ per alti livelli di integrità della
-  _sicurezza funzionale_ @iecch.
+  _sicurezza funzionale_.
 
 #figure(
   image("../images/esempio_manuale_tc37x.png", width: 80%),
@@ -97,4 +97,25 @@ I principali prodotti attesi, derivanti dagli obiettivi erano:
 - un report sulle indagini e gli esperimenti citati sopra.
 
 == Obiettivi personali
-Descrizione degli obiettivi personali da raggiungere per trarre vantaggio.
+
+\ L'obiettivo primario che mi ero fissato era quello di uscire dalla
+mia zona di _confort_, andando ad esplorare un mondo che fino a quel
+momento avevo visto solamente a livello amatoriale.
+Questo avrebbe permesso di provare a me stesso che sono in grado di adattarmi
+velocemente a situazioni nuove, pur trovandomi, inizialmente, spaesato.
+
+\ Il secondo obiettivo era quello legato all'apprendimento vero e proprio.
+Volevo conoscere e toccare con mano cosa significa scrivere software a basso livello,
+quali sono le sfide e i problemi che si affrontano ogni giorno.
+Oltre al fatto che le mie nozioni di elettronica sono molto limitate, e questa esperienza
+mi avrebbe permesso di ampliarle notevolmente.
+Anche il fatto che _Bluewind_ lavori principalmente nel settore della _sicurezza funzionale_,
+mi ha garantito l'apprendimento di metodi e tecnologie atte allo sviluppo di software
+certificabile.
+
+\ Terzo e ultima considerazione riguarda la cariera lavorativa. Volevo raggiungere gli obiettivi
+citati sopra per aprirmi, nel caso mi fosse interessato, una strada verso questo settore.
+Perciò l'obiettivo era quello di trovare lavoro, nell'azienda stessa o in altre, che si occupassero
+della terna: sistemi di controllo e sicurezza funzionale nel settore aerospaziale.
+L'ultima di queste è l'unica trattabile, solo per il momento, visto che riconosco la necessità
+di costruirmi un bagaglio di esperienza non indifferente.
