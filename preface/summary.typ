@@ -14,7 +14,7 @@ Allo stato, il software dei sistemi di controllo è ancora prevalentemente svilu
 linguaggio _C_.
 Tuttavia, il codice che ne deriva è spesso difficile da leggere e quindi anche da mantenere.
 Vista anche la sua natura estremamente versatile, facilita l’introduzione di errori di sicurezza.
-Il caso che abbiamo preso in esame è stato il driver per il modulo del microcontrollore _Infineon
+Il caso che abbiamo preso in esame è stato il _driver_ per il modulo del microcontrollore _Infineon
 Aurix TC375_, dedicato alle conversioni da segnali analogici a digitali ad approssimazioni
 successive (_SAR_), che è stato scritto in _Rust_.
 L'implementazione ha evidenziato come l'adozione di determinate tecniche e pattern di

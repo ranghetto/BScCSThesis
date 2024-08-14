@@ -10,8 +10,14 @@ infineon_tc375:
     author: ["Infineon Technologies"]
     url: https://www.infineon.com/cms/en/product/evaluation-boards/kit_a2g_tc375_lite/
 
-sar_wikipedia:
+iso26262:
     type: web
-    title: Wikipedia - Successive Approximation ADC
-    author: ["EditingPencil"]
-    url: https://commons.wikimedia.org/w/index.php?curid=141483547
+    title: "ISO 26262: Road vehicles - Functional safety"
+    author: ["International Organization for Standardization (ISO)"]
+    url: https://www.iso.org/standard/68383.html
+
+iecch:
+    type: web
+    title: "IEC 61508: Sicurezza funzionale dei sistemi elettrici/elettronici/programmabili per la sicurezza"
+    author: ["International Electrotechnical Commission (IEC)"]
+    url: https://www.iec.ch/functional-safety

@@ -136,7 +136,7 @@ esistenti.
 
 === Compilatori _HighTec_
 
-_HighTec_ vende sotto licenza un compilatore per _Rust_ certificato _ISO 26262 ASIL D_, il che vuol dire che può essere usato
+_HighTec_ vende sotto licenza un compilatore per _Rust_ certificato #gls("26262")#sub[G] #gls("asild")#sub[G] @iso26262, il che vuol dire che può essere usato
 per compilare codice di sistemi di controllo per il settore automobilistico.
 Il compilatore in questione compila il codice anche per la piattaforma _Aurix_ e, visti gli interessi di _Bluewind_ sia per il settore,
 sia per il microcontrollore, lo abbiamo scelto come strumento, in modo da studiarne ed analizzarne l'utilizzo.
@@ -171,6 +171,13 @@ _StarUML_ per fare delle rappresentazioni grafiche legate alla progettazione del
 controllo di versione per il software.
 Infine abbiamo usato _Telegram_ e _Zoom_ come canali di comunicazione, rispettivamente per messaggi
 rapidi e video-conferenze.
+
+#figure(
+  image("../images/its_screenshot.png", width: 80%),
+  caption: [
+    Cattura a schermo di una porzione delle attività svolte, tracciate nell'_ITS_.
+  ],
+)
 
 == Rapporto con l'innovazione
 \ _Bluewind_ ha un rapporto speciale con l'innovazione, facendo di essa il proprio cavallo di

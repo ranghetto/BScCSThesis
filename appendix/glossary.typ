@@ -56,5 +56,57 @@
       desc: [Tipologia di _ADC_ che funziona attraverso l'approsimazione iterativa del valore analogico attraverso una ricerca binaria attraverso tutti i livelli
       di precisione che il componente stesso offre.]
     ),
+    (
+      key: "driver",
+      short: "driver",
+      desc: [
+        Componente software che astrae l'hardware sottostante,
+        fornendo un'interfaccia più semplice da usare.
+      ]
+    ),
+    (
+      key: "verfor",
+      short: "verifica formale",
+      desc: [
+        Una prova del software che si basa su principi formali matematici di correttezza.
+      ]
+    ),
+    (
+      key: "crate",
+      short: "crate",
+      desc: [
+        Nel gergo _Rust_ si tratta di una libreria software che racchiude delle funzionalità specifiche.
+      ]
+    ),
+    (
+      key: "autom",
+      short: "automotive",
+      desc: [
+        settore automobilistico.
+      ]
+    ),
+    (
+      key: "sfun",
+      short: "sicurezza funzionale",
+      desc: [
+        La sicurezza che in un sistema, solitamente elettronico, viene attuata in modo
+        automatico, riducendo quindi il livello di rischio.
+      ]
+    ),
+    (
+      key: "26262",
+      short: "ISO 26262",
+      desc: [
+        Standard internazionale per la sicurezza funzionale dei sistemi elettronici installati nei veicoli da strada.
+      ]
+    ),
+    (
+      key: "asild",
+      short: "ASIL D",
+      long: "Automotive Safety Integrity Level D",
+      desc: [
+        Schema di classificazione del rischio più alto nella scala definita dallo standard _ISO 26262_.
+      ]
+    ),
   )
 )
