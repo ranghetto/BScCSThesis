@@ -8,7 +8,7 @@
 - [x] Business context definition
 ### Sprint 2 - v0.2.0 (2024-08-12 -> 2024-08-18)
 - [x] Sprint 1 refactoring (if needed)
-- [ ] Stage purpose definition
+- [x] Stage purpose definition
 - [ ] Stage description definition
 ### Sprint 3 - v0.3.0 (2024-08-19 -> 2024-08-25)
 - [ ] Sprint 2 refactoring (if needed)
