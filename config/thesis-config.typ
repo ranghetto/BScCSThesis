@@ -20,7 +20,6 @@
     show par: set block(spacing: 1.5em)
     show heading: set block(above: 1.5em, below: 1.2em)
     show link: set text(fill: blue.darken(60%))
-    show figure.caption: c => text(size: 10pt, c)
 
     show heading.where(level: 1): it => {
         stack(
