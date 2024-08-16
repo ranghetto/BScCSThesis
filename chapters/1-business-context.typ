@@ -6,14 +6,14 @@
 
 #v(1em)
 #text(style: "italic", [
-    Nel presente capitolo intendo fornire una panoramica generale dell'azienda in cui ho
+    Questo capitolo presenta una panoramica generale dell'azienda in cui ho
     svolto il tirocinio e qual è il rapporto tra quest'ultima e il rinnovamento tecnologico.
 ])
 #v(1em)
 
 == _Bluewind_ S.R.L.
 
-\ _Bluewind_ è un'azienda con sede a Castelfranco Veneto (TV) che offre servizi di ingegneria
+\ L'azienda _Bluewind_, con sede a Castelfranco Veneto (TV), offre servizi di ingegneria
 nel mondo dei sistemi _embedded_, principalmente attiva nei settori: automobilistico, medico
 e industriale.
 
@@ -23,7 +23,9 @@ che permettono di coprire a trecentosessanta gradi l'intero processo di creazion
 - progettazione;
 - certificazioni di conformità;
 - implementazione.
-Questo è permesso anche grazie alla forte componente di formazione che viene sempre messa
+
+Essere in grado di operare in tutte le fasi di creazione, è permesso anche grazie alla forte
+componente di formazione che viene sempre messa
 in primo piano quando necessaria. Durante il tirocinio ho potuto sperimentarlo in prima
 persona grazie ai tutor e ai colleghi, che mi hanno affiancato durante tutto il percorso,
 offrendomi le loro conoscenze e fornendomi degli interessanti spunti di riflessione.
@@ -33,16 +35,18 @@ interni, e il tema della ristrutturazione e della definizione dei ruoli in azien
 Questo dimostra come _Bluewind_ investa molto non solo nelle nuove tecnologie,
 ma anche nel miglioramento continuo del proprio ambiente di lavoro.
 
-\ Per quanto descritto prima, la clientela risulta quindi molto varia ma, la principale attività,
-prevede di portare un prodotto software, già esistente o meno, in una condizione tale per cui
-possa essere certificato, attraverso una complesso insieme di strumenti e _standard_ da seguire.
+\ La principale attività dell'azienda, prevede di portare un prodotto software, già esistente o
+meno, in una condizione tale per cui possa essere certificato secondo uno specifico _standard_.
 Altra parte dei ricavi arriva dalla rivendita di prodotti e licenze sempre in ambito _embedded_,
-per programmi e librerie software delle aziende di cui _Bluewind_ è _partner_.
+per programmi e librerie software di proprietà delle aziende di cui _Bluewind_ è _partner_.
+La clientela risulta di conseguenza molto varia: dai clienti finali che hanno bisogno di una
+soluzione software completa, ad altre aziende informatiche che necessitano di attuare sistemi di
+sicurezza, spesso all'interno di un software o sistema che hanno già sviluppato.
 
 == Organizzazione interna
 
 All'interno dell'azienda vi sono due reparti principali:
-- #gls("rnd")#sub[G], ossia il reparto di ricerca e sviluppo, in cui ero presente anche io;
+- #gls("rnd")#sub[G], ossia il reparto di ricerca e sviluppo, in cui ero inserito;
 - _Marketing_ and _Sales_, ossia il reparto che si occupa della vendita di prodotti e della
   parte pubblicitaria;
 
@@ -111,15 +115,15 @@ Le caratteristiche principali sono:
 - la gamma, in inglese _range_, voltaggio, minimo e massimo, che possono accettare come valore in ingresso da convertire;
 - la risoluzione, il numero di bit del valore numerico convertito, questo determina anche il più piccolo incremento che può venire riconosciuto.
 
-\ Il loro funzionamento è molto semplice: il circuito parte con l'acquisizione del segnale da convertire e lo memorizza grazie ad un circuito chiamato
+\ Il funzionamento di un _ADC_ di tipo _SAR_ è molto semplice: il circuito parte con l'acquisizione del segnale da convertire e lo memorizza grazie ad un circuito chiamato
 _sample and hold_; successivamente genera un segnale analogico a partire da un segnale digitale, il cui valore è noto (nella prima iterazione
 corrisponde alla metà del _range_).
 I due segnali vengono comparati e il risultato è inserito in un registro che farà da base per l'iterazione
 successiva.
-In @sar_example si vede il funzionamento logico del componente, in particolare l'albero binario che porta alla soluzione finale di approssimazione.
+@sar_example mostra il funzionamento logico del componente, in particolare l'albero binario che porta alla soluzione finale di approssimazione.
 
 #figure(
-  image("../images/sar_example.jpg", width: 80%),
+  image("../images/sar_example.jpg", width: 100%),
   caption: [
     Esempio di come avviene l'approssimazione digitale del valore analogico in ingresso di 5.5V, immaginando un ADC con range da 0V a 7V
     ed una risoluzione di 3 bit.
