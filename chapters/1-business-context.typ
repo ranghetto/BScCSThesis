@@ -119,20 +119,21 @@ Le caratteristiche principali sono:
 - la gamma, in inglese _range_, voltaggio, minimo e massimo, che possono accettare come valore in ingresso da convertire;
 - la risoluzione, il numero di bit del valore numerico convertito, questo determina anche il più piccolo incremento che può venire riconosciuto.
 
+#figure(
+  image("../images/sar_example.jpg", width: 100%),
+  placement: bottom,
+  caption: [
+    Esempio di come avviene l'approssimazione digitale del valore analogico in ingresso di 5.5V, immaginando un ADC con range da 0V a 7V
+    ed una risoluzione di 3 bit.
+  ],
+) <sar_example>
+
 Il funzionamento di un _ADC_ di tipo _SAR_ è molto semplice: il circuito parte con l'acquisizione del segnale da convertire e lo memorizza grazie ad un circuito chiamato
 _sample and hold_; successivamente genera un segnale analogico a partire da un valore digitale, il cui valore è noto (nella prima iterazione
 corrisponde alla metà del _range_, il che corrisponde a mettere a 1 il bit più significativo e tenere a zero tutti gli altri).
 I due segnali vengono comparati, controllando se il valore in ingresso è maggiore o uguale all'approssimazione fatta fino a
 quel momento, il risultato è inserito in un registro che farà da base per l'iterazione successiva.
 @sar_example mostra il funzionamento logico del componente, in particolare l'albero binario che porta alla soluzione finale di approssimazione.
-
-#figure(
-  image("../images/sar_example.jpg", width: 100%),
-  caption: [
-    Esempio di come avviene l'approssimazione digitale del valore analogico in ingresso di 5.5V, immaginando un ADC con range da 0V a 7V
-    ed una risoluzione di 3 bit.
-  ],
-) <sar_example>
 
 === Linguaggio _Rust_
 
