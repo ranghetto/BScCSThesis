@@ -200,6 +200,5 @@ certificabile.
 Terzo e ultima considerazione riguarda la cariera lavorativa. Volevo raggiungere gli obiettivi
 citati sopra per aprirmi, nel caso mi fosse interessato, una strada verso questo settore.
 Perciò l'obiettivo era trovare lavoro, nell'azienda stessa o in altre, che si occupassero
-della terna: sistemi di controllo e sicurezza funzionale nel settore aerospaziale.
-L'ultima di queste è l'unica trattabile, solo per il momento, visto che riconosco la necessità
-di costruirmi un bagaglio di esperienza non indifferente.
+della terna: sistemi di controllo e sicurezza funzionale in settori dove i margini di fallimento
+non sono tollerati.
