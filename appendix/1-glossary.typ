@@ -29,7 +29,7 @@
     (
       key: "scrum",
       short: "Scrum",
-      desc: [sistema di supporto alla gestione di progetti complessi, adattabile alle proprie esigenze, fondato sul metodo _agile_.]
+      desc: [particolare sistema di supporto per gestione di progetti complessi fondato sui principi _agile_.]
     ),
     (
       key: "its",
@@ -107,6 +107,11 @@
       desc: [
         schema di classificazione del rischio più alto nella scala definita dallo standard _ISO 26262_.
       ]
+    ),
+    (
+      key: "framework",
+      short: "framework",
+      desc: [termine generico che indica una struttura di supporto o una serie di metodologie che hanno un determinato scopo comune]
     ),
   )
 )

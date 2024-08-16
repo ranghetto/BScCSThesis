@@ -52,16 +52,29 @@ riguardo gli strumenti adottati da _Bluewind_ e quindi l'integrazione potrà ess
 
 === Scopo
 
-Lo scopo del mio tirocinio era l’implementazione di un _driver_ in _Rust_ per la gestione della
+Lo scopo del mio tirocinio era l’implementazione di un _driver_ in _Rust_, in @rust-eco chiamato
+_Rust Peripheral Driver_, per la gestione della
 periferica _EVADC_ su microcontrollori per applicazioni #gls("autom")#sub[G], in particolare l'_Infineon
 Aurix TC375_.
+
 A seguito o in parallelo alla parte implmentativa avevamo pensato ad una fase di analisi
-su due temi rilevanti per il dominio della #gls("sfun")#sub[G] #super[@iecch]:
-- un’indagine generale sui vantaggi e/o svantaggi di utilizzo di _Rust_ per librerie di basso livello;
+su due temi rilevanti per il dominio della #gls("sfun")#sub[G] #super[@iecch], ossia l'insieme di
+tutte le misure automatiche che si adottano al fine di aumentare l'affidabilità e la sicurezza
+del sistema:
+- un’indagine generale sui vantaggi e/o svantaggi di utilizzo di _Rust_ per librerie di basso
+  livello, tenendo conto anche della sua ripida curva di apprendimento;
 - un’indagine sulla possibilità ed eventuali modalità preferibili di progettazione dei _driver_ per evitare
   errori di configurazione della periferica in modo statico, cioè a tempo di compilazione,
   con la possibilità di tracciamento delle regole di configurazione rispetto ai manuali tecnici
   del microcontrollore.
+
+  #figure(
+    image("../images/rust_ecosystem.png", width: 100%),
+    caption: [
+      Rappresentazione dello stato attuale dell'ecosistema di sviluppo _Rust_ nel mondo _Aurix_,
+      bordo arancione, paragonato al corrispondente ecosistema _C_, bordo grigio. #super[@hightec_rdp]
+    ],
+  ) <rust-eco>
 
 === Obiettivi
 
@@ -79,9 +92,9 @@ Gli obiettivi principali erano tre:
   _sicurezza funzionale_.
 
 #figure(
-  image("../images/esempio_manuale_tc37x.png", width: 80%),
+  image("../images/esempio_manuale_tc37x.png", width: 100%),
   caption: [
-    Tabella 260 del manuale utente#super[@tc37x_user_manual] della famiglia di microcontrollori _Infineon Aurix TC37X_
+    Tabella 260 del manuale utente #super[@tc37x_user_manual] della famiglia di microcontrollori _Infineon Aurix TC37X_
     che rappresenta la configurazione del modulo _EVADC_.
   ],
 )
@@ -97,21 +110,68 @@ meglio i temi trattati:
 
 === Prodotti attesi
 I principali prodotti attesi, derivanti dagli obiettivi erano:
-- una #gls("crate")#sub[G] con l'implementazione del _driver_;
+- una #gls("crate")#sub[G], in pratica una libreria software _Rust_, con l'implementazione del _driver_;
 - documentazione architetturale e di dettaglio sul _driver_ sviluppato;
 - un _report_ sulle indagini e gli esperimenti citati sopra.
 
 == Metodo di Lavoro
-<cap:working-method>
-Descrizione di come è avvenuta la pianificazione e di come si sono svolte le iterazioni e le revisioni.
-Oltre a questo, una descrizione di quali sono state le tecniche di analisi e tracciamento di requisiti, unite all'uso di diagrammi, e quali sono stati gli strumenti utilizzati per la validazione dell'operato.
-All'interno del framework, esiste il concetto
-Durante il corso del progetto, essi erano della durata di una settimana, durante la quale si celebravano gli eventi dettati dal _framework_ stesso, che contribuivano
-allo sviluppo incrementale del prodotto:
-- _Sprint Planning_, evento durante il quale selezionavamo il lavoro da svolgere nel corso dell'iterazione iniziata, in base al piano di lavoro concordato.
-- _Daily Scrum_, evento giornaliero di breve durata durante io ed i tutor scambiavamo informazioni sui problemi riscontrati fino a quel momento.
-- _Sprint Review_, evento svolto alla fine dell'iterazione al fine di valutare il lavoro svolto ed eventualmente proporre cambiamenti e/o funzionalità.
-_Scrum_ prevede che il lavoro sia suddiviso in iterazioni, chiamati _Sprint_.
+<sec:working-method>
+Al fine di avere un quadro chiaro degli obiettivi, dei prodotti attesi e delle tempistiche entro
+le quali avrei svolto il lavoro, ho stilato assieme ai miei tutor un piano di lavoro che poi
+abbiamo sottoposto, per approvazione, al professore responsabile dei tirocini.
+Il documento specificava con particolare attenzione una scaletta di attività,
+divise su base settimanale, che si può riassumere nella seguente tabella:
+
+#figure(
+  table(
+    align: left,
+    columns: 2,
+    table.header(
+      table.cell(align: center)[*Nr. Settimana*],
+      table.cell(align: center)[*Descrizione Attività*]
+    ),
+    table.cell(align: right)[1], [Introduzione al microcontrollore. \ Selezione delle funzionalità da implementare.],
+    table.cell(align: right)[2], table.cell(rowspan: 2, breakable: false)[Modellazione transizione tra stati. \ Proposta di progettazione.],
+    table.cell(align: right)[3],
+    table.cell(align: right)[4], table.cell(rowspan: 2, breakable: false, align: horizon)[Implementazione del _driver_],
+    table.cell(align: right)[5],
+    table.cell(align: right)[6], [Test e confronto con librerie in C esistenti],
+    table.cell(align: right)[7], [Esperimento di integrazione di uno strumento di formal proof],
+    table.cell(align: right)[8], [Collaudo finale e retrospettiva del progetto],
+  ), caption: [Rappresentazione del lavoro organizzato in settimane all'interno del piano di lavoro.]
+)
+Oltre al collaudo finale, ogni settimana prevedeva una giornata di analisi e
+retrospettiva legata al singolo periodo, per valutare il raggiungimento degli obiettivi prefissati.
+
+Per la natura stessa del progetto e per mettere alla prova le metodoglogie aziendali, abbiamo
+adottato un metodo di lavoro, costruito sulla base del _framework_ #gls("scrum")#sub[G].
+Esso prevede che il lavoro sia suddiviso in iterazioni chiamate _sprint_, piccole sezioni di tempo,
+solitamente della durata di una o due settimane, che prevedono:
+- all'inizio dello _sprint_, una pianificazione del lavoro da svolgere, in un evento chiamato
+  _Sprint Planning_;
+- durante lo _sprint_, lo svolgimento dei compiti assegnati
+- giornalmente, un aggiornamento del lavoro svolto, durante i cosiddetti _Sprint Daily_;
+- al termine dello _sprint_, un aggiornamento, solitamente al cliente, del lavoro svolto,
+  al fine di raccogliere riscontri e/o consigli, durante la _Sprint Review_
+- infine, durante la _Sprint Retrospecive_, una discussione su quali sono stati
+  i problemi affrontati e quali potrebbero essere le migliorie che si possono adottare per
+  incrementare l'efficienza ed efficacia.
+
+Durante il corso del progetto, le iterazioni da noi stabilite erano della durata di una settimana,
+durante la quale svolgevamo solamente un sottoinsieme degli eventi dettati dal _framework_:
+- la pianificazione è stata fatta all'inizio del percorso e ritoccata solamente a causa di alcune
+  incogruenze tra gli impegni personali. Infatti l'idea di cosa andava fatto, e con quale priorità,
+  era chiara fin dall'inizio, rendendo superflua la necessità di una pianificazione a settimana.
+- gli aggiornamenti giornalieri invece, si sono svolti regolarmente;
+- anche le revisioni di avanzamento a fine _sprint_ le abbiamo svolte con regolarità, spesso
+  unendole ad un breve confronto sul lavoro da svolgere per l'iterazione successiva.
+
+In particolar modo gli eventi giornalieri, ci hanno permesso di rimanere sempre allineati sul
+lavoro in corso d'opera. Di conseguenza è stato impossibile uscire dai tempi previsti, merito
+anche della corretta stima temporale iniziale.
+Il tirocinio ha confermato con l'uso di un _framework_ specializzato faccia la differenza
+non solo quando viene utilizzato da _team_ con un discreto numero di membri,
+ma anche quando i _team_ sono molto ridotti, come nel nostro caso.
 
 == Obiettivi personali
 

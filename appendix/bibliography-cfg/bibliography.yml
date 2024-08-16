@@ -27,3 +27,9 @@ tc37x_user_manual:
     title: "Manuale utente per la famiglia di microcontrollori Infineon Aurix TC37x"
     author: ["Infineon Technologies"]
     url: https://www.infineon.com/cms/en/product/microcontroller/32-bit-tricore-microcontroller/32-bit-tricore-aurix-tc3xx/aurix-family-tc37xtp/#!?fileId=5546d4627506bb32017530759f185ed8
+
+hightec_rdp:
+    type: web
+    title: "HighTec Rust Development Platform"
+    author: ["HighTec EDV-Systeme GmbH"]
+    url: https://hightec-rt.com/products/rust-development-platform

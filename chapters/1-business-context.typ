@@ -66,7 +66,7 @@ A capo di tutto il reparto c'è una persona che ha il ruolo di _Head of R_&_D_, 
 del buon funzionamento del reparto stesso.
 
 #figure(
-  image("../images/rnd.jpg", width: 80%),
+  image("../images/rnd.jpg", width: 100%),
   caption: [
     Rappresentazione grafica di esempio della suddivisione del reparto _R_&_D_ in Bluewind.
   ],
@@ -76,8 +76,8 @@ del buon funzionamento del reparto stesso.
 
 Tutti i processi trovano fondamento nella metodologia _agile_, una serie di principi elencati
 nel _"Manifesto Agile for Software Development"_ #super[@manifesto_agile],
-che mirano a garantire la minimizzazione del rischio, utilizzando un approccio centrato sulla
-consegna iterativa e incrementale di un prodotto funzionante che si avvicina sempre
+che mirano a garantire la minimizzazione del rischio. Essa utilizza un approccio centrato sulla
+consegna iterativa e incrementale di un prodotto funzionante, che si avvicina sempre
 di più al prodotto finale.
 Oltre a questo, anche la stretta collaborazione con il cliente e una forte componente di
 adattamento e apertura al cambiamento, garantiscono questa minimizzazione.
@@ -88,8 +88,9 @@ Per quello che ho potuto osservare, non tutti all'interno dell'azienda utilizzan
 metodologia, ma sicuramente ne sono influenzati.
 
 Quello che ho potuto osservare più da vicino è come questi principi prendano vita all'interno
-del _framework_ #gls("scrum")#sub[G], utilizzato per lo sviluppo software e
-che verrà descritto in dettaglio nella sezione #link(<cap:working-method>)["Metodo di lavoro"].
+di un #gls("framework")#sub[G], cioè una serie di metodologie di supporto, utilizzata per lo
+sviluppo software, che descriverò in dettaglio nella sezione
+#link(<sec:working-method>)["Metodo di lavoro"].
 
 == Tecnologie e strumenti
 
@@ -104,7 +105,7 @@ che offre un ambiente di sviluppo _hardware_ pre-configurato pensato per dimostr
 funzionalità del microcontrollore saldato sulla scheda, che è proprio l'omonimo _Aurix TC375_.
 
 #figure(
-  image("../images/aurix_tc375_litekit.jpg", width: 80%),
+  image("../images/aurix_tc375_litekit.jpg", width: 100%),
   caption: [
     Foto della scheda sulla quale ho sviluppato il progetto di tirocinio presa dal sito web #super[@infineon_tc375] ufficiale.
   ],
@@ -119,10 +120,10 @@ Le caratteristiche principali sono:
 - la risoluzione, il numero di bit del valore numerico convertito, questo determina anche il più piccolo incremento che può venire riconosciuto.
 
 Il funzionamento di un _ADC_ di tipo _SAR_ è molto semplice: il circuito parte con l'acquisizione del segnale da convertire e lo memorizza grazie ad un circuito chiamato
-_sample and hold_; successivamente genera un segnale analogico a partire da un segnale digitale, il cui valore è noto (nella prima iterazione
-corrisponde alla metà del _range_).
-I due segnali vengono comparati e il risultato è inserito in un registro che farà da base per l'iterazione
-successiva.
+_sample and hold_; successivamente genera un segnale analogico a partire da un valore digitale, il cui valore è noto (nella prima iterazione
+corrisponde alla metà del _range_, il che corrisponde a mettere a 1 il bit più significativo e tenere a zero tutti gli altri).
+I due segnali vengono comparati, controllando se il valore in ingresso è maggiore o uguale all'approssimazione fatta fino a
+quel momento, il risultato è inserito in un registro che farà da base per l'iterazione successiva.
 @sar_example mostra il funzionamento logico del componente, in particolare l'albero binario che porta alla soluzione finale di approssimazione.
 
 #figure(
@@ -181,7 +182,7 @@ Infine abbiamo usato _Telegram_ e _Zoom_ come canali di comunicazione, rispettiv
 rapidi e video-conferenze.
 
 #figure(
-  image("../images/its_screenshot.png", width: 80%),
+  image("../images/its_screenshot.png", width: 100%),
   caption: [
     Cattura a schermo di una porzione delle attività svolte, tracciate nell'_ITS_.
   ],
