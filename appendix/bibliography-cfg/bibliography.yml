@@ -33,3 +33,9 @@ hightec_rdp:
     title: "HighTec Rust Development Platform"
     author: ["HighTec EDV-Systeme GmbH"]
     url: https://hightec-rt.com/products/rust-development-platform
+
+scrum_org:
+    type: web
+    title: "What is Scrum"
+    author: ["Ken Schwaber"]
+    url: https://www.scrum.org/resources/what-scrum-module

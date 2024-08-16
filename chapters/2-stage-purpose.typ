@@ -157,6 +157,13 @@ solitamente della durata di una o due settimane, che prevedono:
   i problemi affrontati e quali potrebbero essere le migliorie che si possono adottare per
   incrementare l'efficienza ed efficacia.
 
+#figure(
+  image("../images/scrum_framework.png", width: 100%),
+  caption: [
+    Rappresentazione grafica del flusso di eventi e prodotti del _framework Scrum_. #super[@scrum_org]
+  ],
+)
+
 Durante il corso del progetto, le iterazioni da noi stabilite erano della durata di una settimana,
 durante la quale svolgevamo solamente un sottoinsieme degli eventi dettati dal _framework_:
 - la pianificazione è stata fatta all'inizio del percorso e ritoccata solamente a causa di alcune
