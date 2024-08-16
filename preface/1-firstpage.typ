@@ -3,6 +3,10 @@
 #import "../config/constants.typ": supervisor, undergraduate, academicYear, ID
 
 #set page(numbering: none)
+#set par(leading: 0.55em, justify: true)
+#set text(font: "New Computer Modern", size: 10pt)
+#show par: set block(spacing: 0.55em)
+#show heading: set block(above: 1.4em, below: 1em)
 
 #grid(
     columns: (auto),
@@ -28,16 +32,28 @@
         #v(40pt)
 
         // Relatore e laureando
-        #align(left, text(12pt, weight: 400, style: "italic", supervisor))
-        #v(5pt)
-        #align(left, text(11pt, profTitle + myProf))
-
-        #align(right, text(12pt, weight: 400, style: "italic", undergraduate))
-        #v(5pt)
-        #align(right, text(11pt, myName))
-        #v(5pt)
-        #align(right, text(11pt, [_ #ID _ ] + myMatricola))
-        #v(30pt)
+        #grid(
+          rows: auto,
+          columns: (auto, auto),
+          column-gutter: 1fr,
+          block(
+            [
+              #align(left, text(12pt, weight: 400, style: "italic", supervisor))
+              #v(5pt)
+              #align(left, text(11pt, profTitle + myProf))
+            ]
+          ),
+          block(
+            [
+              #align(right, text(12pt, weight: 400, style: "italic", undergraduate))
+              #v(5pt)
+              #align(right, text(11pt, myName))
+              #v(5pt)
+              #align(right, text(11pt, [_ #ID _ ] + myMatricola))
+              #v(30pt)
+            ]
+          )
+        )
     ],
     // Piè di pagina
     [

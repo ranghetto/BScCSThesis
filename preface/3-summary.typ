@@ -1,14 +1,13 @@
 #import "../config/constants.typ": abstract
 #set page(numbering: "i")
 #counter(page).update(1)
-
-#v(10em)
+#set par(first-line-indent: 0pt)
+//#set par(leading: 0.65em)
+#set text(size: 10pt)
 
 #text(24pt, weight: "semibold", abstract)
 
-#v(2em)
-#set par(first-line-indent: 0pt)
-
+#v(3em)
 
 Allo stato, il software dei sistemi di controllo è ancora prevalentemente sviluppato in
 linguaggio _C_.
@@ -16,13 +15,7 @@ Tuttavia, il codice che ne deriva è spesso difficile da leggere e quindi anche 
 Vista anche la sua natura estremamente versatile, facilita l’introduzione di errori di sicurezza.
 Il caso che abbiamo preso in esame è stato il _driver_ per il modulo del microcontrollore _Infineon
 Aurix TC375_, dedicato alle conversioni da segnali analogici a digitali ad approssimazioni
-successive (_SAR_), che è stato scritto in _Rust_.
-L'implementazione ha evidenziato come l'adozione di determinate tecniche e pattern di
-progettazione, riescono a rendere il sistema sicuro e semplice da usare, rimuovendo quasi
-completamente la necessità di conoscere ogni dettaglio del microcontrollore.
-Anche laddove certi stati di esecuzione debbano necessariamente essere gestiti a tempo
-d’esecuzione, questo nuovo modello di sviluppo offre molte più garanzie riguardo all’affidabilità
-e conformità del sistema. ​
+successive (_SAR_), che è stato scritto interamente in _Rust_.
 
 In questo documento espongo il lavoro che ho svolto durante lo _stage_ con una suddivisione nei seguenti capitoli:
 - #link(<cap:business-context>)[Il primo capitolo] descrive l'azienda all'interno della quale sono stato inserito, fornendo una panoramica degli strumenti e dei processi adottati.
@@ -36,3 +29,6 @@ Oltre alla struttura appena descritta, ho adottato le seguenti convenzioni tipog
 - i termini in lingua straniera o facenti parti del gergo tecnico sono evidenziati con il carattere _corsivo_.
 
 #v(1fr)
+
+#pagebreak()
+#set page(numbering: none)

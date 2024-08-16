@@ -1,5 +1,6 @@
 #import "../config/constants.typ": figuresList, tablesList
 #set page(numbering: "i")
+#counter(page).update(3)
 
 #pagebreak(to: "odd");
 

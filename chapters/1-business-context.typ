@@ -1,6 +1,8 @@
 #import "@preview/glossarium:0.4.1": make-glossary, gls
 #show: make-glossary
 
+#pagebreak(to: "odd")
+
 = Il contesto aziendale
 <cap:business-context>
 
@@ -13,11 +15,11 @@
 
 == _Bluewind_ S.R.L.
 
-\ L'azienda _Bluewind_, con sede a Castelfranco Veneto (TV), offre servizi di ingegneria
+L'azienda _Bluewind_, con sede a Castelfranco Veneto (TV), offre servizi di ingegneria
 nel mondo dei sistemi _embedded_, principalmente attiva nei settori: automobilistico, medico
 e industriale.
 
-\ Il punto di forza dell'azienda è quello di poter contare su _team_ multi-funzionali,
+Il punto di forza dell'azienda è quello di poter contare su _team_ multi-funzionali,
 che permettono di coprire a trecentosessanta gradi l'intero processo di creazione di un prodotto:
 - analisi;
 - progettazione;
@@ -35,7 +37,7 @@ interni, e il tema della ristrutturazione e della definizione dei ruoli in azien
 Questo dimostra come _Bluewind_ investa molto non solo nelle nuove tecnologie,
 ma anche nel miglioramento continuo del proprio ambiente di lavoro.
 
-\ La principale attività dell'azienda, prevede di portare un prodotto software, già esistente o
+La principale attività dell'azienda, prevede di portare un prodotto software, già esistente o
 meno, in una condizione tale per cui possa essere certificato secondo uno specifico _standard_.
 Altra parte dei ricavi arriva dalla rivendita di prodotti e licenze sempre in ambito _embedded_,
 per programmi e librerie software di proprietà delle aziende di cui _Bluewind_ è _partner_.
@@ -50,7 +52,7 @@ All'interno dell'azienda vi sono due reparti principali:
 - _Marketing_ and _Sales_, ossia il reparto che si occupa della vendita di prodotti e della
   parte pubblicitaria;
 
-\ Il reparto _R_&_D_ è quello in cui si svolgono tutte le attività di produzione,
+Il reparto _R_&_D_ è quello in cui si svolgono tutte le attività di produzione,
 ed è suddiviso in _team_, ognuno dei quali lavora ad un progetto, con persone
 che possono essere presenti in più _team_ diversi.
 Questi sono guidati da un #gls("po")#sub[G], persona che si occupa di interfacciarsi con il
@@ -71,8 +73,9 @@ del buon funzionamento del reparto stesso.
 )
 
 == Il metodo #emph[agile]
-\ Tutti i processi trovano fondamento nella metodologia _agile_, una serie di principi elencati
-nel _"Manifesto Agile for Software Development#super[@manifesto_agile]"_,
+
+Tutti i processi trovano fondamento nella metodologia _agile_, una serie di principi elencati
+nel _"Manifesto Agile for Software Development"_ #super[@manifesto_agile],
 che mirano a garantire la minimizzazione del rischio, utilizzando un approccio centrato sulla
 consegna iterativa e incrementale di un prodotto funzionante che si avvicina sempre
 di più al prodotto finale.
@@ -84,7 +87,7 @@ adattare bene a qualsiasi tipo di ruolo ed è proprio quello che accade in _Blue
 Per quello che ho potuto osservare, non tutti all'interno dell'azienda utilizzano questa
 metodologia, ma sicuramente ne sono influenzati.
 
-\ Quello che ho potuto osservare più da vicino è come questi principi prendano vita all'interno
+Quello che ho potuto osservare più da vicino è come questi principi prendano vita all'interno
 del _framework_ #gls("scrum")#sub[G], utilizzato per lo sviluppo software e
 che verrà descritto in dettaglio nella sezione #link(<cap:working-method>)["Metodo di lavoro"].
 
@@ -103,7 +106,7 @@ funzionalità del microcontrollore saldato sulla scheda, che è proprio l'omonim
 #figure(
   image("../images/aurix_tc375_litekit.jpg", width: 80%),
   caption: [
-    Foto della scheda sulla quale ho sviluppato il progetto di tirocinio. @infineon_tc375
+    Foto della scheda sulla quale ho sviluppato il progetto di tirocinio presa dal sito web #super[@infineon_tc375] ufficiale.
   ],
 )
 
@@ -115,7 +118,7 @@ Le caratteristiche principali sono:
 - la gamma, in inglese _range_, voltaggio, minimo e massimo, che possono accettare come valore in ingresso da convertire;
 - la risoluzione, il numero di bit del valore numerico convertito, questo determina anche il più piccolo incremento che può venire riconosciuto.
 
-\ Il funzionamento di un _ADC_ di tipo _SAR_ è molto semplice: il circuito parte con l'acquisizione del segnale da convertire e lo memorizza grazie ad un circuito chiamato
+Il funzionamento di un _ADC_ di tipo _SAR_ è molto semplice: il circuito parte con l'acquisizione del segnale da convertire e lo memorizza grazie ad un circuito chiamato
 _sample and hold_; successivamente genera un segnale analogico a partire da un segnale digitale, il cui valore è noto (nella prima iterazione
 corrisponde alla metà del _range_).
 I due segnali vengono comparati e il risultato è inserito in un registro che farà da base per l'iterazione
@@ -131,6 +134,7 @@ successiva.
 ) <sar_example>
 
 === Linguaggio _Rust_
+
 _Rust_ è un linguaggio di programmazione che gode di un sistema di tipi molto ricco, è estremamente perfomante e ha una gestione della
 memoria che elimina un'intera classe di errori legati a quest'ultima, che si riflettono anche sulla sicurezza.
 Uno degli obiettivi del progetto, era proprio quello di utilizzare _Rust_ come linguaggio principale, non solo per i vantaggi che offre
@@ -140,7 +144,7 @@ esistenti.
 
 === Compilatori _HighTec_
 
-_HighTec_ vende sotto licenza un compilatore per _Rust_ certificato #gls("26262")#sub[G] #gls("asild")#sub[G] @iso26262, il che vuol dire che può essere usato
+_HighTec_ vende sotto licenza un compilatore per _Rust_ certificato #gls("26262")#sub[G] #gls("asild")#sub[G] #super[@iso26262], il che vuol dire che può essere usato
 per compilare codice di sistemi di controllo per il settore automobilistico.
 Il compilatore in questione compila il codice anche per la piattaforma _Aurix_ e, visti gli interessi di _Bluewind_ sia per il settore,
 sia per il microcontrollore, lo abbiamo scelto come strumento, in modo da studiarne ed analizzarne l'utilizzo.
@@ -171,7 +175,7 @@ _StarUML_ per fare delle rappresentazioni grafiche legate alla progettazione del
 
 === Altri strumenti
 
-\ Nella _routine_ quotidiana, come #gls("its")#sub[G], utilizzavamo _Gitlab_, unito al suo sistema di
+Nella _routine_ quotidiana, come #gls("its")#sub[G], utilizzavamo _Gitlab_, unito al suo sistema di
 controllo di versione per il software.
 Infine abbiamo usato _Telegram_ e _Zoom_ come canali di comunicazione, rispettivamente per messaggi
 rapidi e video-conferenze.
@@ -184,7 +188,8 @@ rapidi e video-conferenze.
 )
 
 == Rapporto con l'innovazione
-\ _Bluewind_ ha un rapporto speciale con l'innovazione, facendo di essa il proprio cavallo di
+
+_Bluewind_ ha un rapporto speciale con l'innovazione, facendo di essa il proprio cavallo di
 battaglia.
 
 L'azienda impiega risorse ed energie nello studio volto all'integrazione di nuove tecnologie, al
@@ -195,6 +200,6 @@ all'evoluzione tecnologica, che mai come in questi anni avanza velocemente.
 Affinché tutto questo sia possibile, l'azienda si avvale sia di risorse interne, come i
 dipendenti, sia di risorse esterne, come consulenti e tirocinanti universitari.
 
-\ In particolar modo, i tirocini universitari che si svolgono, hanno anche come scopo quello
+In particolar modo, i tirocini universitari che si svolgono, hanno anche come scopo quello
 di condurre ricerche su temi in voga oppure sviluppare progetti utlizzando nuovi strumenti e
 tecnologie, per i quali, ad esempio, non si conosce l'impatto futuro perché troppo giovani.

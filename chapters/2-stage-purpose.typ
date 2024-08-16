@@ -8,38 +8,41 @@
 
 #v(1em)
 #text(style: "italic", [
-  In questo capitolo si andranno ad analizzare le problematiche che hanno messo le basi per la
+  Questo capitolo discute le problematiche che hanno messo le basi per la
   realizzazione della proposta di #emph[stage], assieme alla risposta formalizzata al fine di
   risolverle.
 ])
 #v(1em)
 
 == Rapporto azienda - _stage_
+
 _Bluewind_ sfrutta a pieno i tirocini universitari, soprattutto quelli che prevedono un
 piano di lavoro definito e che portano alla creazione di un progetto o allo studio mirato e
 consapevole di una nuova tecnologia.
 
-\ Il triplice scopo ha, come base, quello di mettere in discussione i processi aziendali di
-sviluppo di un progetto.In prima persona, ho avuto modo di confrontarmi con i colleghi, e discutere con loro, quali
-fossero le metodologie più adatte per lo specifico caso d'uso del mio progetto. Questo al fine
-di trovare una strada da poter replicare in futuro, avendo già fatto un'analisi sul perché essa
-sia la più indicata.
-\ Per fare un esempio, il modo di scrivere requisiti per un #gls("driver")#sub[G], un componente
+Il triplice scopo aveva, come base, mettere in discussione i processi aziendali di
+sviluppo di un progetto. In prima persona, ho avuto modo di confrontarmi con i colleghi, e discutere con
+loro, quali fossero le metodologie più adatte per lo specifico caso d'uso del mio progetto.
+La discussione aveva la finalità trovare una strada da poter replicare in futuro, avendo già fatto
+un'analisi sul perché essa fosse la più indicata.
+
+Per fare un esempio, il modo di scrivere requisiti per un #gls("driver")#sub[G], un componente
 software che facilita l'utilizzo dell'hardware sottostante, è totalmente diverso dal modo di
 scrivere requisiti per un'applicazione software che usa quei _driver_, cosa che ci
 ha portato alla scoperta di un nuovo approccio.
 
-\ Il secondo scopo è quello legato al progetto stesso, che sia sviluppo o ricerca.
+Il secondo scopo è legato al progetto stesso, che sia sviluppo o ricerca.
 Infatti l'azienda è molto attiva quando si parla di studio e implementazione di nuove
 tecnologie, mettendosi in prima linea per conoscerle e provarle.
 Tutto ciò che può portare all'azienda un vantaggio competitivo vale la pena di essere, come
 minimo, conosciuto.
-\ Ed è per questo che con il mio progetto sono andato ad esplorare la programmazione in _Rust_, su
+
+Ed è per questo che con il mio progetto sono andato ad esplorare la programmazione in _Rust_, su
 un microcontrollore che ha ad oggi pochissimo supporto per il linguaggio.
 I vantaggi di _Rust_ sono ormai noti nel panorama _embedded_, ma dal conoscerli a
 riuscire a costruire un driver a basso livello sfruttandoli, c'è una grande differenza.
 
-\ Il terzo scopo, ma non per importanza, è sicuramente legato al fattore assunzioni.
+Il terzo scopo, ma non per importanza, è sicuramente legato al fattore assunzioni.
 L'azienda ha la possibilità, per qualche mese, di vedere e studiare le capacità dei tirocinanti,
 decidendo poi se vale la pena fare loro una proposta di assunzione.
 Oltre a questo, gli studenti avranno già fatto, al termine del loro _stage_, un po' di formazione
@@ -48,13 +51,14 @@ riguardo gli strumenti adottati da _Bluewind_ e quindi l'integrazione potrà ess
 == Panoramica del progetto
 
 === Scopo
-Lo scopo del tirocinio era l’implementazione di un _driver_ in _Rust_ per la gestione della
+
+Lo scopo del mio tirocinio era l’implementazione di un _driver_ in _Rust_ per la gestione della
 periferica _EVADC_ su microcontrollori per applicazioni #gls("autom")#sub[G], in particolare l'_Infineon
 Aurix TC375_.
 A seguito o in parallelo alla parte implmentativa avevamo pensato ad una fase di analisi
-su due temi rilevanti per il dominio della #gls("sfun")#sub[G] @iecch:
+su due temi rilevanti per il dominio della #gls("sfun")#sub[G] #super[@iecch]:
 - un’indagine generale sui vantaggi e/o svantaggi di utilizzo di _Rust_ per librerie di basso livello;
-- un’indagine sulla possibilità ed eventuali modalità preferibili di progettazione dei driver per evitare
+- un’indagine sulla possibilità ed eventuali modalità preferibili di progettazione dei _driver_ per evitare
   errori di configurazione della periferica in modo statico, cioè a tempo di compilazione,
   con la possibilità di tracciamento delle regole di configurazione rispetto ai manuali tecnici
   del microcontrollore.
@@ -77,13 +81,14 @@ Gli obiettivi principali erano tre:
 #figure(
   image("../images/esempio_manuale_tc37x.png", width: 80%),
   caption: [
-    Tabella 260 del manuale utente della famiglia di microcontrollori _Infineon Aurix TC37X_
-    che rappresenta la configurazione del modulo EVADC. @tc37x_user_manual
+    Tabella 260 del manuale utente#super[@tc37x_user_manual] della famiglia di microcontrollori _Infineon Aurix TC37X_
+    che rappresenta la configurazione del modulo _EVADC_.
   ],
 )
 
-A questi, durante il corso del progetto, ne sono stati aggiunti altri, che all'inizio non erano
-stati pensati, ma che sono risultati interessanti al fine di approfondire meglio i temi trattati:
+A questi, durante il corso del progetto e in accordo con i miei tutor, ne ho aggiunti altri;
+all'inizio non erano stati pensati, ma sono risultati interessanti al fine di approfondire
+meglio i temi trattati:
 
 - indagine sull'utilizzo di strumenti per la programmazione ed il _debug_ del codice,
   pensati per il linguaggio _C_, usando _Rust_
@@ -94,18 +99,18 @@ stati pensati, ma che sono risultati interessanti al fine di approfondire meglio
 I principali prodotti attesi, derivanti dagli obiettivi erano:
 - una #gls("crate")#sub[G] con l'implementazione del _driver_;
 - documentazione architetturale e di dettaglio sul _driver_ sviluppato;
-- un report sulle indagini e gli esperimenti citati sopra.
+- un _report_ sulle indagini e gli esperimenti citati sopra.
 
 == Obiettivi personali
 
-\ L'obiettivo primario che mi ero fissato era quello di uscire dalla
+L'obiettivo primario che mi ero fissato era uscire dalla
 mia zona di _confort_, andando ad esplorare un mondo che fino a quel
 momento avevo visto solamente a livello amatoriale.
 Questo avrebbe permesso di provare a me stesso che sono in grado di adattarmi
 velocemente a situazioni nuove, pur trovandomi, inizialmente, spaesato.
 
-\ Il secondo obiettivo era quello legato all'apprendimento vero e proprio.
-Volevo conoscere e toccare con mano cosa significa scrivere software a basso livello,
+Il secondo obiettivo era legato all'apprendimento vero e proprio.
+Volevo conoscere e toccare con mano cosa significa scrivere _software_ a basso livello,
 quali sono le sfide e i problemi che si affrontano ogni giorno.
 Oltre al fatto che le mie nozioni di elettronica sono molto limitate, e questa esperienza
 mi avrebbe permesso di ampliarle notevolmente.
@@ -113,9 +118,9 @@ Anche il fatto che _Bluewind_ lavori principalmente nel settore della _sicurezza
 mi ha garantito l'apprendimento di metodi e tecnologie atte allo sviluppo di software
 certificabile.
 
-\ Terzo e ultima considerazione riguarda la cariera lavorativa. Volevo raggiungere gli obiettivi
+Terzo e ultima considerazione riguarda la cariera lavorativa. Volevo raggiungere gli obiettivi
 citati sopra per aprirmi, nel caso mi fosse interessato, una strada verso questo settore.
-Perciò l'obiettivo era quello di trovare lavoro, nell'azienda stessa o in altre, che si occupassero
+Perciò l'obiettivo era trovare lavoro, nell'azienda stessa o in altre, che si occupassero
 della terna: sistemi di controllo e sicurezza funzionale nel settore aerospaziale.
 L'ultima di queste è l'unica trattabile, solo per il momento, visto che riconosco la necessità
 di costruirmi un bagaglio di esperienza non indifferente.

@@ -1,10 +1,9 @@
 #import "../config/variables.typ" : profTitle, myProf, myLocation, myTime, myName
 #import "../config/constants.typ" : acknlowledgements
 
-#pagebreak(to: "odd");
-
 #set par(first-line-indent: 0pt)
 #set page(numbering: "i")
+#counter(page).update(2)
 
 #align(right, [
     Non c'è limite al peggio, negli algoritmi come nella vita.
@@ -33,3 +32,6 @@
 #text(style: "italic", myLocation + ", " + myTime + h(1fr) + myName)
 
 #v(1fr)
+
+#pagebreak()
+#set page(numbering: none)
