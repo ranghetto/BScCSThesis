@@ -24,18 +24,12 @@ iecch:
 
 tc37x_user_manual:
     type: web
-    title: "Manuale utente per la famiglia di microcontrollori Infineon Aurix TC37x"
+    title: "Manuale utente specifico per la famiglia di microcontrollori Infineon Aurix TC37x"
     author: ["Infineon Technologies"]
-    url: https://www.infineon.com/cms/en/product/microcontroller/32-bit-tricore-microcontroller/32-bit-tricore-aurix-tc3xx/aurix-family-tc37xtp/#!?fileId=5546d4627506bb32017530759f185ed8
+    url: https://www.infineon.com/dgdl/Infineon-AURIX_TC37x-UserManual-v02_00-EN.pdf?fileId=5546d4627506bb32017530759f185ed8
 
 hightec_rdp:
     type: web
     title: "HighTec Rust Development Platform"
     author: ["HighTec EDV-Systeme GmbH"]
     url: https://hightec-rt.com/products/rust-development-platform
-
-scrum_org:
-    type: web
-    title: "What is Scrum"
-    author: ["Ken Schwaber"]
-    url: https://www.scrum.org/resources/what-scrum-module

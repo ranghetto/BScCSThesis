@@ -39,8 +39,8 @@ minimo, conosciuto.
 
 Ed è per questo che con il mio progetto sono andato ad esplorare la programmazione in _Rust_, su
 un microcontrollore che ha ad oggi pochissimo supporto per il linguaggio.
-I vantaggi di _Rust_ sono ormai noti nel panorama _embedded_, ma dal conoscerli a
-riuscire a costruire un driver a basso livello sfruttandoli, c'è una grande differenza.
+I vantaggi di _Rust_ sono ormai noti nel panorama _embedded_, ma dal conoscerli, a
+riuscire a costruire un driver di basso livello sfruttandoli, c'è una grande differenza.
 
 Il terzo scopo, ma non per importanza, è sicuramente legato al fattore assunzioni.
 L'azienda ha la possibilità, per qualche mese, di vedere e studiare le capacità dei tirocinanti,
@@ -52,6 +52,11 @@ riguardo gli strumenti adottati da _Bluewind_ e quindi l'integrazione potrà ess
 
 === Scopo
 
+Il codice attualmente presente nei sistemi in produzione è ancora prevalentemente scritto in _C_. Nonostante
+le aziende che operano nel settore automobilistico si attingano ai più moderni _standard_ per la creazione di
+_software_, a volte non è sufficiente a garantire che esso sia sicuro e affidabile.
+Inoltre, vista la natura stessa del linguaggio _C_, il codice che ne deriva può risultare difficile da leggere
+e mantenere.
 Lo scopo del mio tirocinio era l’implementazione di un _driver_ in _Rust_, in @rust-eco chiamato
 _Rust Peripheral Driver_, per la gestione della
 periferica _EVADC_ su microcontrollori per applicazioni #gls("autom")#sub[G], in particolare l'_Infineon
@@ -71,16 +76,18 @@ del sistema:
   #figure(
     image("../images/rust_ecosystem.png", width: 100%),
     caption: [
-      Rappresentazione dello stato attuale dell'ecosistema di sviluppo _Rust_ nel mondo _Aurix_,
+      rappresentazione dello stato attuale dell'ecosistema di sviluppo _Rust_ nel mondo _Aurix_,
       bordo arancione, paragonato al corrispondente ecosistema _C_, bordo grigio. #super[@hightec_rdp]
     ],
   ) <rust-eco>
 
-=== Obiettivi
+#pagebreak()
+
+=== Obiettivi e visione d'insieme
 
 Gli obiettivi principali erano tre:
 
-+ L’implementazione di _driver_ in _Rust_ per la gestione della periferica _EVADC_ su
++ l’implementazione di un _driver_ in _Rust_ per la gestione della periferica _EVADC_ su
   microcontrollori della famiglia _Infineon Aurix TC3xx_ per applicazioni _automotive_.
 + indagine sulla possibilità ed eventuali modalità preferibili di progettazione dei _driver_
   per evitare errori di configurazione della periferica in modo statico, cioè a tempo di
@@ -94,7 +101,7 @@ Gli obiettivi principali erano tre:
 #figure(
   image("../images/esempio_manuale_tc37x.png", width: 100%),
   caption: [
-    Tabella 260 del manuale utente #super[@tc37x_user_manual] della famiglia di microcontrollori _Infineon Aurix TC37X_
+    tabella 260 del manuale utente #super[@tc37x_user_manual] della famiglia di microcontrollori _Infineon Aurix TC37X_
     che rappresenta la configurazione del modulo _EVADC_.
   ],
 )
@@ -107,6 +114,11 @@ meglio i temi trattati:
   pensati per il linguaggio _C_, usando _Rust_
 - indagine e confronto su strumenti che facilitano lo sviluppo in _Rust_ rispetto a quelli già
   conosciuti per _C_.
+
+Nell'insieme, gli obiettivi portano alla luce come _Bluewind_ stia puntando, così come molti altri, ad
+implmentare questa tecnologia, _Rust_, all'interno dei suoi progetti. Infatti, crede che essa possa
+radicalmente cambiare il settore e ammodernarlo, portando vantaggi ai clienti finali, così come ai team
+di sviluppo.
 
 === Prodotti attesi
 I principali prodotti attesi, derivanti dagli obiettivi erano:
@@ -138,7 +150,7 @@ divise su base settimanale, che si può riassumere nella seguente tabella:
     table.cell(align: right)[6], [Test e confronto con librerie in C esistenti],
     table.cell(align: right)[7], [Esperimento di integrazione di uno strumento di formal proof],
     table.cell(align: right)[8], [Collaudo finale e retrospettiva del progetto],
-  ), caption: [Rappresentazione del lavoro organizzato in settimane all'interno del piano di lavoro.]
+  ), caption: [rappresentazione del lavoro organizzato in settimane all'interno del piano di lavoro.]
 )
 Oltre al collaudo finale, ogni settimana prevedeva una giornata di analisi e
 retrospettiva legata al singolo periodo, per valutare il raggiungimento degli obiettivi prefissati.
@@ -156,13 +168,6 @@ solitamente della durata di una o due settimane, che prevedono:
 - infine, durante la _Sprint Retrospecive_, una discussione su quali sono stati
   i problemi affrontati e quali potrebbero essere le migliorie che si possono adottare per
   incrementare l'efficienza ed efficacia.
-
-#figure(
-  image("../images/scrum_framework.png", width: 100%),
-  caption: [
-    Rappresentazione grafica del flusso di eventi e prodotti del _framework Scrum_. #super[@scrum_org]
-  ],
-)
 
 Durante il corso del progetto, le iterazioni da noi stabilite erano della durata di una settimana,
 durante la quale svolgevamo solamente un sottoinsieme degli eventi dettati dal _framework_:

@@ -111,7 +111,28 @@
     (
       key: "framework",
       short: "framework",
-      desc: [termine generico che indica una struttura di supporto o una serie di metodologie che hanno un determinato scopo comune]
+      desc: [termine generico che indica una struttura di supporto o una serie di metodologie che hanno un determinato scopo comune.]
+    ),
+    (
+      key: "md",
+      short: "Markdown",
+      desc: [linguaggio di rappresentazione testuale facilmente convertibile in _HTML_.]
+    ),
+    (
+      key: "llr",
+      short: "requisiti di basso livello",
+      desc: [requisiti che hanno un grande livello di dettaglio e vanno a specificare le singole operazioni da svolgere sui registri del microcontrollore.]
+    ),
+    (
+      key: "hlr",
+      short: "requisiti di alto livello",
+      desc: [requisiti che descrivono un comportamento o un'azione che il sistema deve svolgere, senza specificare come essa si compie.]
+    ),
+    (
+      key: "mvp",
+      short: "MVP",
+      long: "Minimal Viable Product",
+      desc: [versione minimale di un prodotto, spesso usato per verificare fattibilità ed efficacia ed ottenere un riscontro rapido. Solitamente è sviluppato in tempi brevi e per questo non implementa tutte le funzionalità.]
     ),
   )
 )

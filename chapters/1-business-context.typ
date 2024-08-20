@@ -68,7 +68,7 @@ del buon funzionamento del reparto stesso.
 #figure(
   image("../images/rnd.jpg", width: 100%),
   caption: [
-    Rappresentazione grafica di esempio della suddivisione del reparto _R_&_D_ in Bluewind.
+    rappresentazione grafica di esempio della suddivisione del reparto _R_&_D_ in Bluewind.
   ],
 )
 
@@ -100,16 +100,16 @@ I microcontrollori della ditta _Infineon Technologies_ sono dei prodotti ad alti
 altamente affidabili. Infatti sono diventati lo standard in diversi settori tra cui quello
 automobilistico, quello spaziale, quello industriale e quello della sicurezza.
 
+#figure(
+  image("../images/aurix_tc375_litekit.jpg", width: 80%),
+  caption: [
+    foto della scheda sulla quale ho sviluppato il progetto di tirocinio presa dal sito web #super[@infineon_tc375] ufficiale.
+  ],
+)
+
 La scheda di sviluppo che ho utilizzato era una _Aurix TC375 Lite Kit_, prodotta dalla stessa azienda,
 che offre un ambiente di sviluppo _hardware_ pre-configurato pensato per dimostrare tutte le
 funzionalità del microcontrollore saldato sulla scheda, che è proprio l'omonimo _Aurix TC375_.
-
-#figure(
-  image("../images/aurix_tc375_litekit.jpg", width: 100%),
-  caption: [
-    Foto della scheda sulla quale ho sviluppato il progetto di tirocinio presa dal sito web #super[@infineon_tc375] ufficiale.
-  ],
-)
 
 Di quest'ultimo, ho studiato in particolare il modulo #gls("evadc")#sub[G], ossia un orchestratore di
 diversi #gls("adc")#sub[G], componenti elettronici che sono in grado di convertire dei segnali analogici
@@ -123,7 +123,7 @@ Le caratteristiche principali sono:
   image("../images/sar_example.jpg", width: 100%),
   placement: bottom,
   caption: [
-    Esempio di come avviene l'approssimazione digitale del valore analogico in ingresso di 5.5V, immaginando un ADC con range da 0V a 7V
+    esempio di come avviene l'approssimazione digitale del valore analogico in ingresso di 5.5V, immaginando un ADC con range da 0V a 7V
     ed una risoluzione di 3 bit.
   ],
 ) <sar_example>
@@ -185,7 +185,7 @@ rapidi e video-conferenze.
 #figure(
   image("../images/its_screenshot.png", width: 100%),
   caption: [
-    Cattura a schermo di una porzione delle attività svolte, tracciate nell'_ITS_.
+    cattura a schermo di una porzione delle attività svolte, tracciate nell'_ITS_.
   ],
 )
 
