@@ -9,9 +9,9 @@
 ### Sprint 2 - v0.2.0 (2024-08-12 -> 2024-08-18)
 - [x] Sprint 1 refactoring (if needed)
 - [x] Stage purpose definition
-- [ ] Stage description definition
+- [x] Stage description definition
 ### Sprint 3 - v0.3.0 (2024-08-19 -> 2024-08-25)
-- [ ] Sprint 2 refactoring (if needed)
+- [x] Sprint 2 refactoring (if needed)
 - [ ] Stage description definition
 ### Sprint 4 - v0.4.0 (2024-08-26 -> 2024-09-01)
 - [ ] Sprint 3 refactoring (if needed)
