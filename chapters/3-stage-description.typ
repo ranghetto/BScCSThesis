@@ -170,7 +170,7 @@ struct PuntoPreciso(f32, f32);
 // Rappresentazione di una persona tramite due campi: nome e età.
 // Il tipo è (String, u8).
 struct Persona(String, u8);
-```, caption: [Esempio di rappresentazione di diverse _tuple_ in _Rust_.])
+```, caption: [esempio di rappresentazione di diverse _tuple_ in _Rust_.])
 I tipi composti, come in questo caso, non sono facilmente rappresentabili in notazione _UML_ e quindi
 sono ricorso alla creazione di una classe apposita, avente membri chiamati con i numeri.
 Per definire poi _tuple_ di diverso tipo, ho usato la notazione tra parentesi angolate, utilizzando lettere
