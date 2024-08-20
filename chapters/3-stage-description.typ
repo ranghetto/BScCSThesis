@@ -55,7 +55,7 @@ I documenti di progetto che ho scritto sono:
 === Analisi
 Ho affrontato l'analisi del problema con un approccio ibrido.
 Nella prima fase, nonché quella di maggiore importanza, ho analizzato con cura il codice implementato
-dalla casa madre del microcontrollore in _C_. Questo mi ha prermesso di capirne il funzionamento e, assieme
+dalla casa madre del microcontrollore in _C_. Farlo, mi ha permesso di capirne il funzionamento e, assieme
 alla lettura del manuale utente, di comprenderne a fondo le caratteristiche, specialmente quelle
 elettroniche del componente _EVADC_.
 Particolari dubbi mi sono sorti nel corso dello studio del manuale, legati proprio al lato elettronico,
@@ -123,13 +123,16 @@ collegate le une con le altre attraverso delle regole, in forma di passaggi da u
 Inizialmente, pensavo di riuscire a garantire la correttezza di tutti i passaggi tra gli stati
 a tempo di compilazione ma, come si può vedere anche dalla @fsmd, questo non è stato possibile, e sono dovuto
 ricorrere ad una duplice gestione: sia a tempo di compilazione, sia a tempo di esecuzione.
+La principale differenza tra le due è che la correttezza della prima viene direttamente garantita
+dal compilatore, ancor prima di eseguire il programma, il che porta numerosi vantaggi in termini
+di affidabilità e di sicurezza. La seconda invece viene garantita solo tramite il codice, che andrà
+opportunamente verificato, ma per il quale non avremo mai la certezza matematica della mancanza di errori.
 
-Per capirlo non sono state sufficienti le fasi di analisi e progettazione. A loro ho dovuto affiancare anche
+Per capire di avere la necessità di una gestione divisa tra compilazione e esecuzione, non mi sono state
+sufficienti le fasi di analisi e progettazione. A loro ho dovuto affiancare anche
 la costruzione di un secondo _MVP_, che comprendeva solamente la gestione degli stati, senza alcuna
 funzionalità pratica, il che ha permesso di concentrarmi sulla creazione dell'architettura, piuttosto che
 sui problemi legati al funzionamento del microcontrollore.
-
-//TODO: approfondimento gestione stati typestate, tipo non puo' cambiare a run time
 
 #figure(
   image("../images/fsmd.jpg", width: 93%),
@@ -140,6 +143,104 @@ sui problemi legati al funzionamento del microcontrollore.
 ) <fsmd>
 
 ==== Diagramma delle classi
+
+Il diagramma delle classi rappresenta la struttura architetturale e come gli elementi in essa siano legati
+tra di loro.
+Il suo scopo è anche quello di descrivere, ad alto livello, quali modelli progettuali si vogliono adottare,
+senza specificarne in dettaglio l'implementazione, che potrebbe cambiare da linguaggio a linguaggio.
+
+Utilizzando la notazione _UML_ più recente, e le mie conoscenze pregresse, è stato comunque difficile
+descrivere alcune parti dell'architettura, a causa della scelta "obbligata" dell'uso di _Rust_.
+Infatti il linguaggio scelto offre un paradigma di programmazione che si discosta dai canoni classici e di
+conseguenza risulta più difficile da rappresentare. Dovendo scegliere, ho preferito chiarezza e
+comprensibilità piuttosto di correttezza della sintassi _UML_.
+
+//TODO: gls("UML")
+//TODO: gls("tuple")
+
+Il primo esempio riguarda l'uso delle _tuple_. In _Rust_ una _tuple_ è una collezione di valori di
+diversi tipi (o anche di tipi uguali). Ogni _tuple_ è un valore a se stante e il suo tipo è formato
+dall'insieme dei tipi dei suoi membri:
+#figure(
+```rust
+// Esempio di una tuple che rappresenta un punto in uno spazio bi-dimensionale.
+// Il tipo è (i32, i32).
+struct Punto(i32, i32);
+
+// Rappresentazione di un punto tramite valori a virgola mobile.
+// Il tipo è (f32, f32);
+struct PuntoPreciso(f32, f32);
+
+// Rappresentazione di una persona tramite due campi: nome e età.
+// Il tipo è (String, u8).
+struct Persona(String, u8);
+```, caption: [Esempio di rappresentazione di diverse _tuple_ in _Rust_.])
+I tipi composti, come in questo caso, non sono facilmente rappresentabili in notazione _UML_ e quindi
+sono ricorso alla creazione di una classe apposita, avente membri chiamati con i numeri.
+Per definire poi _tuple_ di diverso tipo, ho usato la notazione tra parentesi angolate, utilizzando lettere
+diverse per singolo tipo.
+
+#figure(
+  image("../images/class_diagram_tuples.jpg", width: 100%),
+  caption: [
+    quattro classi nel diagramma omonimo che mostrano la convenzione adottata per le _tuple_.
+  ],
+)
+
+//TODO: gls("ownership")
+
+Altro esempio in cui ho preferito rendere esplicito un concetto di _Rust_ è stato per l'_ownership_.
+Questa caratteristica impone una serie di regole su come sono gestiti i valori:
++ ogni valore deve avere un proprietario;
++ ci può essere un solo proprietario per volta;
++ quando il proprietario esce dal contesto, il valore viene liberato.
+Per fare un esempio pratico:
+#figure(
+```rust
+struct Quartiere {
+  villa_16b: Edificio,
+  bifamiliare_21a: Edificio,
+  bifamiliare_21b: Edificio,
+}
+
+// agenzia diventa il proprietario di un quartiere con tre edifici
+let agenzia = Quartiere::new();
+
+// alice diventa proprietario della villa, dopo averla comprata dall'agenzia
+let casa_di_alice = agenzia.villa16b;
+
+// bob vorrebbe acquistare la stessa villa dall'agenzia
+// ma questo non è possibile perché la villa adesso è di proprietà di alice
+let casa_di_bob = agenzia.villa16b; // ERRORE DI COMPILAZIONE
+```,
+  caption: [esempio del concetto di _ownership_ in _Rust_.]
+)
+
+//TODO: gls("singleton")
+Quindi i valori dei membri si potrebbero definire come dei _singleton_ per ogni istanza di classe;
+volevo far trasparire anche dal diagramma che i membri di alcune particolari classi potessero essere
+unici in tutto il programma. Per esempio, ho usato la proprietà per garantire che un componente
+elettronico non potesse essere utilizzato due volte per fare la stessa operazione, il che avrebbe
+portato a errori logici difficili da scovare.
+Di conseguenza anche nella rappresentazione in _UML_ ho dovuto creare un tipo specifico per rappresentare
+questa caratteristica e l'ho chiamato `InsanceSingleton<T>` dove `T` è il tipo del membro effettivo.
+
+Ci tengo a sottolineare come questa scelta sia stata presa in favore di uno degli scopi principali del
+progetto: garantire a tempo di compilazione una correttezza dal punto di vista logico, rispetto al
+funzionamento del microcontrollore.
+Non sarebbe stato possibile avere la stessa garanzia utilizzando un modello _singleton_ oppure lasciando
+il controllo a metodi e funzioni.
+
+#figure(
+  image("../images/class_diagram_ownership.jpg", width: 100%),
+  caption: [
+    una classe del diagramma omonimo contenente membri che rappresentano il concetto di _ownership_ in _Rust_.
+  ],
+)
+
+//TODO: sezione esempio tipo di ritorno dinamico
+
+// ==== Diagramma di sequenza
 
 === Implementazione
 Problemi affrontati durante l'implmentazione.
