@@ -134,5 +134,21 @@
       long: "Minimal Viable Product",
       desc: [versione minimale di un prodotto, spesso usato per verificare fattibilità ed efficacia ed ottenere un riscontro rapido. Solitamente è sviluppato in tempi brevi e per questo non implementa tutte le funzionalità.]
     ),
+    (
+      key: "uml",
+      short: "UML",
+      long: "Unified Modeling Language",
+      desc: [notazione standard per la creazione di diversi diagrammi.]
+    ),
+    (
+      key: "tuple",
+      short: "tuple",
+      desc: [struttura dati che può contenere più valori di uguale o diverso tipo.]
+    ),
+    (
+      key: "ownership",
+      short: "ownership",
+      desc: [serie di regole definite nel linugaggio _Rust_ in merito alla gestione della memoria.]
+    )
   )
 )

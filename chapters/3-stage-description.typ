@@ -111,8 +111,7 @@ I risultati dell'_MVP_ sono stati:
 === Progettazione
 
 La progettazione mi ha portato alla creazione di diversi diagrammi, tutti originariamente scritti
-in notazione _UML 2.0_ e riportati di seguito sotto forma di immagini, con le opportune considerazioni e
-tradotti in italiano.
+in notazione #gls("uml")#sub[G], lo standard per la creazione di diagrammi tecnici, e riportati di seguito sotto forma di immagini, con le opportune considerazioni.
 Essi sono stati poi inseriti all'interno del documento _Technical Specification_.
 
 ==== Macchina a stati finiti
@@ -155,10 +154,7 @@ Infatti il linguaggio scelto offre un paradigma di programmazione che si discost
 conseguenza risulta più difficile da rappresentare. Dovendo scegliere, ho preferito chiarezza e
 comprensibilità piuttosto di correttezza della sintassi _UML_.
 
-//TODO: gls("UML")
-//TODO: gls("tuple")
-
-Il primo esempio riguarda l'uso delle _tuple_. In _Rust_ una _tuple_ è una collezione di valori di
+Il primo esempio riguarda l'uso delle #gls("tuple")#sub[G]. In _Rust_ una _tuple_ è una collezione di valori di
 diversi tipi (o anche di tipi uguali). Ogni _tuple_ è un valore a se stante e il suo tipo è formato
 dall'insieme dei tipi dei suoi membri:
 #figure(
@@ -187,9 +183,7 @@ diverse per singolo tipo.
   ],
 )
 
-//TODO: gls("ownership")
-
-Altro esempio in cui ho preferito rendere esplicito un concetto di _Rust_ è stato per l'_ownership_.
+Altro esempio in cui ho preferito rendere esplicito un concetto di _Rust_ è stato per l'#gls("ownership")#sub[G].
 Questa caratteristica impone una serie di regole su come sono gestiti i valori:
 + ogni valore deve avere un proprietario;
 + ci può essere un solo proprietario per volta;
