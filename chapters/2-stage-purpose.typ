@@ -14,34 +14,28 @@
 ])
 #v(1em)
 
-//TODO focalizzare aspetto generale e non il mio speciico caso
 == Rapporto azienda - _stage_
 
 _Bluewind_ sfrutta a pieno i tirocini universitari, soprattutto quelli che prevedono un
 piano di lavoro definito e che portano alla creazione di un progetto o allo studio mirato e
 consapevole di una nuova tecnologia.
 
-Il triplice scopo aveva, come base, mettere in discussione i processi aziendali di
-sviluppo di un progetto. In prima persona, ho avuto modo di confrontarmi con i colleghi, e discutere con
-loro, quali fossero le metodologie più adatte per lo specifico caso d'uso del mio progetto.
-La discussione aveva la finalità trovare una strada da poter replicare in futuro, avendo già fatto
-un'analisi sul perché essa fosse la più indicata.
-
-Per fare un esempio, il modo di scrivere requisiti per un #gls("driver")#sub[G], un componente
-_software_ che facilita l'utilizzo dell'_hardware_ sottostante, è totalmente diverso dal modo di
-scrivere requisiti per un'applicazione _software_ che usa quei _driver_, cosa che ci
-ha portato alla scoperta di un nuovo approccio.
+Il triplice scopo dell'azienda, ha alla base mettere in discussione i processi aziendali di
+sviluppo di un progetto. I colleghi sono i primi con cui è possibile confrontarsi e discutere
+su quali possano essere le metodologie più adatte per lo specifico tirocinio.
+La discussione ha la finalità di trovare una strada da poter replicare in futuro, avendo già fatto
+un'analisi sul perché essa sia la più indicata.
+Oltre a ciò, il confronto con i colleghi migliora entrambe le parti in gioco, creando una visione più ampia,
+che spesso portana a conclusioni diverse da quelle pensate inizialmente.
 
 Il secondo scopo è legato al progetto stesso, che sia sviluppo o ricerca.
 Infatti l'azienda è molto attiva quando si parla di studio e implementazione di nuove
 tecnologie, mettendosi in prima linea per conoscerle e provarle.
 Tutto ciò che può portare all'azienda un vantaggio competitivo vale la pena di essere, come
-minimo, conosciuto.
-
-Ed è per questo che con il mio progetto sono andato ad esplorare la programmazione in _Rust_, su
-un microcontrollore che ha ad oggi pochissimo supporto per il linguaggio.
-I vantaggi di _Rust_ sono ormai noti nel panorama _embedded_, ma dal conoscerli, a
-riuscire a costruire un driver di basso livello sfruttandoli, c'è una grande differenza.
+mproponendoinimo, conosciuto.
+Se si tratta di progetti di sviluppo di un prodotto, il vantaggio è ovviamente quello di poterlo
+utilizzare, così come viene fornito, o usandolo come base di partenza per ulteriori sviluppi.
+Lo stesso ha valore anche per i progetti di ricerca.
 
 Il terzo scopo, ma non per importanza, è sicuramente legato al fattore assunzioni.
 L'azienda ha la possibilità, per qualche mese, di vedere e studiare le capacità dei tirocinanti,
@@ -221,7 +215,6 @@ I documenti di progetto che ho scritto sono:
   ) <req>
 ]
 
-//TODO espandere con obiettivi misurabili
 == Obiettivi personali
 
 L'obiettivo primario che mi ero fissato era uscire dalla
@@ -239,8 +232,15 @@ Anche il fatto che _Bluewind_ lavori principalmente nel settore della _sicurezza
 mi ha garantito l'apprendimento di metodi e tecnologie atte allo sviluppo di _software_
 certificabile.
 
-Terzo e ultima considerazione riguarda la cariera lavorativa. Volevo raggiungere gli obiettivi
+Terza e ultima considerazione riguarda la cariera lavorativa. Volevo raggiungere gli obiettivi
 citati sopra per aprirmi, nel caso mi fosse interessato, una strada verso questo settore.
 Perciò l'obiettivo era trovare lavoro, nell'azienda stessa o in altre, che si occupassero
 della terna: sistemi di controllo e sicurezza funzionale in settori dove i margini di fallimento
 non sono tollerati.
+
+Per riassumere, gli obiettivi, misurabili oggettivamente, che volevo trarre da questa esperienza erano:
+- imparare a leggere e capire il manuale utente di un microcontrollore;
+- imparare a leggere uno schema elettrico;
+- imparare a scrivere _software_ di basso livello, lavorando senza un sistema operativo;
+- imparare quali strumenti e metodi si usano per scrivere codice conforme a determinati _standard_;
+- ampliare le mie conoscenze di programmazione in _Rust_;

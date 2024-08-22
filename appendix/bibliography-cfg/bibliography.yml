@@ -33,3 +33,9 @@ hightec_rdp:
     title: "HighTec Rust Development Platform"
     author: ["HighTec EDV-Systeme GmbH"]
     url: https://hightec-rt.com/products/rust-development-platform
+
+polysync_misra_rust:
+    type: web
+    title: "MISRA Rust"
+    author: ["Shea Newton (PolySync Technologies)"]
+    url: "https://github.com/PolySync/misra-rust/tree/master?tab=readme-ov-file"

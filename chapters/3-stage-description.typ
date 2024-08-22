@@ -217,6 +217,16 @@ in un particolare caso d'uso. Di seguto riporto una sezione di tale diagramma.
   ],
 )
 
+Durante l'implementazione mi sono anche accorto di come i microcontrollori, facenti parte della stessa famiglia,
+avessero caratteristiche, rispetto al modulo _EVADC_, molto simili. L'unica differenza era nel numero di
+_ADC_ presenti e nella loro distribuzione.
+Così abbiamo aggiunto la possibilità di compilare il codice per due diverse schede, utilizzando un comando specifico
+in fase di compilazione.
+Il risultato di questo ulteriore vincolo di progettazione, aggiunto in corso d'opera, ci ha garantito che
+il _driver_ sviluppato, potrà essere sviluppato in unica soluzione e poi configurato in
+base al microcontrollore scelto. Di conseguenza il codice alla base risulta più facilmente manutenibile e
+privo di discrepanze tra versioni per diversi microcontrollori.
+
 === Verifica e validazione
 
 La prima validazione l'abbiamo eseguita facendo corrispondere, nella tabella di tracciamento,
@@ -266,8 +276,30 @@ fn main() {
 
 == Risultati ottenuti
 
-=== Qualitativi
-Descrizione della visione d'insieme del prodotto visto dal lato dell'utente.
+==== Qualitativi
 
-=== Quantitativi
-Descrizione della copertura dei requisiti soddisfatti e non, e quantità di prodotti.
+I risultati qualitativi più rilevanti sono sicuramente nell'ambito della sicurezza funzionale, infatti moltissimi
+degli errori legati alla memoria di _C_ sono stati evitati grazie al semplice uso di _Rust_. Il risultato rafforza
+lo studio effettuato da Shea Newton @polysync_misra_rust, riguardo a _MISRA_, uno _standard_ per il linguaggio _C_ che
+prevede regole rigide riguardo alla scrittura del codice, dove ha evidenziato come solo trentacinque delle
+centoquarantacinque regole _MISRA_ analizzate si applicassero anche a _Rust_. Le conseguenze sono rilevanti:
+minor tempo per provare il codice e difficoltà nell'introdurre determinate classi di errori, con conseguente
+miglioramento del _software_ in termini di sicurezza e manutenibilità.
+
+Un risultato che ha approtato un milgioramento al processo di analisi è stato in merito alla scrittura dei requisiti.
+Partendo da una base comune abbiamo introdotto nuovi punti di vista e diversi approcci per affrontare requisiti di
+un prodotto che non verrà mai utilizzato da solo, ma solamente come supporto alle operazioni di sistemi più grandi.
+
+==== Quantitativi
+
+I prodotti creati sono i seguenti:
+- una libreria _software_ contenente il codice per l'uso del modulo _EVADC_ per i microcontrollori _Infineon TC37X_ e
+  _TC39X_;
+- documento di specifica tecnica della libreria;
+- documento di specifica dei requisiti della libreria;
+- docuemnto di specifica dei requisiti di basso livello della libreria;
+- resoconto sull'utilizzo dello strumento _UDE_ con _Rust_;
+- resoconto su vantaggi e svantaggi dell'uso del modello architetturale _typestate_;
+- resoconto su vantaggi e svantaggi dell'uso dello strumento _Prusti_ per la verifica formale;
+- lucidi di presentazione del lavoro svolto per spiegazione ai colleghi.
+
