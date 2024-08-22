@@ -84,7 +84,7 @@ del sistema:
 
 #pagebreak()
 
-=== Obiettivi e visione d'insieme
+=== Obiettivi e attese
 
 Gli obiettivi principali erano tre:
 
@@ -121,13 +121,12 @@ implmentare questa tecnologia, _Rust_, all'interno dei suoi progetti. Infatti, c
 radicalmente cambiare il settore e ammodernarlo, portando vantaggi ai clienti finali, così come ai team
 di sviluppo.
 
-=== Prodotti attesi
 I principali prodotti attesi, derivanti dagli obiettivi erano:
 - una #gls("crate")#sub[G], in pratica una libreria _software_ _Rust_, con l'implementazione del _driver_;
 - documentazione architetturale e di dettaglio sul _driver_ sviluppato;
 - un _report_ sulle indagini e gli esperimenti citati sopra.
 
-== Metodo di lavoro
+=== Metodo di lavoro
 <sec:working-method>
 Al fine di avere un quadro chiaro degli obiettivi, dei prodotti attesi e delle tempistiche entro
 le quali avrei svolto il lavoro, ho stilato assieme ai miei tutor un piano di lavoro che poi
@@ -186,7 +185,7 @@ Il tirocinio ha confermato con l'uso di un _framework_ specializzato faccia la d
 non solo quando viene utilizzato da _team_ con un discreto numero di membri,
 ma anche quando i _team_ sono molto ridotti, come nel nostro caso.
 
-== Vincoli documentali
+=== Vincoli documentali
 
 Attraverso l'uso del formato #gls("md")#sub[G], ho sviluppato tutti i documenti tecnici che abbiamo ritenuto necessari al fine di supportare l'implementazione e i processi.
 La documentazione di progetto che ho scritto, l'ho sviluppata seguendo le linee guida aziendali, per due ragioni principali:

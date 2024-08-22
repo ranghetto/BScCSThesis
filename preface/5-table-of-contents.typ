@@ -13,7 +13,7 @@
   }
   #outline(
     indent: auto,
-    depth: 5
+    depth: 3
   )
 ]
 

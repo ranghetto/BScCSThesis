@@ -9,7 +9,6 @@
   // Set the document's basic properties.
     set document(author: myAuthor, title: myTitle)
     show math.equation: set text(weight: 400)
-
     // LaTeX look (secondo la doc di Typst)
     set page(margin: 1.55in, numbering: myNumbering, number-align: center)
     // set par(leading: 0.55em, first-line-indent: 1.8em, justify: true)
@@ -20,7 +19,9 @@
     show par: set block(spacing: 1.5em)
     show heading: set block(above: 1.5em, below: 1.2em)
     show link: set text(fill: blue.darken(60%))
-
+    show heading.where(level: 4): it =>[
+        #block(it.body)
+    ]
     show heading.where(level: 1): it => {
         stack(
             spacing: 2em,
