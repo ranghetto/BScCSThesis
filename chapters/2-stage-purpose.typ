@@ -14,6 +14,7 @@
 ])
 #v(1em)
 
+//TODO focalizzare aspetto generale e non il mio speciico caso
 == Rapporto azienda - _stage_
 
 _Bluewind_ sfrutta a pieno i tirocini universitari, soprattutto quelli che prevedono un
@@ -27,8 +28,8 @@ La discussione aveva la finalità trovare una strada da poter replicare in futur
 un'analisi sul perché essa fosse la più indicata.
 
 Per fare un esempio, il modo di scrivere requisiti per un #gls("driver")#sub[G], un componente
-software che facilita l'utilizzo dell'hardware sottostante, è totalmente diverso dal modo di
-scrivere requisiti per un'applicazione software che usa quei _driver_, cosa che ci
+_software_ che facilita l'utilizzo dell'_hardware_ sottostante, è totalmente diverso dal modo di
+scrivere requisiti per un'applicazione _software_ che usa quei _driver_, cosa che ci
 ha portato alla scoperta di un nuovo approccio.
 
 Il secondo scopo è legato al progetto stesso, che sia sviluppo o ricerca.
@@ -62,7 +63,7 @@ _Rust Peripheral Driver_, per la gestione della
 periferica _EVADC_ su microcontrollori per applicazioni #gls("autom")#sub[G], in particolare l'_Infineon
 Aurix TC375_.
 
-A seguito o in parallelo alla parte implmentativa avevamo pensato ad una fase di analisi
+A seguito o in parallelo alla parte implementativa avevamo pensato ad una fase di analisi
 su due temi rilevanti per il dominio della #gls("sfun")#sub[G] #super[@iecch], ossia l'insieme di
 tutte le misure automatiche che si adottano al fine di aumentare l'affidabilità e la sicurezza
 del sistema:
@@ -122,11 +123,11 @@ di sviluppo.
 
 === Prodotti attesi
 I principali prodotti attesi, derivanti dagli obiettivi erano:
-- una #gls("crate")#sub[G], in pratica una libreria software _Rust_, con l'implementazione del _driver_;
+- una #gls("crate")#sub[G], in pratica una libreria _software_ _Rust_, con l'implementazione del _driver_;
 - documentazione architetturale e di dettaglio sul _driver_ sviluppato;
 - un _report_ sulle indagini e gli esperimenti citati sopra.
 
-== Metodo di Lavoro
+== Metodo di lavoro
 <sec:working-method>
 Al fine di avere un quadro chiaro degli obiettivi, dei prodotti attesi e delle tempistiche entro
 le quali avrei svolto il lavoro, ho stilato assieme ai miei tutor un piano di lavoro che poi
@@ -165,7 +166,7 @@ solitamente della durata di una o due settimane, che prevedono:
 - giornalmente, un aggiornamento del lavoro svolto, durante i cosiddetti _Sprint Daily_;
 - al termine dello _sprint_, un aggiornamento, solitamente al cliente, del lavoro svolto,
   al fine di raccogliere riscontri e/o consigli, durante la _Sprint Review_
-- infine, durante la _Sprint Retrospecive_, una discussione su quali sono stati
+- infine, durante la _Sprint Retrospective_, una discussione su quali sono stati
   i problemi affrontati e quali potrebbero essere le migliorie che si possono adottare per
   incrementare l'efficienza ed efficacia.
 
@@ -185,10 +186,47 @@ Il tirocinio ha confermato con l'uso di un _framework_ specializzato faccia la d
 non solo quando viene utilizzato da _team_ con un discreto numero di membri,
 ma anche quando i _team_ sono molto ridotti, come nel nostro caso.
 
+== Vincoli documentali
+
+Attraverso l'uso del formato #gls("md")#sub[G], ho sviluppato tutti i documenti tecnici che abbiamo ritenuto necessari al fine di supportare l'implementazione e i processi.
+La documentazione di progetto che ho scritto, l'ho sviluppata seguendo le linee guida aziendali, per due ragioni principali:
+- conformare i miei documenti, almeno nella forma, a quelli della ditta, in modo tale da renderne più semplice la fruizione da parte dei colleghi;
+- provare l'efficacia delle linee guida stesse attraverso la loro implementazione.
+
+I documenti di progetto che ho scritto sono:
+- _Technical Specification_: la specifica tecnica, documento nel quale ho elencato e spiegato le scelte progettuali e architetturali fatte. Esso contiene anche
+  il tracciamento dei requisiti, ossia il loro stato rispetto al progetto.
+- _Software Requirement Specification_, la specifica dei requisiti _software_, documento nel quale ho inserito una descrizione delle interfacce _hardware_ e _software_ esterne,
+  i vincoli progettuali, le dipendenze e la descrizione dei #gls("hlr")#sub[G], dei quali se ne mostra una parte nella @req.
+- _Low Level Requirements_: #gls("llr")#sub[G], documento specifico per i requisiti di basso livello in cui, oltre a descriverli, ho creato una mappatura tra essi e quelli di alto livello.
+
+#block[
+  #figure(
+    block[
+      #set text(size: 10pt, style: "italic");
+      #set par(leading: 0.65em);
+      #table(
+        align: left,
+        columns: 4,
+        table.header([*ID*], [*Title*], [*Type*], [*Description*]),
+        [FUN-01], [Initialization], [Functional], [Drvier shall enable the user to initialize the components with a configuration provided by the user itself.],
+        [FUN-02], [Single conversion], [Functional], [Driver shall enable the user to perform a single conversion on a single input source.],
+        [FUN-03], [Single continuous conversion], [Functional], [Driver shall enable the user to perform a cyclic serie of conversions on a single input source.],
+        [...], [...], [...], [...],
+        [FUN-05], [Multiple continuous conversions], [Functional], [Driver shall enable the user to perform a cyclic serie of conversions on multiple input sources, sequentially],
+        [FUN-06], [Software conversion trigger], [Functional], [Driver shall enable the user to trigger a conversion, by software],
+        [...], [...], [...], [...]
+      )
+    ],
+    caption: [parte della tabella dei requisiti sviluppata all'interno del documento _Software Requirements Specification (SRS)_.]
+  ) <req>
+]
+
+//TODO espandere con obiettivi misurabili
 == Obiettivi personali
 
 L'obiettivo primario che mi ero fissato era uscire dalla
-mia zona di _confort_, andando ad esplorare un mondo che fino a quel
+mia zona di _comfort_, andando ad esplorare un mondo che fino a quel
 momento avevo visto solamente a livello amatoriale.
 Questo avrebbe permesso di provare a me stesso che sono in grado di adattarmi
 velocemente a situazioni nuove, pur trovandomi, inizialmente, spaesato.
@@ -199,7 +237,7 @@ quali sono le sfide e i problemi che si affrontano ogni giorno.
 Oltre al fatto che le mie nozioni di elettronica sono molto limitate, e questa esperienza
 mi avrebbe permesso di ampliarle notevolmente.
 Anche il fatto che _Bluewind_ lavori principalmente nel settore della _sicurezza funzionale_,
-mi ha garantito l'apprendimento di metodi e tecnologie atte allo sviluppo di software
+mi ha garantito l'apprendimento di metodi e tecnologie atte allo sviluppo di _software_
 certificabile.
 
 Terzo e ultima considerazione riguarda la cariera lavorativa. Volevo raggiungere gli obiettivi

@@ -148,7 +148,12 @@
     (
       key: "ownership",
       short: "ownership",
-      desc: [serie di regole definite nel linugaggio _Rust_ in merito alla gestione della memoria.]
+      desc: [serie di regole definite nel linguaggio _Rust_ in merito alla gestione della memoria.]
+    ),
+    (
+      key: "singleton",
+      short: "singleton",
+      desc: [modello di progettazione _software_ che prevede l'istanziazione univoca di una classe.]
     )
   )
 )

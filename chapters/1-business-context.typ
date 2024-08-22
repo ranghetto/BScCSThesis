@@ -29,7 +29,7 @@ che permettono di coprire a trecentosessanta gradi l'intero processo di creazion
 Essere in grado di operare in tutte le fasi di creazione, è permesso anche grazie alla forte
 componente di formazione che viene sempre messa
 in primo piano quando necessaria. Durante il tirocinio ho potuto sperimentarlo in prima
-persona grazie ai tutor e ai colleghi, che mi hanno affiancato durante tutto il percorso,
+persona grazie ai _tutor_ e ai colleghi, che mi hanno affiancato durante tutto il percorso,
 offrendomi le loro conoscenze e fornendomi degli interessanti spunti di riflessione.
 Oltre a questo ho anche partecipato a due sessioni aziendali della durata di un giorno in cui
 abbiamo trattato rispettivamente il tema #gls("agile")#sub[G], e come migliorare i processi
@@ -37,13 +37,13 @@ interni, e il tema della ristrutturazione e della definizione dei ruoli in azien
 Questo dimostra come _Bluewind_ investa molto non solo nelle nuove tecnologie,
 ma anche nel miglioramento continuo del proprio ambiente di lavoro.
 
-La principale attività dell'azienda, prevede di portare un prodotto software, già esistente o
+La principale attività dell'azienda, prevede di portare un prodotto _software_, già esistente o
 meno, in una condizione tale per cui possa essere certificato secondo uno specifico _standard_.
 Altra parte dei ricavi arriva dalla rivendita di prodotti e licenze sempre in ambito _embedded_,
-per programmi e librerie software di proprietà delle aziende di cui _Bluewind_ è _partner_.
+per programmi e librerie _software_ di proprietà delle aziende di cui _Bluewind_ è _partner_.
 La clientela risulta di conseguenza molto varia: dai clienti finali che hanno bisogno di una
-soluzione software completa, ad altre aziende informatiche che necessitano di attuare sistemi di
-sicurezza, spesso all'interno di un software o sistema che hanno già sviluppato.
+soluzione _software_ completa, ad altre aziende informatiche che necessitano di attuare sistemi di
+sicurezza, spesso all'interno di programmi o sistemi che hanno già sviluppato.
 
 == Organizzazione interna
 
@@ -58,7 +58,7 @@ che possono essere presenti in più _team_ diversi.
 Questi sono guidati da un #gls("po")#sub[G], persona che si occupa di interfacciarsi con il
 cliente e di assicurarsi che il lavoro venga consegnato nei modi e tempi previsti.
 Ogni _team_ include persone con diversi ruoli, tra cui:
-- analisti software;
+- analisti _software_;
 - analisti della sicurezza;
 - progettisti;
 - sviluppatori.
@@ -82,14 +82,14 @@ di più al prodotto finale.
 Oltre a questo, anche la stretta collaborazione con il cliente e una forte componente di
 adattamento e apertura al cambiamento, garantiscono questa minimizzazione.
 
-La metodologia _agile_, benché nasca all'interno del mondo dello sviluppo software, si può
+La metodologia _agile_, benché nasca all'interno del mondo dello sviluppo _software_, si può
 adattare bene a qualsiasi tipo di ruolo ed è proprio quello che accade in _Bluewind_.
 Per quello che ho potuto osservare, non tutti all'interno dell'azienda utilizzano questa
 metodologia, ma sicuramente ne sono influenzati.
 
 Quello che ho potuto osservare più da vicino è come questi principi prendano vita all'interno
 di un #gls("framework")#sub[G], cioè una serie di metodologie di supporto, utilizzata per lo
-sviluppo software, che descriverò in dettaglio nella sezione
+sviluppo _software_, che descriverò in dettaglio nella sezione
 #link(<sec:working-method>)["Metodo di lavoro"].
 
 == Tecnologie e strumenti
@@ -114,10 +114,10 @@ funzionalità del microcontrollore saldato sulla scheda, che è proprio l'omonim
 Di quest'ultimo, ho studiato in particolare il modulo #gls("evadc")#sub[G], ossia un orchestratore di
 diversi #gls("adc")#sub[G], componenti elettronici che sono in grado di convertire dei segnali analogici
 in segnali digitali attraverso un sistema chiamato #gls("sar")#sub[G].
-Ciò significa che prendono un segnale in Volt e lo trasformano in un numero che può essere utilizzato dal microcontrollore.
+Ciò significa che prendono un segnale in _Volt_ e lo trasformano in un numero che può essere utilizzato dal microcontrollore.
 Le caratteristiche principali sono:
 - la gamma, in inglese _range_, voltaggio, minimo e massimo, che possono accettare come valore in ingresso da convertire;
-- la risoluzione, il numero di bit del valore numerico convertito, questo determina anche il più piccolo incremento che può venire riconosciuto.
+- la risoluzione, il numero di _bit_ del valore numerico convertito, questo determina anche il più piccolo incremento che può venire riconosciuto.
 
 #figure(
   image("../images/sar_example.jpg", width: 100%),
@@ -153,9 +153,9 @@ sia per il microcontrollore, lo abbiamo scelto come strumento, in modo da studia
 
 === _PLS UDE_
 
-Per scrivere il codice all'interno dell'hardware, e farne il _debug_, abbiamo scelto uno strumento già utilizzato in azienda anche per il
+Per scrivere il codice all'interno dell'_hardware_, e farne il _debug_, abbiamo scelto uno strumento già utilizzato in azienda anche per il
 linguaggio _C_, l'_Universal Debug Engine_, comunemente chiamato _UDE_.
-Di questo strumento, vista la possibilità di fare il _debug_ nei microcontrollori _Aurix_, ne erano conosciute a fonodo caratteristiche e
+Di questo strumento, vista la possibilità di fare il _debug_ nei microcontrollori _Aurix_, ne erano conosciute a fondo caratteristiche e
 funzionalità ma, era stato provato poco per lo sviluppo _Rust_. Questo lo ha reso un interessante caso di studio per vedere come,
 passando da un linguaggio all'altro, si sarebbe comportato, rispetto anche alle promesse fatta dalla ditta che lo produce.
 
@@ -164,12 +164,12 @@ passando da un linguaggio all'altro, si sarebbe comportato, rispetto anche alle 
 Siccome il sistema operativo utilizzato nei computer aziendali è _Ubuntu_, e la maggior parte
 degli strumenti di sviluppo funziona solo su _Windows_, utilizzavo una macchina virtuale.
 Essa funzionava grazie al programma _VirtualBox_, che attraverso alcune estensioni,
-mi permetteva di provare il codice direttamente sulla scheda di test collegata al sistema.
+mi permetteva di provare il codice direttamente sulla scheda di prova collegata al sistema.
 
-=== Analisi e Progettazione
+=== Analisi e progettazione
 
 Per la scrittura dei requisiti invece non ho utilizzato uno strumento specifico, ma ho usato
-_StarUML_ per fare delle rappresentazioni grafiche legate alla progettazione del software:
+_StarUML_ per fare delle rappresentazioni grafiche legate alla progettazione del _software_:
 - diagramma dei casi d'uso;
 - diagramma delle classi;
 - diagramma per la macchina a stati finiti;
@@ -178,7 +178,7 @@ _StarUML_ per fare delle rappresentazioni grafiche legate alla progettazione del
 === Altri strumenti
 
 Nella _routine_ quotidiana, come #gls("its")#sub[G], utilizzavamo _Gitlab_, unito al suo sistema di
-controllo di versione per il software.
+controllo di versione per il _software_.
 Infine abbiamo usato _Telegram_ e _Zoom_ come canali di comunicazione, rispettivamente per messaggi
 rapidi e video-conferenze.
 
@@ -189,6 +189,7 @@ rapidi e video-conferenze.
   ],
 )
 
+//TODO aumentare contenuto
 == Rapporto con l'innovazione
 
 _Bluewind_ ha un rapporto speciale con l'innovazione, facendo di essa il proprio cavallo di

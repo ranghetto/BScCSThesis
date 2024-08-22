@@ -9,7 +9,7 @@
 
 #v(1em)
 
-Allo stato, il software dei sistemi di controllo è ancora prevalentemente sviluppato in
+Allo stato, il _software_ dei sistemi di controllo è ancora prevalentemente sviluppato in
 linguaggio _C_.
 Tuttavia, il codice che ne deriva è spesso difficile da leggere e quindi anche da mantenere.
 Vista anche la sua natura estremamente versatile, facilita l’introduzione di errori di sicurezza.
@@ -23,6 +23,7 @@ scopo del tirocinio, i prodotti attesi, il metodo di lavoro e gli obiettivi pers
 tracciamento del lavoro e quali sono stati i problemi affrontati durante il
 corso del tirocinio. Alla fine del capitolo vengono presentati i risultati ottenuti e le conclusioni tratte; per finire il #link(<cap:conclusions>)[quarto capitolo]
 espone una retrospettiva finale in termini di conoscenze acquisite e di soddifacimento delle parti coinvolte.
+
 Oltre alla struttura appena descritta, ho adottato le seguenti convenzioni tipografiche:
 - gli acronimi, le abbreviazioni e i termini di uso non comune menzionati, vengono definiti nel #link(<cap:glossary>)[Glossario], situato alla fine del presente documento;
 - per la prima occorrenza dei termini riportati nel glossario viene utilizzata la seguente nomenclatura: #text(blue.darken(60%))[parola#sub[G]]\;

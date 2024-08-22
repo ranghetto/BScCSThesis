@@ -12,44 +12,6 @@
 ])
 #v(1em)
 
-== Tracciamento del lavoro
-
-Il tracciamento del lavoro svolto, come anticipato, è stato fatto tramite il sistema di versionamento, nonché _ITS_, _Gitlab_.
-Dal momento che non era richiesto seguire uno standard specifico, ho adottato un metodo che ritengo tanto efficace quanto semplice: documenti testuali.
-Attraverso l'uso del formato #gls("md")#sub[G], ho sviluppato tutti i documenti tecnici che abbiamo ritenuto necessari al fine di supportare l'implementazione e i processi.
-La documentazione di progetto che ho scritto, l'ho sviluppata seguendo le linee guida aziendali, per due ragioni principali:
-- conformare i miei documenti, almeno nella forma, a quelli della ditta, in modo tale da renderne più semplice la fruizione da parte dei colleghi;
-- provare l'efficacia delle linee guida stesse attraverso la loro implementazione.
-
-I documenti di progetto che ho scritto sono:
-- _Technical Specification_: la specifica tecnica, documento nel quale ho elencato e spiegato le scelte progettuali e architetturali fatte. Esso contiene anche
-  il tracciamento dei requisiti, ossia il loro stato rispetto al progetto.
-- _Software Requirement Specification_, la specifica dei requisiti _software_, documento nel quale ho inserito una descrizione delle interfacce _hardware_ e _software_ esterne,
-  i vincoli progettuali, le dipendenze e la descrizione dei #gls("hlr")#sub[G], dei quali se ne mostra una parte nella @req.
-- _Low Level Requirements_: #gls("llr")#sub[G], documento specifico per i requisiti di basso livello in cui, oltre a descriverli, ho creato una mappatura tra essi e quelli di alto livello.
-
-#block[
-  #figure(
-    block[
-      #set text(size: 10pt, style: "italic");
-      #set par(leading: 0.65em);
-      #table(
-        align: left,
-        columns: 4,
-        table.header([*ID*], [*Title*], [*Type*], [*Description*]),
-        [FUN-01], [Initialization], [Functional], [Drvier shall enable the user to initialize the components with a configuration provided by the user itself.],
-        [FUN-02], [Single conversion], [Functional], [Driver shall enable the user to perform a single conversion on a single input source.],
-        [FUN-03], [Single continuous conversion], [Functional], [Driver shall enable the user to perform a cyclic serie of conversions on a single input source.],
-        [...], [...], [...], [...],
-        [FUN-05], [Multiple continuous conversions], [Functional], [Driver shall enable the user to perform a cyclic serie of conversions on multiple input sources, sequentially],
-        [FUN-06], [Software conversion trigger], [Functional], [Driver shall enable the user to trigger a conversion, by software],
-        [...], [...], [...], [...]
-      )
-    ],
-    caption: [parte della tabella dei requisiti sviluppata all'interno del documento _Software Requirements Specification (SRS)_.]
-  ) <req>
-]
-
 == Problemi progettuali e tecnologici affrontati
 
 === Analisi
@@ -129,9 +91,10 @@ opportunamente verificato, ma per il quale non avremo mai la certezza matematica
 
 Per capire di avere la necessità di una gestione divisa tra compilazione e esecuzione, non mi sono state
 sufficienti le fasi di analisi e progettazione. A loro ho dovuto affiancare anche
-la costruzione di un secondo _MVP_, che comprendeva solamente la gestione degli stati, senza alcuna
-funzionalità pratica, il che ha permesso di concentrarmi sulla creazione dell'architettura, piuttosto che
-sui problemi legati al funzionamento del microcontrollore.
+la costruzione di un secondo _MVP_, che comprendeva solamente la gestione degli stati,
+senza alcuna funzionalità pratica. Ciò mi ha permesso di concentrare i miei sforzi
+sulla creazione dell'architettura, piuttosto che sui problemi legati al funzionamento del
+microcontrollore.
 
 #figure(
   image("../images/fsmd.jpg", width: 93%),
@@ -167,7 +130,7 @@ struct Punto(i32, i32);
 // Il tipo è (f32, f32);
 struct PuntoPreciso(f32, f32);
 
-// Rappresentazione di una persona tramite due campi: nome e età.
+// Rappresentazione di una persona tramite due campi: nome ed età.
 // Il tipo è (String, u8).
 struct Persona(String, u8);
 ```, caption: [esempio di rappresentazione di diverse _tuple_ in _Rust_.])
@@ -210,8 +173,7 @@ let casa_di_bob = agenzia.villa16b; // ERRORE DI COMPILAZIONE
   caption: [esempio del concetto di _ownership_ in _Rust_.]
 )
 
-//TODO: gls("singleton")
-Quindi i valori dei membri si potrebbero definire come dei _singleton_ per ogni istanza di classe;
+Quindi i valori dei membri si potrebbero definire come dei #gls("singleton")#sub[G] per ogni istanza di classe;
 volevo far trasparire anche dal diagramma che i membri di alcune particolari classi potessero essere
 unici in tutto il programma. Per esempio, ho usato la proprietà per garantire che un componente
 elettronico non potesse essere utilizzato due volte per fare la stessa operazione, il che avrebbe
@@ -226,21 +188,81 @@ Non sarebbe stato possibile avere la stessa garanzia utilizzando un modello _sin
 il controllo a metodi e funzioni.
 
 #figure(
-  image("../images/class_diagram_ownership.jpg", width: 100%),
+  image("../images/class_diagram_ownership.jpg", width: 70%),
   caption: [
     una classe del diagramma omonimo contenente membri che rappresentano il concetto di _ownership_ in _Rust_.
   ],
 )
 
-//TODO: sezione esempio tipo di ritorno dinamico
-
-// ==== Diagramma di sequenza
-
 === Implementazione
-Problemi affrontati durante l'implmentazione.
+
+L'implementazione è stata il processo che è durato meno tempo; considerando il lavoro svolto a
+priori rientrava nella pianificazione effettuata a inizio tirocinio.
+
+Durante questo processo, mentre sviluppavo, uno dei miei tutor si occupava di provare ad usare la
+libreria _software_, per dare un riscontro immediato sull'usabilità della stessa.
+Il lavoro congiunto mi ha permesso di migliorarne notevolmente semplicità e comprensibilità da
+parte dell'utente finale, oltre che a permettermi di trovare immediatamente errori logici di
+programmazione.
+
+Per fare in modo di garantire una buona usabilità, ho creato un digramma di sequenza, che mostrava
+la relazione temporale tra l'uso dei diversi componenti _software_ dell'applicazione.
+In particolare, si faceva vedere come le chiamate ai metodi e alle funzioni potevano essere usate
+in un particolare caso d'uso. Di seguto riporto una sezione di tale diagramma.
+
+#figure(
+  image("../images/sequence_diagram_section.jpg", width: 100%),
+  caption: [
+    sezione iniziale del diagramma di sequenza creato durante il tirocinio.
+  ],
+)
 
 === Verifica e validazione
-Problemi affrontati durante la verifica.
+
+La prima validazione l'abbiamo eseguita facendo corrispondere, nella tabella di tracciamento,
+i requisiti, con l'implementazione dell'architettura che li soddisfava.
+Successivamente ho compiuto delle prove manuali direttamente sulla scheda elettronica,
+andando a verificare che tutti i casi d'uso fossero coperti e che venissero rispettate le
+attese in termini di funzionalità.
+
+Non abbiamo implementato alcuna prova automatica del _software_ principalmente a causa del tempo
+e della priorità che essa aveva rispetto ad altre attività.
+Di fatto, una prova molto interessante è avvenuta nel campo della verifica formale.
+
+Ho provato ad integrare _Prusti_, uno strumento di verifica formale, utile per provare la
+correttezza di proprietà logiche a tempo di compilazione, cioè in modo statico, senza eseguire
+codice.
+In generale questi strumenti trasformano il codice, e le condizioni che
+si vogliono verificare, in una forma tale per cui possano essere controllate matematicamente.
+Tuttavia, lo scopo del suo utilizzo non era capirne il funzionamento nel dettaglio,
+bensì fare uno studio sulla semplicità di utilizzo e implementazione, pur non sapendone i
+dettagli implementativi.
+
+#figure(
+```rust
+// Scriviamo una funzione che ritorna un valore minore o uguale a 10
+// La sua precondizione è che può accettare valori da 0 a 5 (compresi)
+// Non è necessario indicare che n deve essere >= 0, Prusti è abbastanza intelligente da dedurlo dal tipo
+#[requires(n <= 5)]
+#[ensures(result <= 10)]
+fn numero_minore_di_10(n: u8) -> u8 {
+    return 5 + n;
+}
+
+fn main() {
+    let n: u8 = 3;
+    // La prova in questo caso è verificata perché entrambe le condizioni sono vere
+    print_u8(numero_minore_di_10(n));
+
+    let n: u8 = 7;
+    // In questo caso invece la prova fallirebbe
+    print_u8(numero_minore_di_10(n));
+}
+```,
+  caption: [
+    esempio di funzione con una pre-condizione e una post-condizione, scritta in _Rust_ attraverso la libreria _Prusti_.
+  ],
+)
 
 == Risultati ottenuti
 
