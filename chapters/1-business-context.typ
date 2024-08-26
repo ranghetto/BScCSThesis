@@ -31,7 +31,7 @@ componente di formazione che viene sempre messa
 in primo piano quando necessaria. Durante il tirocinio ho potuto sperimentarlo in prima
 persona grazie ai _tutor_ e ai colleghi, che mi hanno affiancato durante tutto il percorso,
 offrendomi le loro conoscenze e fornendomi degli interessanti spunti di riflessione.
-Oltre a questo ho anche partecipato a due sessioni aziendali della durata di un giorno in cui
+Oltre a questo ho anche partecipato a due sessioni aziendali, della durata di un giorno, in cui
 abbiamo trattato rispettivamente il tema #gls("agile")#sub[G], e come migliorare i processi
 interni, e il tema della ristrutturazione e della definizione dei ruoli in azienda.
 Questo dimostra come _Bluewind_ investa molto non solo nelle nuove tecnologie,
@@ -88,7 +88,7 @@ Per quello che ho potuto osservare, non tutti all'interno dell'azienda utilizzan
 metodologia, ma sicuramente ne sono influenzati.
 
 Quello che ho potuto osservare più da vicino è come questi principi prendano vita all'interno
-di un #gls("framework")#sub[G], cioè una serie di metodologie di supporto, utilizzata per lo
+di un #gls("framework")#sub[G], cioè una serie di metodologie di supporto, utilizzate per lo
 sviluppo _software_, che descriverò in dettaglio nella sezione
 #link(<sec:working-method>)["Metodo di lavoro"].
 
@@ -97,7 +97,7 @@ sviluppo _software_, che descriverò in dettaglio nella sezione
 === _Infineon Technologies Aurix TC375_
 
 I microcontrollori della ditta _Infineon Technologies_ sono dei prodotti ad altissime prestazioni e
-altamente affidabili. Infatti sono diventati lo standard in diversi settori tra cui quello
+altamente affidabili. Infatti sono diventati lo _standard_ in diversi settori tra cui quello
 automobilistico, quello spaziale, quello industriale e quello della sicurezza.
 
 #figure(
@@ -108,12 +108,12 @@ automobilistico, quello spaziale, quello industriale e quello della sicurezza.
 )
 
 La scheda di sviluppo che ho utilizzato era una _Aurix TC375 Lite Kit_, prodotta dalla stessa azienda,
-che offre un ambiente di sviluppo _hardware_ pre-configurato pensato per dimostrare tutte le
+che offre un ambiente di sviluppo _hardware_ pre-configurato, pensato per dimostrare tutte le
 funzionalità del microcontrollore saldato sulla scheda, che è proprio l'omonimo _Aurix TC375_.
 
 Di quest'ultimo, ho studiato in particolare il modulo #gls("evadc")#sub[G], ossia un orchestratore di
 diversi #gls("adc")#sub[G], componenti elettronici che sono in grado di convertire dei segnali analogici
-in segnali digitali attraverso un sistema chiamato #gls("sar")#sub[G].
+in segnali digitali, attraverso un sistema chiamato #gls("sar")#sub[G].
 Ciò significa che prendono un segnale in _Volt_ e lo trasformano in un numero che può essere utilizzato dal microcontrollore.
 Le caratteristiche principali sono:
 - la gamma, in inglese _range_, voltaggio, minimo e massimo, che possono accettare come valore in ingresso da convertire;
@@ -128,9 +128,9 @@ Le caratteristiche principali sono:
   ],
 ) <sar_example>
 
-Il funzionamento di un _ADC_ di tipo _SAR_ è molto semplice: il circuito parte con l'acquisizione del segnale da convertire e lo memorizza grazie ad un circuito chiamato
-_sample and hold_; successivamente genera un segnale analogico a partire da un valore digitale, il cui valore è noto (nella prima iterazione
-corrisponde alla metà del _range_, il che corrisponde a mettere a 1 il bit più significativo e tenere a zero tutti gli altri).
+Il funzionamento di un _ADC_ di tipo _SAR_ è molto semplice: il circuito parte con l'acquisizione del segnale da convertire e lo memorizza, grazie ad un circuito chiamato
+_sample and hold_; successivamente genera un segnale analogico a partire da un numero, il cui valore è noto (nella prima iterazione
+corrisponde alla metà del _range_, il che equivale ad impostare ad uno il bit più significativo e tenere a zero tutti gli altri).
 I due segnali vengono comparati, controllando se il valore in ingresso è maggiore o uguale all'approssimazione fatta fino a
 quel momento, il risultato è inserito in un registro che farà da base per l'iterazione successiva.
 @sar_example mostra il funzionamento logico del componente, in particolare l'albero binario che porta alla soluzione finale di approssimazione.
@@ -141,7 +141,7 @@ _Rust_ è un linguaggio di programmazione che gode di un sistema di tipi molto r
 memoria che elimina un'intera classe di errori legati a quest'ultima, che si riflettono anche sulla sicurezza.
 Uno degli obiettivi del progetto, era proprio quello di utilizzare _Rust_ come linguaggio principale, non solo per i vantaggi che offre
 in termini di affidabilità, ma soprattutto per studiare i suoi limiti.
-Quando parlo di limiti non intendo quelli prestazionali, ma piuttosto in fatto di facilità di adozione e integrazioni nei sistemi
+Quando parlo di limiti non intendo quelli prestazionali ma, piuttosto, quelli relativi alla facilità di adozione e integrazione nei sistemi
 esistenti.
 
 === Compilatori _HighTec_
@@ -157,7 +157,7 @@ Per scrivere il codice all'interno dell'_hardware_, e farne il _debug_, abbiamo 
 linguaggio _C_, l'_Universal Debug Engine_, comunemente chiamato _UDE_.
 Di questo strumento, vista la possibilità di fare il _debug_ nei microcontrollori _Aurix_, ne erano conosciute a fondo caratteristiche e
 funzionalità ma, era stato provato poco per lo sviluppo _Rust_. Questo lo ha reso un interessante caso di studio per vedere come,
-passando da un linguaggio all'altro, si sarebbe comportato, rispetto anche alle promesse fatta dalla ditta che lo produce.
+passando da un linguaggio all'altro, si sarebbe comportato, rispetto anche alle promesse fatte dalla ditta che lo produce.
 
 === Sistemi operativi
 
@@ -204,5 +204,5 @@ Affinché tutto questo sia possibile, l'azienda si avvale sia di risorse interne
 dipendenti, sia di risorse esterne, come consulenti e tirocinanti universitari.
 
 In particolar modo, i tirocini universitari che si svolgono, hanno anche come scopo quello
-di condurre ricerche su temi in voga oppure sviluppare progetti utlizzando nuovi strumenti e
-tecnologie, per i quali, ad esempio, non si conosce l'impatto futuro perché troppo giovani.
+di condurre ricerche su temi in voga, oppure sviluppare progetti utlizzando nuovi strumenti e
+tecnologie, per le quali, ad esempio, non si conosce l'impatto futuro perché troppo giovani.

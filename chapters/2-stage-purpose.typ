@@ -9,7 +9,7 @@
 #v(1em)
 #text(style: "italic", [
   Questo capitolo discute le problematiche che hanno messo le basi per la
-  realizzazione della proposta di #emph[stage], assieme alla risposta formalizzata al fine di
+  realizzazione della proposta di stage, assieme alla risposta formalizzata al fine di
   risolverle.
 ])
 #v(1em)
@@ -26,13 +26,13 @@ su quali possano essere le metodologie più adatte per lo specifico tirocinio.
 La discussione ha la finalità di trovare una strada da poter replicare in futuro, avendo già fatto
 un'analisi sul perché essa sia la più indicata.
 Oltre a ciò, il confronto con i colleghi migliora entrambe le parti in gioco, creando una visione più ampia,
-che spesso portana a conclusioni diverse da quelle pensate inizialmente.
+che spesso porta a conclusioni diverse da quelle pensate inizialmente.
 
 Il secondo scopo è legato al progetto stesso, che sia sviluppo o ricerca.
 Infatti l'azienda è molto attiva quando si parla di studio e implementazione di nuove
 tecnologie, mettendosi in prima linea per conoscerle e provarle.
 Tutto ciò che può portare all'azienda un vantaggio competitivo vale la pena di essere, come
-mproponendoinimo, conosciuto.
+minimo, conosciuto.
 Se si tratta di progetti di sviluppo di un prodotto, il vantaggio è ovviamente quello di poterlo
 utilizzare, così come viene fornito, o usandolo come base di partenza per ulteriori sviluppi.
 Lo stesso ha valore anche per i progetti di ricerca.
@@ -48,10 +48,10 @@ riguardo gli strumenti adottati da _Bluewind_ e quindi l'integrazione potrà ess
 === Scopo
 
 Il codice attualmente presente nei sistemi in produzione è ancora prevalentemente scritto in _C_. Nonostante
-le aziende che operano nel settore automobilistico si attingano ai più moderni _standard_ per la creazione di
+le aziende, che operano nel settore automobilistico, attingano ai più moderni _standard_ per la creazione di
 _software_, a volte non è sufficiente a garantire che esso sia sicuro e affidabile.
 Inoltre, vista la natura stessa del linguaggio _C_, il codice che ne deriva può risultare difficile da leggere
-e mantenere.
+e _mantenere_.
 Lo scopo del mio tirocinio era l’implementazione di un _driver_ in _Rust_, in @rust-eco chiamato
 _Rust Peripheral Driver_, per la gestione della
 periferica _EVADC_ su microcontrollori per applicazioni #gls("autom")#sub[G], in particolare l'_Infineon
@@ -63,7 +63,7 @@ tutte le misure automatiche che si adottano al fine di aumentare l'affidabilità
 del sistema:
 - un’indagine generale sui vantaggi e/o svantaggi di utilizzo di _Rust_ per librerie di basso
   livello, tenendo conto anche della sua ripida curva di apprendimento;
-- un’indagine sulla possibilità ed eventuali modalità preferibili di progettazione dei _driver_ per evitare
+- un’indagine sulla possibilità, ed eventuali modalità preferibili di progettazione, del _driver_ per evitare
   errori di configurazione della periferica in modo statico, cioè a tempo di compilazione,
   con la possibilità di tracciamento delle regole di configurazione rispetto ai manuali tecnici
   del microcontrollore.
@@ -84,7 +84,7 @@ Gli obiettivi principali erano tre:
 
 + l’implementazione di un _driver_ in _Rust_ per la gestione della periferica _EVADC_ su
   microcontrollori della famiglia _Infineon Aurix TC3xx_ per applicazioni _automotive_.
-+ indagine sulla possibilità ed eventuali modalità preferibili di progettazione dei _driver_
++ indagine sulla possibilità, ed eventuali modalità preferibili di progettazione, del _driver_
   per evitare errori di configurazione della periferica in modo statico, cioè a tempo di
   compilazione, con la possibilità di tracciamento delle regole di configurazione rispetto
   ai manuali tecnici del microcontrollore;
@@ -111,7 +111,7 @@ meglio i temi trattati:
   conosciuti per _C_.
 
 Nell'insieme, gli obiettivi portano alla luce come _Bluewind_ stia puntando, così come molti altri, ad
-implmentare questa tecnologia, _Rust_, all'interno dei suoi progetti. Infatti, crede che essa possa
+implementare questa tecnologia, _Rust_, all'interno dei suoi progetti. Infatti, crede che essa possa
 radicalmente cambiare il settore e ammodernarlo, portando vantaggi ai clienti finali, così come ai team
 di sviluppo.
 
@@ -141,15 +141,15 @@ divise su base settimanale, che si può riassumere nella seguente tabella:
     table.cell(align: right)[3],
     table.cell(align: right)[4], table.cell(rowspan: 2, breakable: false, align: horizon)[Implementazione del _driver_],
     table.cell(align: right)[5],
-    table.cell(align: right)[6], [Test e confronto con librerie in C esistenti],
-    table.cell(align: right)[7], [Esperimento di integrazione di uno strumento di formal proof],
+    table.cell(align: right)[6], [Test e confronto con librerie in _C_ esistenti],
+    table.cell(align: right)[7], [Esperimento di integrazione di uno strumento di verifica formale],
     table.cell(align: right)[8], [Collaudo finale e retrospettiva del progetto],
   ), caption: [rappresentazione del lavoro organizzato in settimane all'interno del piano di lavoro.]
 )
 Oltre al collaudo finale, ogni settimana prevedeva una giornata di analisi e
 retrospettiva legata al singolo periodo, per valutare il raggiungimento degli obiettivi prefissati.
 
-Per la natura stessa del progetto e per mettere alla prova le metodoglogie aziendali, abbiamo
+Per la natura stessa del progetto e, per mettere alla prova le metodoglogie aziendali, abbiamo
 adottato un metodo di lavoro, costruito sulla base del _framework_ #gls("scrum")#sub[G].
 Esso prevede che il lavoro sia suddiviso in iterazioni chiamate _sprint_, piccole sezioni di tempo,
 solitamente della durata di una o due settimane, che prevedono:
@@ -167,7 +167,7 @@ Durante il corso del progetto, le iterazioni da noi stabilite erano della durata
 durante la quale svolgevamo solamente un sottoinsieme degli eventi dettati dal _framework_:
 - la pianificazione è stata fatta all'inizio del percorso e ritoccata solamente a causa di alcune
   incogruenze tra gli impegni personali. Infatti l'idea di cosa andava fatto, e con quale priorità,
-  era chiara fin dall'inizio, rendendo superflua la necessità di una pianificazione a settimana.
+  era chiara fin dall'inizio, rendendo superflua la necessità di una pianificazione settimanale.
 - gli aggiornamenti giornalieri invece, si sono svolti regolarmente;
 - anche le revisioni di avanzamento a fine _sprint_ le abbiamo svolte con regolarità, spesso
   unendole ad un breve confronto sul lavoro da svolgere per l'iterazione successiva.
@@ -175,7 +175,7 @@ durante la quale svolgevamo solamente un sottoinsieme degli eventi dettati dal _
 In particolar modo gli eventi giornalieri, ci hanno permesso di rimanere sempre allineati sul
 lavoro in corso d'opera. Di conseguenza è stato impossibile uscire dai tempi previsti, merito
 anche della corretta stima temporale iniziale.
-Il tirocinio ha confermato con l'uso di un _framework_ specializzato faccia la differenza
+Il tirocinio ha confermato come, l'uso di un _framework_ specializzato, possa fare la differenza,
 non solo quando viene utilizzato da _team_ con un discreto numero di membri,
 ma anche quando i _team_ sono molto ridotti, come nel nostro caso.
 
@@ -226,21 +226,21 @@ velocemente a situazioni nuove, pur trovandomi, inizialmente, spaesato.
 Il secondo obiettivo era legato all'apprendimento vero e proprio.
 Volevo conoscere e toccare con mano cosa significa scrivere _software_ a basso livello,
 quali sono le sfide e i problemi che si affrontano ogni giorno.
-Oltre al fatto che le mie nozioni di elettronica sono molto limitate, e questa esperienza
+Oltre al fatto che le mie nozioni di elettronica erano molto limitate, e questa esperienza
 mi avrebbe permesso di ampliarle notevolmente.
 Anche il fatto che _Bluewind_ lavori principalmente nel settore della _sicurezza funzionale_,
 mi ha garantito l'apprendimento di metodi e tecnologie atte allo sviluppo di _software_
 certificabile.
 
-Terza e ultima considerazione riguarda la cariera lavorativa. Volevo raggiungere gli obiettivi
+Terza e ultima considerazione riguarda la carriera lavorativa. Volevo raggiungere gli obiettivi
 citati sopra per aprirmi, nel caso mi fosse interessato, una strada verso questo settore.
-Perciò l'obiettivo era trovare lavoro, nell'azienda stessa o in altre, che si occupassero
-della terna: sistemi di controllo e sicurezza funzionale in settori dove i margini di fallimento
-non sono tollerati.
+Perciò l'obiettivo era trovare lavoro, nell'azienda stessa o in altre, che si occupassero di
+sistemi di controllo e sicurezza funzionale, in settori dove i margini di fallimento sono minimi.
 
-Per riassumere, gli obiettivi, misurabili oggettivamente, che volevo trarre da questa esperienza erano:
+Per riassumere, gli obiettivi, misurabili oggettivamente, che mi ero posto di raggiungere in questa esperienza erano:
 - imparare a leggere e capire il manuale utente di un microcontrollore;
 - imparare a leggere uno schema elettrico;
 - imparare a scrivere _software_ di basso livello, lavorando senza un sistema operativo;
 - imparare quali strumenti e metodi si usano per scrivere codice conforme a determinati _standard_;
 - ampliare le mie conoscenze di programmazione in _Rust_;
+- arricchiare il bagaglio di conoscenze legato ai metodi per lo sviluppo software, in ambiente professionale.
