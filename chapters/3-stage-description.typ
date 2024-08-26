@@ -286,9 +286,19 @@ centoquarantacinque regole _MISRA_ analizzate si applicassero anche a _Rust_. Le
 minor tempo per provare il codice e difficoltà nell'introdurre determinate classi di errori, con conseguente
 miglioramento del _software_ in termini di sicurezza e manutenibilità.
 
-Un risultato che ha approtato un milgioramento al processo di analisi è stato in merito alla scrittura dei requisiti.
+Un risultato che ha apportato un milgioramento al processo di analisi è stato in merito alla scrittura dei requisiti.
 Partendo da una base comune abbiamo introdotto nuovi punti di vista e diversi approcci per affrontare requisiti di
 un prodotto che non verrà mai utilizzato da solo, ma solamente come supporto alle operazioni di sistemi più grandi.
+
+Lo studio che ho condotto ha svelato in oltre come l'ecosistema _Rust_ non sia ancora del tutto pronto ad essere
+integrato nei sistemi esistenti in produzione.
+Uno dei problemi principali sono le versioni che vengono rilasciate: per accedere alle ultime funzionalità
+del linguaggio bisogna usare versioni recenti, ma molti strumenti sono stati costruiti per versioni più vecchie e non
+sono più stati aggiornati.
+Rilasciando così tante versioni del linugaggio in poco tempo, visto che si tratta di una tecnologia in rapida crescita,
+è difficile per gli sviluppatori tenere aggiornate le librerie _software_.
+Anche durante il mio tirocinio abbiamo dovuto investire molto tempo nello scovare errori legati a questa problematica,
+spesso trovando soluzioni temporanee.
 
 ==== Quantitativi
 
