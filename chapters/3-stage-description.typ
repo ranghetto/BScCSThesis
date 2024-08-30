@@ -15,6 +15,7 @@
 == Problemi progettuali e tecnologici affrontati
 
 === Analisi
+
 Ho affrontato l'analisi del problema con un approccio ibrido.
 Nella prima fase, nonché quella di maggiore importanza, ho analizzato con cura il codice implementato
 dalla casa madre del microcontrollore in _C_. Farlo, mi ha permesso di capirne il funzionamento e, assieme
@@ -25,7 +26,7 @@ per il quale avevo una conoscenza basica, legata solamente alla mia esperienza d
 
 In questo processo ho iniziato a scrivere i documenti tecnici _Software Requirements Specification_ e
 _Low Level Requirements_. Nella specifica dei requisiti, oltre ai requisiti stessi, era presente anche il
-corrispondente diagramma dei casi d'uso, riportati singolarmente di seguito, da @uc1 a @uc6.
+corrispondente diagramma dei casi d'uso.
 
 #figure(
   image("../images/uc1-5.svg", width: 100%),
@@ -33,24 +34,6 @@ corrispondente diagramma dei casi d'uso, riportati singolarmente di seguito, da 
     diagramma del caso d'uso numero 1, abbinato all'inclusione del numero 5.
   ],
 )<uc1>
-#figure(
-  image("../images/uc2-5.svg", width: 100%),
-  caption: [
-    diagramma del caso d'uso numero 2, abbinato all'inclusione del numero 5.
-  ],
-)
-#figure(
-  image("../images/uc3-5.svg", width: 100%),
-  caption: [
-    diagramma del caso d'uso numero 3, abbinato all'inclusione del numero 5.
-  ],
-)
-#figure(
-  image("../images/uc4-5.svg", width: 100%),
-  caption: [
-    diagramma del caso d'uso numero 4, abbinato all'inclusione del numero 5.
-  ],
-)
 #figure(
   image("../images/uc6.svg", width: 50%),
   caption: [
