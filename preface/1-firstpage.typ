@@ -28,7 +28,9 @@
         // Titolo
         #align(center, text(18pt, hyphenate: false, weight: "semibold", myTitle))
         #v(10pt)
-        #align(center, text(12pt, weight: "light", style: "italic", myDegree))
+        #align(center, text(15pt, weight: "light", style: "italic", myDegree))
+        #v(10pt)
+        #align(center, text(8pt, weight: "light", style: "italic", "20 Settembre 2024"))
         #v(40pt)
 
         // Relatore e laureando

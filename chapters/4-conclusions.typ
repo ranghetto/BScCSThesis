@@ -7,16 +7,6 @@
 
 == Grado di soddisfacimento
 
-Il tirocinio ha superato di gran lunga le mie aspettative iniziali. L'ambiente stimolante ed energico mi ha consentito
-di svolgerlo al meglio e di portare a compimento tutti gli obiettivi che mi ero prefissato.
-A partire da quelli che richiedevano abilità meno pratiche: migliorare il modo di approcciare le sfide, arricchire le
-mie conoscenze in ambito dell'ingegneria del _software_; finendo con quelli più tangibili e verificabili:
-- ho acquisito le conoscenze necessarie per leggere uno schema elettrico;
-- ho imparato a leggere il manuale utente e, più in generale, i manuali tecnici di un microcontrollore;
-- ho ampliato le mie conoscenze del linguaggio _Rust_, in particolare le caratteristiche che si applicano al contesto
-  dei sistemi di controllo;
-- ho capito come si scrivono programmi che aderiscono a _standard_ e regole che li rendono certificabili.
-
 L'azienda si è rivelata entusiasta del lavoro svolto, grazie al quale si è potuta sperimentare in un ambito in forte
 crescita.
 In particolare, essa potrà usare i prodotti di questo tirocinio, come base per future ricerche e approfondimenti,
@@ -25,6 +15,31 @@ Inoltre, quanto ho creato, può essere facilmente replicato e utlizzato in diver
 creazione di prototipi.
 Lo studio, di come _Rust_ potrà continuare a migliorare la sicurezza e l'esperienza durante lo sviluppo, ha confermato
 le nostre aspettative iniziali, grazie anche a tirocini effettuati in precedenza.
+Tutti i prodotti attesi sono stati sviluppati:
+- analisi preliminare sulla configurazione minima necessaria per il funzionamento del modulo _EVADC_, a supporto dell'implementazione;
+- diagramma delle classi, di sequenza e degli stati, utili alla descrizione dell'architettura;
+- diagramma dei casi d'uso, utile alla derivazione dei requisiti;
+- documento per i requisiti di basso livello, utili all'implementazione del _software_;
+- un report sul caso specifico del _pattern_ che usa i tipi per creare una macchina a stati finiti;
+- un report sull'uso dell'_UDE_ con il linguaggio _Rust_;
+- un report sull'uso di _Prusti_ come strumento di verifica formale;
+- un documento di specifica dei requisiti, a supporto dell'implementazione;
+- un documento di specifica tecnica, dove spiegare le scelte progettuali fatte.
+
+L'unico argomento che, a causa del tempo e delle priorità, non siamo riusciti ad affrontare, è stato l'implementazione
+di test automatici per la verifica del _driver_.
+L'obiettivo non era comunque richiesto, sarebbe stato un'aggiunta interessante, qual'ora ci fosse stato il tempo.
+
+Il tirocinio ha superato di gran lunga le mie aspettative iniziali. L'ambiente stimolante ed energico mi ha consentito
+di svolgerlo al meglio e di portare a compimento tutti gli obiettivi che mi ero prefissato.
+A partire da quelli che richiedevano abilità meno pratiche: migliorare il modo di approcciare le sfide, arricchire le
+mie conoscenze in ambito dell'ingegneria del _software_; finendo con quelli più tangibili e verificabili:
+- ho acquisito le conoscenze necessarie per leggere uno schema elettrico e capirne le connessioni;
+- ho imparato a leggere il manuale utente e, più in generale, i manuali tecnici di un microcontrollore, capendone la
+    struttura e la spiegazione dei singoli registri delle periferiche;
+- ho ampliato le mie conoscenze del linguaggio _Rust_, in particolare le caratteristiche che si applicano al contesto
+  dei sistemi di controllo;
+- ho capito come si scrivono programmi che aderiscono a _standard_ e regole che li rendono certificabili, come l'_ISO 26262_.
 
 == Delta tra competenze pregresse e richieste
 
@@ -35,7 +50,7 @@ si parlava anche di microcontrollori.
 Al contrario, è stato molto semplice adattarsi all'ambiente di lavoro in termini di processi adottati, in quanto vengono
 ampliamente studiati, e soprattutto provati sul campo, in corsi come "Ingegneria del software" e "Metodi e tecniche
 per lo sviluppo software".
-In aggiunta, diversi corsi prevedono un progetto, di gruppo, in cui la coordinazione tra tutti i membri è fondamentale
+In aggiunta, diversi corsi prevedono un progetto, di gruppo, in cui il coordinamento tra tutti i membri è fondamentale
 per la sua buona riuscita. Di conseguenza, la capacità degli individui di lavorare in _team_ aumenta, apportando
 benefici anche nel mondo lavorativo.
 

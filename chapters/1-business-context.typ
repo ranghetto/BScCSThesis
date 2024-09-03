@@ -9,7 +9,7 @@
 #v(1em)
 #text(style: "italic", [
     Questo capitolo presenta una panoramica generale dell'azienda in cui ho
-    svolto il tirocinio e qual è il rapporto tra quest'ultima e il rinnovamento tecnologico.
+    svolto il tirocinio e qual è il rapporto tra quest'ultima e le nuove tecnologie.
 ])
 #v(1em)
 
@@ -189,7 +189,6 @@ rapidi e video-conferenze.
   ],
 )
 
-//TODO aumentare contenuto
 == Rapporto con l'innovazione
 
 _Bluewind_ ha un rapporto speciale con l'innovazione, facendo di essa il proprio cavallo di
@@ -206,3 +205,15 @@ dipendenti, sia di risorse esterne, come consulenti e tirocinanti universitari.
 In particolar modo, i tirocini universitari che si svolgono, hanno anche come scopo quello
 di condurre ricerche su temi in voga, oppure sviluppare progetti utlizzando nuovi strumenti e
 tecnologie, per le quali, ad esempio, non si conosce l'impatto futuro perché troppo giovani.
+
+Questo non è solo un modo di procedere che l'azienda applica, ma una vera e propria cultura
+aziendale, orientata alla sperimentazione e, quando possibile, all'adozione, di nuove tecnologie.
+
+La collaborazione con partner esterni tra cui, esperti del settore, aziende leader e università
+permette l'integrazione di diverse prospetive e competenze tecniche all'avanguardia, creando un
+continuo ciclo di rinnovamento.
+Basti pensare alle diverse figure che collaborano con Bluewind: dalle persone che aiutano a migliorare
+i processi aziendali di produzione, ai consulenti per il miglioramento dell'ambiente di lavoro,
+o ancora alle aziende partner, con le quali avvengono innumerevoli scambi di informazioni e conoscenze.
+Inoltre, anche le università giocano un ruolo fondamentale, grazie ai confronti con professori universitari
+nei temi più svariati.

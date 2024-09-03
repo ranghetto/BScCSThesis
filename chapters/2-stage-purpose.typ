@@ -82,16 +82,23 @@ del sistema:
 
 Gli obiettivi principali erano tre:
 
-+ l’implementazione di un _driver_ in _Rust_ per la gestione della periferica _EVADC_ su
++ L’implementazione di un _driver_ in _Rust_ per la gestione della periferica _EVADC_ su
   microcontrollori della famiglia _Infineon Aurix TC3xx_ per applicazioni _automotive_.
-+ indagine sulla possibilità, ed eventuali modalità preferibili di progettazione, del _driver_
+  Lo scopo di tale obiettivo era ovviamente avere un prodotto funzionante da poter utilizzare alla necessità.
+  Implementare il _driver_ ci avrebbe permesso anche di incrementare la bontà dell'architettura e la sua usabilità.
++ Indagine sulla possibilità, ed eventuali modalità preferibili di progettazione, del _driver_
   per evitare errori di configurazione della periferica in modo statico, cioè a tempo di
   compilazione, con la possibilità di tracciamento delle regole di configurazione rispetto
-  ai manuali tecnici del microcontrollore;
-+ esperimento di integrazione di uno strumento di #gls("verfor")#sub[G] tramite il quale è possibile
+  ai manuali tecnici del microcontrollore.
+  L'idea di questo obiettivo, nasce dalle precedenti esperienze nella programmazione a basso livello, dove errori
+  di configurazione erano semplici di inserire. Volevamo creare un'interfaccia sicura dal punto di vista funzionale,
+  pur garantendo un'architettura ricca di funzionalità.
++ Esperimento di integrazione di uno strumento di #gls("verfor")#sub[G] tramite il quale è possibile
   dichiarare e verificare proprietà logiche direttamente sul codice sorgente _Rust_, come
   raccomandato dallo standard _ISO 26262_ per alti livelli di integrità della
   _sicurezza funzionale_.
+  La verifica formale ci avrebbe permesso di controllare, a tempo di compilazione, tutte quelle proprietà _hardware_ che
+  il compilatore, attraverso l'architettura, non sarebbe stato in grado di verificare.
 
 #figure(
   image("../images/esempio_manuale_tc37x.png", width: 100%),
@@ -222,6 +229,13 @@ mia zona di _comfort_, andando ad esplorare un mondo che fino a quel
 momento avevo visto solamente a livello amatoriale.
 Questo avrebbe permesso di provare a me stesso che sono in grado di adattarmi
 velocemente a situazioni nuove, pur trovandomi, inizialmente, spaesato.
+Praticamente:
+- imparare a leggere e capire il manuale utente di un microcontrollore, comprendendo il funzionamento
+    dei diversi componenti e la funzione dei registri delle periferiche;
+- imparare a leggere uno schema elettrico, capendo le connessioni tra i componenti esterni e quelli interni;
+- imparare a scrivere _software_ di basso livello, lavorando senza un sistema operativo e con strutture
+    vicine al linguaggio macchina;
+erano parte del bagaglio di conoscenze che volevo guadagnare in questa esperienza.
 
 Il secondo obiettivo era legato all'apprendimento vero e proprio.
 Volevo conoscere e toccare con mano cosa significa scrivere _software_ a basso livello,
@@ -231,16 +245,14 @@ mi avrebbe permesso di ampliarle notevolmente.
 Anche il fatto che _Bluewind_ lavori principalmente nel settore della _sicurezza funzionale_,
 mi ha garantito l'apprendimento di metodi e tecnologie atte allo sviluppo di _software_
 certificabile.
+Nello specifico, volevo compiere i seguenti punti:
+- imparare quali strumenti e metodi si usano per scrivere codice conforme a determinati _standard_;
+- ampliare le mie conoscenze di programmazione in _Rust_, in particolare capire quali fossero le strutture dati
+    più adatte per scrivere codice di basso livello;
+- arricchiare il bagaglio di conoscenze legato ai metodi per lo sviluppo _software_, in ambiente professionale,
+    principalemnte per quanto concerne il metodo _agile_ e il _framework Scrum_.
 
 Terza e ultima considerazione riguarda la carriera lavorativa. Volevo raggiungere gli obiettivi
 citati sopra per aprirmi, nel caso mi fosse interessato, una strada verso questo settore.
 Perciò l'obiettivo era trovare lavoro, nell'azienda stessa o in altre, che si occupassero di
 sistemi di controllo e sicurezza funzionale, in settori dove i margini di fallimento sono minimi.
-
-Per riassumere, gli obiettivi, misurabili oggettivamente, che mi ero posto di raggiungere in questa esperienza erano:
-- imparare a leggere e capire il manuale utente di un microcontrollore;
-- imparare a leggere uno schema elettrico;
-- imparare a scrivere _software_ di basso livello, lavorando senza un sistema operativo;
-- imparare quali strumenti e metodi si usano per scrivere codice conforme a determinati _standard_;
-- ampliare le mie conoscenze di programmazione in _Rust_;
-- arricchiare il bagaglio di conoscenze legato ai metodi per lo sviluppo software, in ambiente professionale.
