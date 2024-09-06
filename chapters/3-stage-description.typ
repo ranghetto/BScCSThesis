@@ -177,7 +177,6 @@ il controllo a metodi e funzioni.
   ],
 )
 
-//TODO: ampliare sezione
 === Implementazione
 
 L'implementazione è stata il processo che è durato meno tempo; considerando il lavoro svolto a
@@ -201,6 +200,28 @@ in un particolare caso d'uso. Di seguto riporto una sezione di tale diagramma.
   ],
 )
 
+Nonostante la creazione dei due _MVP_, durante la fase di implementazione, le sfide non sono mancate.
+In particolar modo ci tengo a descrivere la più significativa, ossia quella legata al modello di progettazione chiamato
+#gls("ts")#sub[G].
+Il _typestate pattern_ si può collocare nei modelli progettuali comportamentali e
+serve a codificare le informazioni di stato, a tempo di esecuzione, di un oggetto,
+nel suo tipo a tempo di compilazione; proprio per questo è preferibile al
+_builder pattern_, dove i controlli sullo stato di avanzamento di costruzione di un
+oggetto sono fatti durante l'esecuzione.
+Questo è utile soprattutto nel momento in cui si vogliono far rispettare determinati
+contratti, come nel nostro caso la configurazione, che doveva avvenire in un ordine
+specifico, assicurandosi di non saltare nessun passaggio.
+Questo è il caso per quasi tutti gli oggetti configurabili del _driver_ che ho
+sviluppato.
+
+Ci tengo a sottolineare che per noi era fondamentale riuscire a gestire la configurazione a tempo di compilazione.
+Infatti il rischio, se non si adotta questa pratica, è quello di introdurre errori difficilissimi da trovare e
+risolvere; senza considerare il rischio, nel peggiore dei casi, di rompere la scheda.
+Il precedente _driver_, sviluppato in _C_, implementava alcune funzionalità lasciando all'utente la piena responsabilità
+delle sue azioni, permettendogli quindi di creare configurazioni sbaliate.
+La difficoltà è stata, di conseguenza, quella di creare un'interfaccia che rimuovesse questa classe di errori, senza
+inficiare sul numero di funionalità offerte, obiettivo che è stato raggiunto con successo.
+
 Durante l'implementazione mi sono anche accorto di come i microcontrollori, facenti parte della stessa famiglia,
 avessero caratteristiche, rispetto al modulo _EVADC_, molto simili. L'unica differenza era nel numero di
 _ADC_ presenti e nella loro distribuzione.
@@ -210,6 +231,37 @@ Il risultato di questo ulteriore vincolo di progettazione, aggiunto in corso d'o
 il _driver_ sviluppato, potrà essere sviluppato in unica soluzione e poi configurato in
 base al microcontrollore scelto. Di conseguenza il codice alla base risulta più facilmente manutenibile e
 privo di discrepanze tra versioni per diversi microcontrollori.
+
+#figure(
+```rust
+// Definisco gli stati che un messaggio può assumere
+trait MessageState{}
+// Il messaggio non ha ne header, ne body
+struct Empty{}
+// Il messaggio ha un header, ma non il body (che va inserito prima di poter procedere)
+struct WithHeader{}
+// Il messaggio ha sia header, sia body (il body potrebbe essere vuoto) e si può inviare
+struct Sendable{}
+impl MessageState for Empty{}
+impl MessageState for WithHeader{}
+impl MessageState for Sendable{}
+
+// L'unica azione permessa quando si ha un messaggio con un header, è aggiungere un corpo
+impl Message<WithHeader> {
+    fn add_body(self, body: String) -> Message<Sendable> {
+        // ...
+    }
+}
+
+// Per poter inviare il messaggio, il tipo di quest'ultimo deve essere "inviabile", cioè "Sendable"
+impl Message<Sendable> {
+    fn send(self) {
+        // ...
+    }
+}
+```,
+  caption: [esempio parziale di definizione di un contratto con il modello _typestate_ in _Rust_.]
+)
 
 === Verifica e validazione
 

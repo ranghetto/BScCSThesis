@@ -154,6 +154,11 @@
       key: "singleton",
       short: "singleton",
       desc: [modello di progettazione _software_ che prevede l'istanziazione univoca di una classe.]
+    ),
+    (
+      key: "ts",
+      short: "typestate",
+      desc: [modello di progettazione _software_ che prevede il trasferimento delle informazioni di stato di un oggetto, dall'esecuzione alla compilazione.]
     )
   )
 )
