@@ -30,6 +30,7 @@ Tutti i prodotti attesi sono stati sviluppati:
 L'unico argomento che, a causa del tempo e delle priorità, non siamo riusciti ad affrontare, è stato l'implementazione
 di test automatici per la verifica del _driver_.
 L'obiettivo non era comunque richiesto, sarebbe stato un'aggiunta interessante, qual'ora ci fosse stato il tempo.
+I requisiti richiesti, per implementare le funzionalità minime, nonché le più richieste, sono stati soddisfatti al 100%.
 
 Il tirocinio ha superato di gran lunga le mie aspettative iniziali. L'ambiente stimolante ed energico mi ha consentito
 di svolgerlo al meglio e di portare a compimento tutti gli obiettivi che mi ero prefissato.
