@@ -3,12 +3,14 @@
 
 #pagebreak(to:"odd")
 
-= Gestione operativa
+= Sfide affrontate e Risultati
 <cap:stage-description>
 
 #v(1em)
 #text(style: "italic", [
-  Il presente capitolo descrive quali sono stati i principali problemi affrontati durante il tirocinio e infine quali sono stati i frutti del lavoro svolto.
+  Il presente capitolo descrive quali sono stati alcuni dei problemi affrontati durante il tirocinio e infine quali sono
+  stati i frutti del lavoro svolto. Nel capitolo verrà anche presentato un esempio completo di attività svolte per una
+  sezione del progetto, al fine di dare concretezza al contesto.
 ])
 #v(1em)
 
@@ -24,10 +26,6 @@ elettroniche del componente _EVADC_.
 Particolari dubbi mi sono sorti nel corso dello studio del manuale, legati proprio al lato elettronico,
 per il quale avevo una conoscenza basica, legata solamente alla mia esperienza da autodidatta.
 
-In questo processo ho iniziato a scrivere i documenti tecnici _Software Requirements Specification_ e
-_Low Level Requirements_. Nella specifica dei requisiti, oltre ai requisiti stessi, era presente anche il
-corrispondente diagramma dei casi d'uso.
-
 #figure(
   image("../images/uc1-5.svg", width: 100%),
   caption: [
@@ -40,6 +38,24 @@ corrispondente diagramma dei casi d'uso.
     diagramma del caso d'uso numero 6.
   ],
 )<uc6>
+
+In questo processo ho iniziato a scrivere i documenti tecnici _Software Requirements Specification_ e
+_Low Level Requirements_. Nella specifica dei requisiti, oltre ai requisiti stessi, era presente anche il
+corrispondente diagramma dei casi d'uso.
+I requisiti raccolti, frutto dei casi d'uso, andavano a coprire un insieme di funzionalità considerato minimo per
+l'utente medio di una libreria di questo tipo.
+Per trovare l'insieme minimo, ci siamo confrontati con un collega, che aveva avuto diverse esperienze di utilizzo del
+modulo _EVADC_ da parte dei clienti, che ci ha dato una visione sulle caratteristiche più usate.
+In tutto ho prodotto quindici requisiti funzionali e cinque requisiti di vincolo, per un totale di venti.
+Di seguito riporto una sezione della tabella dei requisiti, modificata per includere tutti i dati, che erano divisi nei
+vari documenti:
+
+#figure(
+  image("../images/req_example.png", width: 100%),
+  caption: [
+    rappresentazione dei dati raccolti, in forma tabellare, per una parte dei requisiti.
+  ],
+)
 
 Durante l'analisi ho anche sviluppato il primo #gls("mvp")#sub[G], cioè un'implementazione del _software_
 basilare, priva di una documentazione dettagliata, atta a fornire riscontri rapidi in merito alle
@@ -95,7 +111,7 @@ Il suo scopo è anche quello di descrivere, ad alto livello, quali modelli proge
 senza specificarne in dettaglio l'implementazione, che potrebbe cambiare da linguaggio a linguaggio.
 
 Utilizzando la notazione _UML_ più recente, e le mie conoscenze pregresse, è stato comunque difficile
-descrivere alcune parti dell'architettura, a causa della scelta "obbligata" dell'uso di _Rust_.
+descrivere alcune parti dell'architettura, spiegate di seguito, a causa della scelta "obbligata" dell'uso di _Rust_.
 Infatti il linguaggio scelto offre un paradigma di programmazione che si discosta dai canoni classici e di
 conseguenza risulta più difficile da rappresentare. Dovendo scegliere, ho preferito chiarezza e
 comprensibilità piuttosto di correttezza della sintassi _UML_.
@@ -179,10 +195,10 @@ il controllo a metodi e funzioni.
 
 === Implementazione
 
-L'implementazione è stata il processo che è durato meno tempo; considerando il lavoro svolto a
-priori rientrava nella pianificazione effettuata a inizio tirocinio.
+L'implementazione è stata l'attività che è durata meno tempo; considerando il lavoro svolto a
+priori, rientrava nella pianificazione effettuata a inizio tirocinio.
 
-Durante questo processo, mentre sviluppavo, uno dei miei tutor si occupava di provare ad usare la
+Durante questa attività, mentre sviluppavo, uno dei miei tutor si occupava di provare ad usare la
 libreria _software_, per dare un riscontro immediato sull'usabilità della stessa.
 Il lavoro congiunto mi ha permesso di migliorarne notevolmente semplicità e comprensibilità da
 parte dell'utente finale, oltre che a permettermi di trovare immediatamente errori logici di
@@ -310,6 +326,157 @@ fn main() {
   ],
 )
 
+== Esempio di creazione dell'architettura
+
+Di seguito voglio fornire un esempio, completo di tutte le attività di analisi e progettazione, di una sezione
+dell'intero progetto. La sezione in esame è l'inizializzazione del modulo _EVADC_.
+
+Durante la fase preliminare dell'analisi ho affrontato i programmi esistenti, esempi di utilizzo, proposti
+dalla casa madre del microcontrollore, scritti in _C_.
+Oltre a provare il loro funzionamento direttamente sull'_hardware_, ho stilato una lista di vincoli e operazioni
+necessarie, al fine di inizalizzare, in modo basico, la periferica.
+Questa lista è stata il punto di inizio per la scrittura dei casi d'uso e dei requisiti, ma è stata fondamentale
+anche al fine di imparare come il microcontrollore gestisce le periferiche tramite la memoria.
+
+#figure(
+  image("../images/illd_evadc_example.png", width: 100%),
+  caption: [
+    funzione all'interno di uno degli esempi in _C_ di _Infineon_ dalla quale ho studiato come funziona il modulo _EVADC_.
+  ],
+)
+
+#figure(
+  image("../images/reg_val_example.png", width: 100%),
+  caption: [
+    sezione del documento di analisi preliminare dove andavo a descrivere il significato dei singoli registri utili.
+  ],
+)
+
+#figure(
+  image("../images/basic_init_doc.png", width: 50%),
+  caption: [
+    sezione del documento di analisi preliminare che descrivi i passaggi minimi per l'inizializzazione del modulo.
+  ],
+)
+
+Arrivati a questo punto ho scritto i casi d'uso ed i relativi requisiti. Queste attività hanno richiesto attenzione
+particolare, in quanto non era mai stato fatto un lavoro di questo tipo in azienda, ossia con questa granularità,
+per quanto riguarda progetti legati a dei _driver_.
+Oltre alla produzione di documenti per il progetto di tirocinio stesso, abbiamo anche aggiornato la documentazione
+aziendale di conseguenza.
+Al fine di validare la mia comprensione di funzionamento della periferica, ho creato un _MVP_ in _Rust_ che andava ad
+inizializzare il modulo, verificando, grazie al _software UDE_, che lo stato dei registri, dopo l'inizializzazione,
+fosse lo stesso, sia con gli esempi in _C_, sia con l'_MVP_ in _Rust_.
+
+#figure(
+  image("../images/usecase_mod_init.png", width: 100%),
+  caption: [
+    digramma dei casi d'uso specifico riguardo l'inizializzazione del modulo _EVADC_.
+  ],
+)
+
+#figure(
+  image("../images/req_func_mod_init.png", width: 100%),
+  caption: [
+    requisito funzionale specifico riguardo l'inizializzazione del modulo _EVADC_.
+  ],
+)
+
+#figure(
+  image("../images/req_constraint_mod_init.png", width: 100%),
+  caption: [
+    requisito di vincolo specifico riguardo l'inizializzazione del modulo _EVADC_.
+  ],
+)
+
+#figure(
+  image("../images/llfr_mod_init.png", width: 100%),
+  caption: [
+    requisito funzionale di basso livello riguardo l'inizializzazione del modulo _EVADC_.
+  ],
+)
+
+La progettazione, come ho già detto sopra, è stata l'attività più difficile in termini di ragionamento.
+Partendo dai requisiti mi sono cimentato nella creazione di un'architettura adatta.
+La prima attività, e probabilmente la più utile, è stata definire gli stati, e le transizioni tra di essi, nei quali
+il _software_ sarebbe potuto essere.
+Per fare ciò ho sviluppato un secondo _MVP_, senza funzionalità, con il solo scopo di provare un modello di
+progettazione che secondo me era il più adatto per questo caso, il _typestate_.
+
+#figure(
+  image("../images/mvp2_evadc_init.png", width: 100%),
+  caption: [
+    sezione di codice del secondo _MVP_ per provare il funzionamento degli stati.
+  ],
+)
+
+#figure(
+  image("../images/statechart_mod_init.png", width: 100%),
+  caption: [
+    diagramma degli stati per il modulo _EVADC_, diviso per stati a tempo di compilazione e tempo di esecuzione.
+  ],
+)
+
+Dopo questo passaggio ho iniziato, grazie a tutte le informazioni ottenute, a scrivere i documenti di specifica tecnica,
+nei quali erano presenti anche due diagrammi, che hanno aggiunto valore alla progettazione stessa.
+Essi sono stati in ordine, il diagramma delle classi e quello di sequenza.
+Il primo è servito per costruire l'architettura del sistema, in questo caso quella del modulo _EVADC_ stesso.
+Secondo i casi d'uso ed i requisiti, il compito di questa sezione del sistema era quello di fornire un'interfaccia per:
++ avere la possibilità di creare una configurazione per la periferica;
++ avere la possibilità di applicare la configurazione creata;
++ avere la possibilità di ottenere i sotto-componenti collegati alla periferica, in modo controllato;
++ abilitare o disabilitare la periferica.
+
+Il primo ed il secondo punto li ho risolti creando un oggetto di configurazione da passare al metodo omonimo.
+Da notare è il fatto che per fare questo è stato usato il _typestate pattern_, quindi già a tempo di compilazione ci si
+può assicurare che, se si vuole usare il modulo, bisogna per forza aver creato e applicato una configurazione corretta.
+Per l'abilitazione della perifierica ho usato invece un normale _state pattern_, allo scopo di gestire in modo controllato
+le transizioni.
+Infine, per rispndere al requisito di vincolo, che chiedeva l'inizializzazione del modulo generico prima di ogni altro,
+ho fatto in modo che si potessero ottenere i sotto-componenti collegati solo dopo, aver applicato la configurazione e
+lanciato il metodo per bloccarla definitivamente.
+Inoltre, grazie al concetto di _ownership_ di _Rust_, ho potuto fare in sotto-componenti potessero essere presenti, all'
+interno del sistema, una volta sola, così da rispettare le proprietà fisiche dell'_hardware_.
+
+Per concludere, ci tengo anche a citare un'altro modello di progettazione utilizzato, non solo in questa parte, ma in
+tutto il _driver_, che è l'_adapter_. Si tratta di un modello che aveva come scopo, quello di inserirsi tra il mio sistema
+e una libreria esterna, dove erano definiti tutti i registri della scheda elettronica.
+Essendo questa libreria in rapida evoluzione, ho preferito inserire un "cuscinetto" che la andasse ad astrarre, così
+da rendere il codice più mantenibile.
+
+#figure(
+  image("../images/cd_evadc_mod_init.png", width: 80%),
+  caption: [
+    sezione del diagramma delle classi che rappresenta il modo di applicare una configurazione al modulo _EVADC_.
+  ],
+)
+
+#figure(
+  image("../images/cd_evadc_mod_split.png", width: 100%),
+  caption: [
+    sezione del diagramma delle classi che rappresenta il modo bloccare la configurazione del modulo _EVADC_ e la classe
+    che fornisce i sotto-componenti.
+  ],
+)
+
+#figure(
+  image("../images/cd_evadc_mod_enable.png", width: 50%),
+  caption: [
+    sezione del diagramma delle classi che rappresenta i metodi per il cambio di stati dinamico del modulo _EVADC_.
+  ],
+)
+
+Finita una prima versione dell'architettura, ho creato un diagramma di sequenza, volto a capire quali fossero
+effettivamente i metodi da eseguire al fine di inizalizzare il modulo. Certamente il diagramma in quetione si è poi
+rivelato fondamentale anche come guida per capire il funzionamento di tutto il sistema, da parte di un potenziale
+utilizzatore.
+
+L'ultima attività è stata l'implementazione, dato che, come descritto sopra, le prove di funzionamento le avevo fatte
+attraverso un _MVP_ apposito.
+Ci tengo a sottolienare che tutte le attività sono state svolte in modo incrementale e non a cascata.
+La conseguenza è che, queste ultime, sono state portate a termine in parallelo, con continue modifiche e miglioramenti,
+pur avendole, controintuitivamente, descritte in maniera sequenziale.
+
 == Risultati ottenuti
 
 ==== Qualitativi
@@ -319,12 +486,14 @@ degli errori legati alla memoria di _C_ sono stati evitati grazie al semplice us
 lo studio effettuato da Shea Newton @polysync_misra_rust, riguardo a _MISRA_, uno _standard_ per il linguaggio _C_ che
 prevede regole rigide riguardo alla scrittura del codice, dove ha evidenziato come solo trentacinque delle
 centoquarantacinque regole _MISRA_ analizzate si applicassero anche a _Rust_. Le conseguenze sono rilevanti:
-minor tempo per provare il codice e difficoltà nell'introdurre determinate classi di errori, con conseguente
-miglioramento del _software_ in termini di sicurezza e manutenibilità.
+minor tempo per provare il codice, con una diminuzione del 75%, e difficoltà nell'introdurre determinate classi di errori,
+provato dal fatto che, durante i _test_ manuali, non siamo riusciti a mettere la scheda in uno stato di fallimento, attraverso
+il _driver_ creato.
 
 Un risultato che ha apportato un milgioramento al processo di analisi è stato in merito alla scrittura dei requisiti.
-Partendo da una base comune abbiamo introdotto nuovi punti di vista e diversi approcci per affrontare requisiti di
-un prodotto che non verrà mai utilizzato da solo, ma solamente come supporto alle operazioni di sistemi più grandi.
+Partendo da una base comune abbiamo introdotto, nella documentazione esistente, nuovi punti di vista e diversi approcci
+per affrontare requisiti di un prodotto che non verrà mai utilizzato da solo, ma solamente come supporto alle operazioni
+di sistemi più grandi.
 
 Lo studio che ho condotto ha svelato in oltre come l'ecosistema _Rust_ non sia ancora del tutto pronto ad essere
 integrato nei sistemi esistenti in produzione.
@@ -336,11 +505,16 @@ Rilasciando così tante versioni del linugaggio in poco tempo, visto che si trat
 Anche durante il mio tirocinio abbiamo dovuto investire molto tempo nello scovare errori legati a questa problematica,
 spesso trovando soluzioni temporanee.
 
+Altro risultato qualitativo riguarda tutti i documenti prodotti, che potrenno essere visionati dai colleghi come fonte
+di informazioni, molto pratica, sui temi trattati.
+Gli stessi, sono stati usati anche per scrivere anche la presentazione del lavoro, che è stata valutata positivamente,
+dicendomi che in futuro avrebbero potuto propormi per insegnare _Rust_ ai diversi _team_.
+
 ==== Quantitativi
 
 I prodotti creati sono i seguenti:
 - una libreria _software_ contenente il codice per l'uso del modulo _EVADC_ per i microcontrollori _Infineon TC37X_ e
-  _TC39X_;
+  _TC39X_ per un totale di 1727 righe di codice;
 - documento di specifica tecnica della libreria;
 - documento di specifica dei requisiti della libreria;
 - docuemnto di specifica dei requisiti di basso livello della libreria;

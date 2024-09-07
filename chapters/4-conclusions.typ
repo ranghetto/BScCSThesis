@@ -24,7 +24,8 @@ Tutti i prodotti attesi sono stati sviluppati:
 - un report sull'uso dell'_UDE_ con il linguaggio _Rust_;
 - un report sull'uso di _Prusti_ come strumento di verifica formale;
 - un documento di specifica dei requisiti, a supporto dell'implementazione;
-- un documento di specifica tecnica, dove spiegare le scelte progettuali fatte.
+- un documento di specifica tecnica, dove spiegare le scelte progettuali fatte;
+- il _driver_ per il modulo _EVADC_ in _Rust_.
 
 L'unico argomento che, a causa del tempo e delle priorità, non siamo riusciti ad affrontare, è stato l'implementazione
 di test automatici per la verifica del _driver_.
