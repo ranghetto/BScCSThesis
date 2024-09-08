@@ -283,7 +283,7 @@ impl Message<Sendable> {
 
 La prima validazione l'abbiamo eseguita facendo corrispondere, nella tabella di tracciamento,
 i requisiti, con l'implementazione dell'architettura che li soddisfava.
-Successivamente ho compiuto delle prove manuali direttamente sulla scheda elettronica,
+Successivamente ho compiuto una prova manuale per ogni requisito, direttamente sulla scheda elettronica,
 andando a verificare che tutti i casi d'uso fossero coperti e che venissero rispettate le
 attese in termini di funzionalità.
 
@@ -485,8 +485,8 @@ I risultati qualitativi più rilevanti sono sicuramente nell'ambito della sicure
 degli errori legati alla memoria di _C_ sono stati evitati grazie al semplice uso di _Rust_. Il risultato rafforza
 lo studio effettuato da Shea Newton @polysync_misra_rust, riguardo a _MISRA_, uno _standard_ per il linguaggio _C_ che
 prevede regole rigide riguardo alla scrittura del codice, dove ha evidenziato come solo trentacinque delle
-centoquarantacinque regole _MISRA_ analizzate si applicassero anche a _Rust_. Le conseguenze sono rilevanti:
-minor tempo per provare il codice, con una diminuzione del 75%, e difficoltà nell'introdurre determinate classi di errori,
+centoquarantacinque regole _MISRA_ analizzate si applicassero anche a _Rust_. La conseguenza rilevante
+è la maggior difficoltà nell'introdurre determinate classi di errori,
 provato dal fatto che, durante i _test_ manuali, non siamo riusciti a mettere la scheda in uno stato di fallimento, attraverso
 il _driver_ creato.
 
@@ -514,12 +514,19 @@ dicendomi che in futuro avrebbero potuto propormi per insegnare _Rust_ ai divers
 
 I prodotti creati sono i seguenti:
 - una libreria _software_ contenente il codice per l'uso del modulo _EVADC_ per i microcontrollori _Infineon TC37X_ e
-  _TC39X_ per un totale di 1727 righe di codice;
-- documento di specifica tecnica della libreria;
-- documento di specifica dei requisiti della libreria;
-- docuemnto di specifica dei requisiti di basso livello della libreria;
-- resoconto sull'utilizzo dello strumento _UDE_ con _Rust_;
-- resoconto su vantaggi e svantaggi dell'uso del modello architetturale _typestate_;
-- resoconto su vantaggi e svantaggi dell'uso dello strumento _Prusti_ per la verifica formale;
+  _TC39X_ per un totale di millesettecentoventisette (1727) righe di codice;
+- analisi preliminare sulla configurazione minima necessaria per il funzionamento del modulo _EVADC_, a supporto dell'implementazione;
+- diagramma delle classi, di sequenza e degli stati, utili alla descrizione dell'architettura;
+- diagramma dei casi d'uso, utile alla derivazione dei requisiti;
+- documento per i requisiti di basso livello, utili all'implementazione del _software_;
+- un report sul caso specifico del _pattern_ che usa i tipi per creare una macchina a stati finiti;
+- un report sull'uso dell'_UDE_ con il linguaggio _Rust_;
+- un report sull'uso di _Prusti_ come strumento di verifica formale;
+- un documento di specifica dei requisiti, a supporto dell'implementazione;
+- un documento di specifica tecnica, dove spiegare le scelte progettuali fatte;
 - lucidi di presentazione del lavoro svolto per spiegazione ai colleghi.
+
+Il totale ammonta a millecinquecento (1500) righe di documentazione divise in dieci documenti differenti.
+Altro risultato quantitavio degno di nota è certamente il tempo di sviluppo, che nel complesso ha richiesto otto
+settimane, perfettamente in linea con quanto programmato e disponibile.
 

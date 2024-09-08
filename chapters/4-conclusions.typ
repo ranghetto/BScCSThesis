@@ -9,28 +9,31 @@
 
 L'azienda si è rivelata entusiasta del lavoro svolto, grazie al quale si è potuta sperimentare in un ambito in forte
 crescita.
-In particolare, essa potrà usare i prodotti di questo tirocinio, come base per future ricerche e approfondimenti,
-ampliando così le sue prospettive nel settore della sicurezza funzionale.
-Inoltre, quanto ho creato, può essere facilmente replicato e utlizzato in diversi progetti, specialmente allo scopo di
+In particolare, essa userà i prodotti di questo tirocinio, come base per future ricerche e approfondimenti,
+ampliando così le sue prospettive nel settore della sicurezza funzionale. In particolare il mio lavoro sulla verifica
+formale del _software_ sarà il punto di partenza per uno dei prossimi tirocini in avviamento.
+Inoltre, quanto ho sviluppato, può essere facilmente replicato e utlizzato in diversi progetti, specialmente allo scopo di
 creazione di prototipi.
 Lo studio, di come _Rust_ potrà continuare a migliorare la sicurezza e l'esperienza durante lo sviluppo, ha confermato
 le nostre aspettative iniziali, grazie anche a tirocini effettuati in precedenza.
-Tutti i prodotti attesi sono stati sviluppati:
-- analisi preliminare sulla configurazione minima necessaria per il funzionamento del modulo _EVADC_, a supporto dell'implementazione;
-- diagramma delle classi, di sequenza e degli stati, utili alla descrizione dell'architettura;
-- diagramma dei casi d'uso, utile alla derivazione dei requisiti;
-- documento per i requisiti di basso livello, utili all'implementazione del _software_;
-- un report sul caso specifico del _pattern_ che usa i tipi per creare una macchina a stati finiti;
-- un report sull'uso dell'_UDE_ con il linguaggio _Rust_;
-- un report sull'uso di _Prusti_ come strumento di verifica formale;
-- un documento di specifica dei requisiti, a supporto dell'implementazione;
-- un documento di specifica tecnica, dove spiegare le scelte progettuali fatte;
-- il _driver_ per il modulo _EVADC_ in _Rust_.
+Non mancano i dubbi sulla sua maturità e su quella delle librerie collegate, che è uno dei motivi che fa desistere l'azienda
+dall'utilizzarlo in produzione.
 
 L'unico argomento che, a causa del tempo e delle priorità, non siamo riusciti ad affrontare, è stato l'implementazione
 di test automatici per la verifica del _driver_.
 L'obiettivo non era comunque richiesto, sarebbe stato un'aggiunta interessante, qual'ora ci fosse stato il tempo.
-I requisiti richiesti, per implementare le funzionalità minime, nonché le più richieste, sono stati soddisfatti al 100%.
+I requisiti trovati, per implementare le funzionalità minime, nonché le più richieste, sono stati soddisfatti al 100%,
+come si può vedere dalla tabella di tracciamento riportata sotto, in cui si vede che tutti sono stati soddisfatti.
+
+La qualità, del lavoro che ho portato a termine, è risultata di gradimento dell'azienda, in termini di processi,
+documentazione e qualità del codice.
+
+#figure(
+  image("../images/req_trace.png", width: 80%),
+  caption: [
+    tabella di tracciamento dei requisiti del docuemnto di specifica tecnica.
+  ],
+)
 
 Il tirocinio ha superato di gran lunga le mie aspettative iniziali. L'ambiente stimolante ed energico mi ha consentito
 di svolgerlo al meglio e di portare a compimento tutti gli obiettivi che mi ero prefissato.
@@ -42,6 +45,11 @@ mie conoscenze in ambito dell'ingegneria del _software_; finendo con quelli più
 - ho ampliato le mie conoscenze del linguaggio _Rust_, in particolare le caratteristiche che si applicano al contesto
   dei sistemi di controllo;
 - ho capito come si scrivono programmi che aderiscono a _standard_ e regole che li rendono certificabili, come l'_ISO 26262_.
+
+Un punto di miglioramento, avendo avuto più tempo, sarebbe stato l'incremento della documentazione, in termini di
+estensione ed esaustività.
+Ad esempio, si sarebbe potuto scrivere un documento di specifica di test e un conseguente report di copertura degli
+stessi.
 
 == Delta tra competenze pregresse e richieste
 
