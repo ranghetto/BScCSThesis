@@ -1,4 +1,4 @@
-# BSc Computer Science Thesis 2025
+# B.Sc. Computer Science Thesis 2025
 > Matteo Rango (2008066)
 
 ## Roadmap

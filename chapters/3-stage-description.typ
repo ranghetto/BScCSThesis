@@ -477,6 +477,21 @@ Ci tengo a sottolienare che tutte le attività sono state svolte in modo increme
 La conseguenza è che, queste ultime, sono state portate a termine in parallelo, con continue modifiche e miglioramenti,
 pur avendole, controintuitivamente, descritte in maniera sequenziale.
 
+#figure(
+  image("../images/evadc_ll_code.png", width: 100%),
+  caption: [
+    sezione di codice del _driver_ che scrive sui registri del microcontrollore una configurazione del modulo _EVADC_.
+  ],
+)
+
+#figure(
+  image("../images/evadc_hl_code.png", width: 70%),
+  caption: [
+    sezione di codice del _driver_ che, in ordine, genera una configurazione di _default_ per modulo _EVADC_, la applica,
+    la rende permanente e accende la periferica.
+  ],
+)
+
 == Risultati ottenuti
 
 ==== Qualitativi
