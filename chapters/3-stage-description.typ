@@ -234,7 +234,7 @@ Ci tengo a sottolineare che per noi era fondamentale riuscire a gestire la confi
 Infatti il rischio, se non si adotta questa pratica, è quello di introdurre errori difficilissimi da trovare e
 risolvere; senza considerare il rischio, nel peggiore dei casi, di rompere la scheda.
 Il precedente _driver_, sviluppato in _C_, implementava alcune funzionalità lasciando all'utente la piena responsabilità
-delle sue azioni, permettendogli quindi di creare configurazioni sbaliate.
+delle sue azioni, permettendogli quindi di creare configurazioni sbagliate.
 La difficoltà è stata, di conseguenza, quella di creare un'interfaccia che rimuovesse questa classe di errori, senza
 inficiare sul numero di funionalità offerte, obiettivo che è stato raggiunto con successo.
 
@@ -244,7 +244,7 @@ _ADC_ presenti e nella loro distribuzione.
 Così abbiamo aggiunto la possibilità di compilare il codice per due diverse schede, utilizzando un comando specifico
 in fase di compilazione.
 Il risultato di questo ulteriore vincolo di progettazione, aggiunto in corso d'opera, ci ha garantito che
-il _driver_ sviluppato, potrà essere sviluppato in unica soluzione e poi configurato in
+il _driver_, potrà essere sviluppato in unica soluzione e poi configurato in
 base al microcontrollore scelto. Di conseguenza il codice alla base risulta più facilmente manutenibile e
 privo di discrepanze tra versioni per diversi microcontrollori.
 
@@ -287,8 +287,8 @@ Successivamente ho compiuto una prova manuale per ogni requisito, direttamente s
 andando a verificare che tutti i casi d'uso fossero coperti e che venissero rispettate le
 attese in termini di funzionalità.
 
-Non abbiamo implementato alcuna prova automatica del _software_ principalmente a causa del tempo
-e della priorità che essa aveva rispetto ad altre attività.
+Non abbiamo implementato alcuna prova automatica del _software_, principalmente a causa del tempo
+e della priorità che esse avevano rispetto ad altre attività.
 Di fatto, una prova molto interessante è avvenuta nel campo della verifica formale.
 
 Ho provato ad integrare _Prusti_, uno strumento di verifica formale, utile per provare la
@@ -297,7 +297,7 @@ codice.
 In generale questi strumenti trasformano il codice, e le condizioni che
 si vogliono verificare, in una forma tale per cui possano essere controllate matematicamente.
 Tuttavia, lo scopo del suo utilizzo non era capirne il funzionamento nel dettaglio,
-bensì fare uno studio sulla semplicità di utilizzo e implementazione, pur non sapendone i
+bensì fare uno studio sulla semplicità di utilizzo, pur non sapendone i
 dettagli implementativi.
 
 #figure(
@@ -331,8 +331,8 @@ fn main() {
 Di seguito voglio fornire un esempio, completo di tutte le attività di analisi e progettazione, di una sezione
 dell'intero progetto. La sezione in esame è l'inizializzazione del modulo _EVADC_.
 
-Durante la fase preliminare dell'analisi ho affrontato i programmi esistenti, esempi di utilizzo, proposti
-dalla casa madre del microcontrollore, scritti in _C_.
+Durante la fase preliminare dell'analisi, ho affrontato i programmi esistenti, cioè gli esempi di utilizzo scritti in _C_,
+proposti dalla casa madre del microcontrollore.
 Oltre a provare il loro funzionamento direttamente sull'_hardware_, ho stilato una lista di vincoli e operazioni
 necessarie, al fine di inizalizzare, in modo basico, la periferica.
 Questa lista è stata il punto di inizio per la scrittura dei casi d'uso e dei requisiti, ma è stata fondamentale
@@ -398,7 +398,7 @@ fosse lo stesso, sia con gli esempi in _C_, sia con l'_MVP_ in _Rust_.
 
 La progettazione, come ho già detto sopra, è stata l'attività più difficile in termini di ragionamento.
 Partendo dai requisiti mi sono cimentato nella creazione di un'architettura adatta.
-La prima attività, e probabilmente la più utile, è stata definire gli stati, e le transizioni tra di essi, nei quali
+La prima attività, e probabilmente la più utile, è stata definire gli stati e le transizioni tra di essi, nei quali
 il _software_ sarebbe potuto essere.
 Per fare ciò ho sviluppato un secondo _MVP_, senza funzionalità, con il solo scopo di provare un modello di
 progettazione che secondo me era il più adatto per questo caso, il _typestate_.
@@ -435,11 +435,11 @@ le transizioni.
 Infine, per rispndere al requisito di vincolo, che chiedeva l'inizializzazione del modulo generico prima di ogni altro,
 ho fatto in modo che si potessero ottenere i sotto-componenti collegati solo dopo, aver applicato la configurazione e
 lanciato il metodo per bloccarla definitivamente.
-Inoltre, grazie al concetto di _ownership_ di _Rust_, ho potuto fare in sotto-componenti potessero essere presenti, all'
+Inoltre, grazie al concetto di _ownership_ di _Rust_, ho fatto in modo che i sotto-componenti potessero essere presenti, all'
 interno del sistema, una volta sola, così da rispettare le proprietà fisiche dell'_hardware_.
 
-Per concludere, ci tengo anche a citare un'altro modello di progettazione utilizzato, non solo in questa parte, ma in
-tutto il _driver_, che è l'_adapter_. Si tratta di un modello che aveva come scopo, quello di inserirsi tra il mio sistema
+Per concludere, ci tengo anche a citare un altro modello di progettazione utilizzato, non solo in questa parte, ma in
+tutto il _driver_, che è l'_adapter_. Si tratta di un modello che aveva come scopo quello di inserirsi tra il mio sistema
 e una libreria esterna, dove erano definiti tutti i registri della scheda elettronica.
 Essendo questa libreria in rapida evoluzione, ho preferito inserire un "cuscinetto" che la andasse ad astrarre, così
 da rendere il codice più mantenibile.
@@ -467,15 +467,15 @@ da rendere il codice più mantenibile.
 )
 
 Finita una prima versione dell'architettura, ho creato un diagramma di sequenza, volto a capire quali fossero
-effettivamente i metodi da eseguire al fine di inizalizzare il modulo. Certamente il diagramma in quetione si è poi
-rivelato fondamentale anche come guida per capire il funzionamento di tutto il sistema, da parte di un potenziale
+effettivamente i metodi da eseguire al fine di inizializzare il modulo. Il diagramma in questione si è poi
+rivelato fondamentale anche come guida per capire il funzionamento di tutto il sistema da parte di un potenziale
 utilizzatore.
 
 L'ultima attività è stata l'implementazione, dato che, come descritto sopra, le prove di funzionamento le avevo fatte
 attraverso un _MVP_ apposito.
 Ci tengo a sottolienare che tutte le attività sono state svolte in modo incrementale e non a cascata.
 La conseguenza è che, queste ultime, sono state portate a termine in parallelo, con continue modifiche e miglioramenti,
-pur avendole, controintuitivamente, descritte in maniera sequenziale.
+pur avendole descritte in maniera sequenziale.
 
 #figure(
   image("../images/evadc_ll_code.png", width: 100%),
@@ -497,7 +497,7 @@ pur avendole, controintuitivamente, descritte in maniera sequenziale.
 ==== Qualitativi
 
 I risultati qualitativi più rilevanti sono sicuramente nell'ambito della sicurezza funzionale, infatti moltissimi
-degli errori legati alla memoria di _C_ sono stati evitati grazie al semplice uso di _Rust_. Il risultato rafforza
+degli errori legati alla memoria di _C_, sono stati evitati grazie al semplice uso di _Rust_. Il risultato rafforza
 lo studio effettuato da Shea Newton @polysync_misra_rust, riguardo a _MISRA_, uno _standard_ per il linguaggio _C_ che
 prevede regole rigide riguardo alla scrittura del codice, dove ha evidenziato come solo trentacinque delle
 centoquarantacinque regole _MISRA_ analizzate si applicassero anche a _Rust_. La conseguenza rilevante
@@ -505,12 +505,12 @@ centoquarantacinque regole _MISRA_ analizzate si applicassero anche a _Rust_. La
 provato dal fatto che, durante i _test_ manuali, non siamo riusciti a mettere la scheda in uno stato di fallimento, attraverso
 il _driver_ creato.
 
-Un risultato che ha apportato un milgioramento al processo di analisi è stato in merito alla scrittura dei requisiti.
+Un risultato che ha apportato un miglioramento al processo di analisi è stato in merito alla scrittura dei requisiti.
 Partendo da una base comune abbiamo introdotto, nella documentazione esistente, nuovi punti di vista e diversi approcci
 per affrontare requisiti di un prodotto che non verrà mai utilizzato da solo, ma solamente come supporto alle operazioni
 di sistemi più grandi.
 
-Lo studio che ho condotto ha svelato in oltre come l'ecosistema _Rust_ non sia ancora del tutto pronto ad essere
+Lo studio che ho condotto ha svelato, inoltre, come l'ecosistema _Rust_ non sia ancora del tutto pronto ad essere
 integrato nei sistemi esistenti in produzione.
 Uno dei problemi principali sono le versioni che vengono rilasciate: per accedere alle ultime funzionalità
 del linguaggio bisogna usare versioni recenti, ma molti strumenti sono stati costruiti per versioni più vecchie e non
@@ -520,10 +520,8 @@ Rilasciando così tante versioni del linugaggio in poco tempo, visto che si trat
 Anche durante il mio tirocinio abbiamo dovuto investire molto tempo nello scovare errori legati a questa problematica,
 spesso trovando soluzioni temporanee.
 
-Altro risultato qualitativo riguarda tutti i documenti prodotti, che potrenno essere visionati dai colleghi come fonte
-di informazioni, molto pratica, sui temi trattati.
-Gli stessi, sono stati usati anche per scrivere anche la presentazione del lavoro, che è stata valutata positivamente,
-dicendomi che in futuro avrebbero potuto propormi per insegnare _Rust_ ai diversi _team_.
+Altro risultato qualitativo riguarda tutti i documenti prodotti, che potranno essere visionati dai colleghi, come fonte
+di informazioni, sui temi trattati.
 
 ==== Quantitativi
 
@@ -542,6 +540,6 @@ I prodotti creati sono i seguenti:
 - lucidi di presentazione del lavoro svolto per spiegazione ai colleghi.
 
 Il totale ammonta a millecinquecento (1500) righe di documentazione divise in dieci documenti differenti.
-Altro risultato quantitavio degno di nota è certamente il tempo di sviluppo, che nel complesso ha richiesto otto
-settimane, perfettamente in linea con quanto programmato e disponibile.
+Altro risultato quantitativo degno di nota è il tempo per portare a compimento il progetto,
+che nel complesso ha richiesto otto settimane, perfettamente in linea con quanto programmato e disponibile.
 

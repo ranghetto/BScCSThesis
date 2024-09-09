@@ -35,7 +35,7 @@
       key: "its",
       short: "ITS",
       long: "issue tracking system",
-      desc: [strumento di gestione di progetto che permette tracciare il lavoro svolto.]
+      desc: [strumento di gestione di progetto che permette di tracciare il lavoro svolto.]
     ),
     (
       key: "adc",
@@ -53,7 +53,7 @@
       key: "sar",
       short: "SAR",
       long: "successive approximation register",
-      desc: [tipologia di _ADC_ che funziona attraverso l'approsimazione iterativa del valore analogico attraverso una ricerca binaria attraverso tutti i livelli
+      desc: [tipologia di _ADC_ che funziona attraverso l'approsimazione iterativa del valore analogico. Esso effettua una ricerca binaria di tutti i livelli
       di precisione che il componente stesso offre.]
     ),
     (
@@ -143,7 +143,7 @@
     (
       key: "tuple",
       short: "tuple",
-      desc: [struttura dati che può contenere più valori di uguale o diverso tipo.]
+      desc: [struttura dati di _Rust_ che può contenere più valori di uguale o diverso tipo.]
     ),
     (
       key: "ownership",
