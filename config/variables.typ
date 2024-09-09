@@ -4,7 +4,7 @@
 #let myMatricola = "2008066"
 #let myTitle = "Modernizzazione delle Applicazioni dei Sistemi di Controllo"
 #let myDegree = "Tesi di laurea"
-#let myUni = "Università degli studi di Padova"
+#let myUni = "Università degli Studi di Padova"
 #let myDepartment = "Dipartimento di Matematica ''Tullio Levi-Civita''"
 #let myFaculty = "Corso di Laurea in Informatica"
 #let profTitle = "Prof. "

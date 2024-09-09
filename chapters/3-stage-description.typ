@@ -3,7 +3,7 @@
 
 #pagebreak(to:"odd")
 
-= Sfide affrontate e Risultati
+= Svolgimento del progetto
 <cap:stage-description>
 
 #v(1em)
@@ -14,7 +14,7 @@
 ])
 #v(1em)
 
-== Problemi progettuali e tecnologici affrontati
+== Attività e nuovi approcci
 
 === Analisi
 

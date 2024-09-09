@@ -48,7 +48,7 @@ riguardo gli strumenti adottati da _Bluewind_ e quindi l'integrazione potrà ess
 === Scopo
 
 Il codice attualmente presente nei sistemi in produzione è ancora prevalentemente scritto in _C_. Nonostante
-le aziende, che operano nel settore automobilistico, attingano ai più moderni _standard_ per la creazione di
+le aziende che operano nel settore automobilistico, attingano ai più moderni _standard_ per la creazione di
 _software_, a volte non è sufficiente a garantire che esso sia sicuro e affidabile.
 Inoltre, vista la natura stessa del linguaggio _C_, il codice che ne deriva può risultare difficile da leggere
 e _mantenere_.
