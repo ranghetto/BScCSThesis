@@ -129,10 +129,11 @@
       desc: [requisiti che descrivono un comportamento o un'azione che il sistema deve svolgere, senza specificare come essa si compie.]
     ),
     (
-      key: "mvp",
-      short: "MVP",
-      long: "Minimal Viable Product",
-      desc: [versione minimale di un prodotto, spesso usato per verificare fattibilità ed efficacia ed ottenere un riscontro rapido. Solitamente è sviluppato in tempi brevi e per questo non implementa tutte le funzionalità.]
+      key: "poc",
+      short: "POC",
+      long: "Proof of Concept",
+      desc: [versione minimalista di un prodotto, spesso usato per verificare fattibilità ed efficacia ed ottenere un
+      riscontro rapido. Solitamente è sviluppato in tempi brevi e per questo non implementa tutte le funzionalità.]
     ),
     (
       key: "uml",

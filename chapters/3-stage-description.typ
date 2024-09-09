@@ -57,10 +57,10 @@ vari documenti:
   ],
 )
 
-Durante l'analisi ho anche sviluppato il primo #gls("mvp")#sub[G], cioè un'implementazione del _software_
+Durante l'analisi ho anche sviluppato il primo #gls("poc")#sub[G], cioè un'implementazione del _software_
 basilare, priva di una documentazione dettagliata, atta a fornire riscontri rapidi in merito alle
 funzionalità che essa fornisce.
-I risultati dell'_MVP_ sono stati:
+I risultati del _POC_ sono stati:
 - la conferma delle ultime nozioni acquisite, in merito all'implementazione originale del _software_ di
   controllo della periferica _EVADC_;
 - l'ottenimento di importanti informazioni tecniche di funzionamento del microcontrollore che altrimenti
@@ -90,7 +90,7 @@ opportunamente verificato, ma per il quale non avremo mai la certezza matematica
 
 Per capire di avere la necessità di una gestione divisa tra compilazione e esecuzione, non mi sono state
 sufficienti le fasi di analisi e progettazione. A loro ho dovuto affiancare anche
-la costruzione di un secondo _MVP_, che comprendeva solamente la gestione degli stati,
+la costruzione di un secondo _POC_, che comprendeva solamente la gestione degli stati,
 senza alcuna funzionalità pratica. Ciò mi ha permesso di concentrare i miei sforzi
 sulla creazione dell'architettura, piuttosto che sui problemi legati al funzionamento del
 microcontrollore.
@@ -216,7 +216,7 @@ in un particolare caso d'uso. Di seguto riporto una sezione di tale diagramma.
   ],
 )
 
-Nonostante la creazione dei due _MVP_, durante la fase di implementazione, le sfide non sono mancate.
+Nonostante la creazione dei due _POC_, durante la fase di implementazione, le sfide non sono mancate.
 In particolar modo ci tengo a descrivere la più significativa, ossia quella legata al modello di progettazione chiamato
 #gls("ts")#sub[G].
 Il _typestate pattern_ si può collocare nei modelli progettuali comportamentali e
@@ -364,9 +364,9 @@ particolare, in quanto non era mai stato fatto un lavoro di questo tipo in azien
 per quanto riguarda progetti legati a dei _driver_.
 Oltre alla produzione di documenti per il progetto di tirocinio stesso, abbiamo anche aggiornato la documentazione
 aziendale di conseguenza.
-Al fine di validare la mia comprensione di funzionamento della periferica, ho creato un _MVP_ in _Rust_ che andava ad
+Al fine di validare la mia comprensione di funzionamento della periferica, ho creato un _POC_ in _Rust_ che andava ad
 inizializzare il modulo, verificando, grazie al _software UDE_, che lo stato dei registri, dopo l'inizializzazione,
-fosse lo stesso, sia con gli esempi in _C_, sia con l'_MVP_ in _Rust_.
+fosse lo stesso, sia con gli esempi in _C_, sia con l'_POC_ in _Rust_.
 
 #figure(
   image("../images/usecase_mod_init.png", width: 100%),
@@ -400,13 +400,13 @@ La progettazione, come ho già detto sopra, è stata l'attività più difficile 
 Partendo dai requisiti mi sono cimentato nella creazione di un'architettura adatta.
 La prima attività, e probabilmente la più utile, è stata definire gli stati e le transizioni tra di essi, nei quali
 il _software_ sarebbe potuto essere.
-Per fare ciò ho sviluppato un secondo _MVP_, senza funzionalità, con il solo scopo di provare un modello di
+Per fare ciò ho sviluppato un secondo _POC_, senza funzionalità, con il solo scopo di provare un modello di
 progettazione che secondo me era il più adatto per questo caso, il _typestate_.
 
 #figure(
   image("../images/mvp2_evadc_init.png", width: 100%),
   caption: [
-    sezione di codice del secondo _MVP_ per provare il funzionamento degli stati.
+    sezione di codice del secondo _POC_ per provare il funzionamento degli stati.
   ],
 )
 
@@ -472,7 +472,7 @@ rivelato fondamentale anche come guida per capire il funzionamento di tutto il s
 utilizzatore.
 
 L'ultima attività è stata l'implementazione, dato che, come descritto sopra, le prove di funzionamento le avevo fatte
-attraverso un _MVP_ apposito.
+attraverso un _POC_ apposito.
 Ci tengo a sottolienare che tutte le attività sono state svolte in modo incrementale e non a cascata.
 La conseguenza è che, queste ultime, sono state portate a termine in parallelo, con continue modifiche e miglioramenti,
 pur avendole descritte in maniera sequenziale.
