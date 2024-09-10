@@ -1,5 +1,18 @@
 #import "@preview/glossarium:0.4.1": make-glossary, gls
 #show: make-glossary
+#show heading.where(level: 1): it => {
+    counter(math.equation).update(0)
+    counter(figure.where(kind: image)).update(0)
+    counter(figure.where(kind: table)).update(0)
+    counter(figure.where(kind: raw)).update(0)
+    it
+ }
+#set math.equation(numbering: num =>
+    "(" + (str(counter(heading).get().at(0)) + "." + str(num)) + ")"
+)
+#set figure(numbering: num =>
+    str(counter(heading).get().at(0)) + "." + str(num)
+)
 
 #pagebreak(to:"odd")
 
@@ -8,9 +21,9 @@
 
 #v(1em)
 #text(style: "italic", [
-  Il presente capitolo descrive quali sono stati alcuni dei problemi affrontati durante il tirocinio e infine quali sono
-  stati i frutti del lavoro svolto. Nel capitolo verrà anche presentato un esempio completo di attività svolte per una
-  sezione del progetto, al fine di dare concretezza al contesto.
+  Nel presente capitolo descrivo quali sono state le attività e
+  i frutti del lavoro. Nel capitolo mostrerò anche un esempio, di una sezione del progetto,
+  di tutte le attività svolte, al fine di dare concretezza al contesto.
 ])
 #v(1em)
 
@@ -57,10 +70,10 @@ vari documenti:
   ],
 )
 
-Durante l'analisi ho anche sviluppato il primo #gls("poc")#sub[G], cioè un'implementazione del _software_
+Durante l'analisi ho anche sviluppato il primo #gls("proof")#sub[G], cioè un'implementazione del _software_
 basilare, priva di una documentazione dettagliata, atta a fornire riscontri rapidi in merito alle
 funzionalità che essa fornisce.
-I risultati del _POC_ sono stati:
+I risultati del _PoC_ sono stati:
 - la conferma delle ultime nozioni acquisite, in merito all'implementazione originale del _software_ di
   controllo della periferica _EVADC_;
 - l'ottenimento di importanti informazioni tecniche di funzionamento del microcontrollore che altrimenti
@@ -90,7 +103,7 @@ opportunamente verificato, ma per il quale non avremo mai la certezza matematica
 
 Per capire di avere la necessità di una gestione divisa tra compilazione e esecuzione, non mi sono state
 sufficienti le fasi di analisi e progettazione. A loro ho dovuto affiancare anche
-la costruzione di un secondo _POC_, che comprendeva solamente la gestione degli stati,
+la costruzione di un secondo _PoC_, che comprendeva solamente la gestione degli stati,
 senza alcuna funzionalità pratica. Ciò mi ha permesso di concentrare i miei sforzi
 sulla creazione dell'architettura, piuttosto che sui problemi legati al funzionamento del
 microcontrollore.
@@ -116,23 +129,27 @@ Infatti il linguaggio scelto offre un paradigma di programmazione che si discost
 conseguenza risulta più difficile da rappresentare. Dovendo scegliere, ho preferito chiarezza e
 comprensibilità piuttosto di correttezza della sintassi _UML_.
 
-Il primo esempio riguarda l'uso delle #gls("tuple")#sub[G]. In _Rust_ una _tuple_ è una collezione di valori di
-diversi tipi (o anche di tipi uguali). Ogni _tuple_ è un valore a se stante e il suo tipo è formato
+Il primo esempio riguarda l'uso delle #gls("tuple")#sub[G]. In _Rust_ una _tuple_ è una collezione di valori,
+anche di diverso tipo. Ogni _tuple_ è un valore a se stante e il suo tipo è formato
 dall'insieme dei tipi dei suoi membri:
 #figure(
 ```rust
-// Esempio di una tuple che rappresenta un punto in uno spazio bi-dimensionale.
-// Il tipo è (i32, i32).
-struct Punto(i32, i32);
+// [...]
 
-// Rappresentazione di un punto tramite valori a virgola mobile.
-// Il tipo è (f32, f32);
-struct PuntoPreciso(f32, f32);
+// Il tipo è (ModuleParts, ModuleMode).
+struct ModuleSections(ModuleParts, ModuleMode);
 
-// Rappresentazione di una persona tramite due campi: nome ed età.
-// Il tipo è (String, u8).
-struct Persona(String, u8);
-```, caption: [esempio di rappresentazione di diverse _tuple_ in _Rust_.])
+impl EvadcModule<Initialized> {
+    pub fn split(self) -> ModuleSections {
+        return ModuleSections(
+            ModuleParts::new(),
+            ModuleMode::Disabled(EvadcModule {
+                _marker: PhantomData,
+            }),
+        );
+    }
+}
+```, caption: [esempio di rappresentazione e utilizzo di una _tuple_ in _Rust_ e d.])
 I tipi composti, come in questo caso, non sono facilmente rappresentabili in notazione _UML_ e quindi
 sono ricorso alla creazione di una classe apposita, avente membri chiamati con i numeri.
 Per definire poi _tuple_ di diverso tipo, ho usato la notazione tra parentesi angolate, utilizzando lettere
@@ -153,21 +170,20 @@ Questa caratteristica impone una serie di regole su come sono gestiti i valori:
 Per fare un esempio pratico:
 #figure(
 ```rust
-struct Quartiere {
-  villa_16b: Edificio,
-  bifamiliare_21a: Edificio,
-  bifamiliare_21b: Edificio,
+pub struct PrimaryClusterParts<G: ConverterGroup> {
+    pub ch0: EvadcChannel<Unitialized, G>,
+    pub ch1: EvadcChannel<Unitialized, G>,
+    pub ch2: EvadcChannel<Unitialized, G>
 }
 
-// agenzia diventa il proprietario di un quartiere con tre edifici
-let agenzia = Quartiere::new();
+// [...]
 
-// alice diventa proprietario della villa, dopo averla comprata dall'agenzia
-let casa_di_alice = agenzia.villa16b;
+// g0_parts è di tipo PrimaryClusterParts, che contiente tre canali
+let ch0 = g0_parts.ch0.initialize(&config);
 
-// bob vorrebbe acquistare la stessa villa dall'agenzia
-// ma questo non è possibile perché la villa adesso è di proprietà di alice
-let casa_di_bob = agenzia.villa16b; // ERRORE DI COMPILAZIONE
+// Un errore di battitura come questo, in cui proviamo a reinizializzare il ch0, ci da un errore di compilazione,
+// spiegandoci che il ch0 è già stato "preso" nella riga sopra
+let ch1 = g0_parts.ch0.initialize(&config); // ERRORE DI COMPILAZIONE
 ```,
   caption: [esempio del concetto di _ownership_ in _Rust_.]
 )
@@ -204,7 +220,7 @@ Il lavoro congiunto mi ha permesso di migliorarne notevolmente semplicità e com
 parte dell'utente finale, oltre che a permettermi di trovare immediatamente errori logici di
 programmazione.
 
-Per fare in modo di garantire una buona usabilità, ho creato un digramma di sequenza, che mostrava
+Per fare in modo di garantire una buona usabilità, ho creato un diagramma di sequenza, che mostrava
 la relazione temporale tra l'uso dei diversi componenti _software_ dell'applicazione.
 In particolare, si faceva vedere come le chiamate ai metodi e alle funzioni potevano essere usate
 in un particolare caso d'uso. Di seguto riporto una sezione di tale diagramma.
@@ -216,8 +232,8 @@ in un particolare caso d'uso. Di seguto riporto una sezione di tale diagramma.
   ],
 )
 
-Nonostante la creazione dei due _POC_, durante la fase di implementazione, le sfide non sono mancate.
-In particolar modo ci tengo a descrivere la più significativa, ossia quella legata al modello di progettazione chiamato
+Nonostante la creazione dei due _PoC_, durante la fase di implementazione, le sfide non sono mancate.
+In particolar modo voglio descrivere la più significativa, ossia quella legata al modello di progettazione chiamato
 #gls("ts")#sub[G].
 Il _typestate pattern_ si può collocare nei modelli progettuali comportamentali e
 serve a codificare le informazioni di stato, a tempo di esecuzione, di un oggetto,
@@ -250,33 +266,52 @@ privo di discrepanze tra versioni per diversi microcontrollori.
 
 #figure(
 ```rust
-// Definisco gli stati che un messaggio può assumere
-trait MessageState{}
-// Il messaggio non ha ne header, ne body
-struct Empty{}
-// Il messaggio ha un header, ma non il body (che va inserito prima di poter procedere)
-struct WithHeader{}
-// Il messaggio ha sia header, sia body (il body potrebbe essere vuoto) e si può inviare
-struct Sendable{}
-impl MessageState for Empty{}
-impl MessageState for WithHeader{}
-impl MessageState for Sendable{}
+// Definisco gli stati che il modulo può assumere
+pub trait ModuleState {}
 
-// L'unica azione permessa quando si ha un messaggio con un header, è aggiungere un corpo
-impl Message<WithHeader> {
-    fn add_body(self, body: String) -> Message<Sendable> {
-        // ...
+pub struct Unitialized {}
+pub struct Initialized {}
+pub struct Disabled {}
+pub struct Enabled {}
+
+impl ModuleState for Unitialized {}
+impl ModuleState for Initialized {}
+impl ModuleState for Disabled {}
+impl ModuleState for Enabled {}
+
+// L'unica azione permessa quando, si ha un modulo non inizializzato, è inizializzarlo con una configurazione
+impl EvadcModule<Unitialized> {
+    pub fn initialize(self, config: &EvadcModuleConfig) -> EvadcModule<Initialized> {
+        let evadc = pac::EVADC;
+
+        Self::enable_clock();
+
+        // [...]
     }
 }
 
-// Per poter inviare il messaggio, il tipo di quest'ultimo deve essere "inviabile", cioè "Sendable"
-impl Message<Sendable> {
-    fn send(self) {
-        // ...
+impl EvadcModule<Initialized> {
+    pub fn split(self) -> ModuleSections {
+        return ModuleSections(
+            ModuleParts::new(),
+            ModuleMode::Disabled(EvadcModule {
+                _marker: PhantomData,
+            }),
+        );
     }
 }
+
+let unitialized_module: EvadcModule<Unitialized> = EvadcModule::new();
+
+// chiamare il metodo split non è consentito su un modulo non inizializzato
+let sections = unitialized_module.split(); // ERRORE DI COMPILAZIONE
+
+// [...]
+
+let init_module = unitialized_module.initialize(&config);
+let sections = init_module.split(); // Queste operazioni rispettano il contratto
 ```,
-  caption: [esempio parziale di definizione di un contratto con il modello _typestate_ in _Rust_.]
+  caption: [esempio parziale di definizione e utilizzo di un contratto con il modello _typestate_ in _Rust_.]
 )
 
 === Verifica e validazione
@@ -302,27 +337,15 @@ dettagli implementativi.
 
 #figure(
 ```rust
-// Scriviamo una funzione che ritorna un valore minore o uguale a 10
-// La sua precondizione è che può accettare valori da 0 a 5 (compresi)
-// Non è necessario indicare che n deve essere >= 0, Prusti è abbastanza intelligente da dedurlo dal tipo
-#[requires(n <= 5)]
-#[ensures(result <= 10)]
-fn numero_minore_di_10(n: u8) -> u8 {
-    return 5 + n;
-}
-
-fn main() {
-    let n: u8 = 3;
-    // La prova in questo caso è verificata perché entrambe le condizioni sono vere
-    print_u8(numero_minore_di_10(n));
-
-    let n: u8 = 7;
-    // In questo caso invece la prova fallirebbe
-    print_u8(numero_minore_di_10(n));
+// Prusti cerca di assicurarsi che la configurazione passata in questo
+// metodo abiliti il componente in questione
+#[requires(config.queues[self.id].enabled)]
+pub fn configure(&self, config: Configuration) {
+    // [...]
 }
 ```,
   caption: [
-    esempio di funzione con una pre-condizione e una post-condizione, scritta in _Rust_ attraverso la libreria _Prusti_.
+    esempio di funzione con una pre-condizione, scritta in _Rust_ attraverso la libreria _Prusti_.
   ],
 )
 
@@ -364,14 +387,14 @@ particolare, in quanto non era mai stato fatto un lavoro di questo tipo in azien
 per quanto riguarda progetti legati a dei _driver_.
 Oltre alla produzione di documenti per il progetto di tirocinio stesso, abbiamo anche aggiornato la documentazione
 aziendale di conseguenza.
-Al fine di validare la mia comprensione di funzionamento della periferica, ho creato un _POC_ in _Rust_ che andava ad
+Al fine di validare la mia comprensione di funzionamento della periferica, ho creato un _PoC_ in _Rust_ che andava ad
 inizializzare il modulo, verificando, grazie al _software UDE_, che lo stato dei registri, dopo l'inizializzazione,
-fosse lo stesso, sia con gli esempi in _C_, sia con l'_POC_ in _Rust_.
+fosse lo stesso, sia con gli esempi in _C_, sia con l'_PoC_ in _Rust_.
 
 #figure(
   image("../images/usecase_mod_init.png", width: 100%),
   caption: [
-    digramma dei casi d'uso specifico riguardo l'inizializzazione del modulo _EVADC_.
+    diagramma dei casi d'uso specifico riguardo l'inizializzazione del modulo _EVADC_.
   ],
 )
 
@@ -400,13 +423,13 @@ La progettazione, come ho già detto sopra, è stata l'attività più difficile 
 Partendo dai requisiti mi sono cimentato nella creazione di un'architettura adatta.
 La prima attività, e probabilmente la più utile, è stata definire gli stati e le transizioni tra di essi, nei quali
 il _software_ sarebbe potuto essere.
-Per fare ciò ho sviluppato un secondo _POC_, senza funzionalità, con il solo scopo di provare un modello di
+Per fare ciò ho sviluppato un secondo _PoC_, senza funzionalità, con il solo scopo di provare un modello di
 progettazione che secondo me era il più adatto per questo caso, il _typestate_.
 
 #figure(
   image("../images/mvp2_evadc_init.png", width: 100%),
   caption: [
-    sezione di codice del secondo _POC_ per provare il funzionamento degli stati.
+    sezione di codice del secondo _PoC_ per provare il funzionamento degli stati.
   ],
 )
 
@@ -438,7 +461,7 @@ lanciato il metodo per bloccarla definitivamente.
 Inoltre, grazie al concetto di _ownership_ di _Rust_, ho fatto in modo che i sotto-componenti potessero essere presenti, all'
 interno del sistema, una volta sola, così da rispettare le proprietà fisiche dell'_hardware_.
 
-Per concludere, ci tengo anche a citare un altro modello di progettazione utilizzato, non solo in questa parte, ma in
+Per concludere, voglio citare anche un altro modello di progettazione utilizzato, non solo in questa parte, ma in
 tutto il _driver_, che è l'_adapter_. Si tratta di un modello che aveva come scopo quello di inserirsi tra il mio sistema
 e una libreria esterna, dove erano definiti tutti i registri della scheda elettronica.
 Essendo questa libreria in rapida evoluzione, ho preferito inserire un "cuscinetto" che la andasse ad astrarre, così
@@ -472,7 +495,7 @@ rivelato fondamentale anche come guida per capire il funzionamento di tutto il s
 utilizzatore.
 
 L'ultima attività è stata l'implementazione, dato che, come descritto sopra, le prove di funzionamento le avevo fatte
-attraverso un _POC_ apposito.
+attraverso un _PoC_ apposito.
 Ci tengo a sottolienare che tutte le attività sono state svolte in modo incrementale e non a cascata.
 La conseguenza è che, queste ultime, sono state portate a termine in parallelo, con continue modifiche e miglioramenti,
 pur avendole descritte in maniera sequenziale.
@@ -515,7 +538,7 @@ integrato nei sistemi esistenti in produzione.
 Uno dei problemi principali sono le versioni che vengono rilasciate: per accedere alle ultime funzionalità
 del linguaggio bisogna usare versioni recenti, ma molti strumenti sono stati costruiti per versioni più vecchie e non
 sono più stati aggiornati.
-Rilasciando così tante versioni del linugaggio in poco tempo, visto che si tratta di una tecnologia in rapida crescita,
+Rilasciando così tante versioni del linugaggio in PoCo tempo, visto che si tratta di una tecnologia in rapida crescita,
 è difficile per gli sviluppatori tenere aggiornate le librerie _software_.
 Anche durante il mio tirocinio abbiamo dovuto investire molto tempo nello scovare errori legati a questa problematica,
 spesso trovando soluzioni temporanee.

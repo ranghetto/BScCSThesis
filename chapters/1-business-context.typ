@@ -1,5 +1,18 @@
 #import "@preview/glossarium:0.4.1": make-glossary, gls
 #show: make-glossary
+#show heading.where(level: 1): it => {
+    counter(math.equation).update(0)
+    counter(figure.where(kind: image)).update(0)
+    counter(figure.where(kind: table)).update(0)
+    counter(figure.where(kind: raw)).update(0)
+    it
+ }
+#set math.equation(numbering: num =>
+    "(" + (str(counter(heading).get().at(0)) + "." + str(num)) + ")"
+)
+#set figure(numbering: num =>
+    str(counter(heading).get().at(0)) + "." + str(num)
+)
 
 #pagebreak(to: "odd")
 
@@ -8,7 +21,7 @@
 
 #v(1em)
 #text(style: "italic", [
-    Questo capitolo presenta una panoramica generale dell'azienda in cui ho
+    In questo capitolo presento una panoramica generale dell'azienda in cui ho
     svolto il tirocinio e qual è il rapporto tra quest'ultima e le nuove tecnologie.
 ])
 #v(1em)
@@ -156,7 +169,7 @@ sia per il microcontrollore, lo abbiamo scelto come strumento, in modo da studia
 Per scrivere il codice all'interno dell'_hardware_, e farne il _debug_, abbiamo scelto uno strumento già utilizzato in azienda anche per il
 linguaggio _C_, l'_Universal Debug Engine_, comunemente chiamato _UDE_.
 Di questo strumento, vista la possibilità di fare il _debug_ nei microcontrollori _Aurix_, ne erano conosciute a fondo caratteristiche e
-funzionalità ma, era stato provato poco per lo sviluppo _Rust_. Questo lo ha reso un interessante caso di studio per vedere come,
+funzionalità ma, era stato provato PoCo per lo sviluppo _Rust_. Questo lo ha reso un interessante caso di studio per vedere come,
 passando da un linguaggio all'altro, si sarebbe comportato, rispetto anche alle promesse fatte dalla ditta che lo produce.
 
 === Sistemi operativi
@@ -203,14 +216,14 @@ Affinché tutto questo sia possibile, l'azienda si avvale sia di risorse interne
 dipendenti, sia di risorse esterne, come consulenti e tirocinanti universitari.
 
 In particolar modo, i tirocini universitari che si svolgono, hanno anche come scopo quello
-di condurre ricerche su temi in voga, oppure sviluppare progetti utlizzando nuovi strumenti e
+di condurre ricerche su temi in voga, oppure sviluppare progetti utilizzando nuovi strumenti e
 tecnologie, per le quali, ad esempio, non si conosce l'impatto futuro perché troppo giovani.
 
 Questo non è solo un modo di procedere che l'azienda applica, ma una vera e propria cultura
 aziendale, orientata alla sperimentazione e, quando possibile, all'adozione, di nuove tecnologie.
 
 La collaborazione con partner esterni tra cui, esperti del settore, aziende leader e università
-permette l'integrazione di diverse prospetive e competenze tecniche all'avanguardia, creando un
+permette l'integrazione di diverse prospettive e competenze tecniche all'avanguardia, creando un
 continuo ciclo di rinnovamento.
 Basti pensare alle diverse figure che collaborano con Bluewind: dalle persone che aiutano a migliorare
 i processi aziendali di produzione, ai consulenti per il miglioramento dell'ambiente di lavoro,

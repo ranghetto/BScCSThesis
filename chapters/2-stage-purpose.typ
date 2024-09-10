@@ -1,5 +1,18 @@
 #import "@preview/glossarium:0.4.1": make-glossary, gls
 #show: make-glossary
+#show heading.where(level: 1): it => {
+    counter(math.equation).update(0)
+    counter(figure.where(kind: image)).update(0)
+    counter(figure.where(kind: table)).update(0)
+    counter(figure.where(kind: raw)).update(0)
+    it
+ }
+#set math.equation(numbering: num =>
+    "(" + (str(counter(heading).get().at(0)) + "." + str(num)) + ")"
+)
+#set figure(numbering: num =>
+    str(counter(heading).get().at(0)) + "." + str(num)
+)
 
 #pagebreak(to: "odd")
 
@@ -8,7 +21,7 @@
 
 #v(1em)
 #text(style: "italic", [
-  Questo capitolo discute le problematiche che hanno messo le basi per la
+  In questo capitolo espongo le idee che hanno messo le basi per la
   realizzazione della proposta di stage, assieme alla risposta formalizzata al fine di
   risolverle.
 ])
@@ -249,8 +262,8 @@ Nello specifico, volevo compiere i seguenti punti:
 - imparare quali strumenti e metodi si usano per scrivere codice conforme a determinati _standard_;
 - ampliare le mie conoscenze di programmazione in _Rust_, in particolare capire quali fossero le strutture dati
     più adatte per scrivere codice di basso livello;
-- arricchiare il bagaglio di conoscenze legato ai metodi per lo sviluppo _software_, in ambiente professionale,
-    principalemnte per quanto concerne il metodo _agile_ e il _framework Scrum_.
+- arricchire il bagaglio di conoscenze legato ai metodi per lo sviluppo _software_, in ambiente professionale,
+    principalmente per quanto concerne il metodo _agile_ e il _framework Scrum_.
 
 Terza e ultima considerazione riguarda la carriera lavorativa. Volevo raggiungere gli obiettivi
 citati sopra per aprirmi, nel caso mi fosse interessato, una strada verso questo settore.

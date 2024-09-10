@@ -1,4 +1,17 @@
 #pagebreak(to:"odd")
+#show heading.where(level: 1): it => {
+    counter(math.equation).update(0)
+    counter(figure.where(kind: image)).update(0)
+    counter(figure.where(kind: table)).update(0)
+    counter(figure.where(kind: raw)).update(0)
+    it
+ }
+#set math.equation(numbering: num =>
+    "(" + (str(counter(heading).get().at(0)) + "." + str(num)) + ")"
+)
+#set figure(numbering: num =>
+    str(counter(heading).get().at(0)) + "." + str(num)
+)
 
 = Retrospettiva finale
 <cap:conclusions>
@@ -20,7 +33,7 @@ Non mancano i dubbi sulla sua maturità e su quella delle librerie collegate, ch
 dall'utilizzarlo in produzione.
 
 L'unico argomento che, a causa del tempo e delle priorità, non siamo riusciti ad affrontare, è stato l'implementazione
-di test automatici per la verifica del _driver_.
+di _test_ automatici per la verifica del _driver_.
 L'obiettivo non era comunque richiesto, sarebbe stato un'aggiunta interessante, qualora ci fosse stato il tempo.
 I requisiti trovati, per implementare le funzionalità minime, nonché le più richieste, sono stati soddisfatti al 100%,
 come si può vedere dalla tabella di tracciamento riportata sotto, in cui si vede che tutti sono stati soddisfatti.
@@ -48,7 +61,7 @@ mie conoscenze in ambito dell'ingegneria del _software_; finendo con quelli più
 
 Un punto di miglioramento, avendo avuto più tempo, sarebbe migliorare la documentazione, in termini di
 estensione ed esaustività.
-Ad esempio, avrei potuto scrivere un documento di specifica di test e un conseguente report di copertura degli
+Ad esempio, avrei potuto scrivere un documento di specifica di _test_ e un conseguente _report_ di copertura degli
 stessi.
 
 == Delta tra competenze pregresse e richieste
@@ -58,8 +71,8 @@ principalmente del mio percorso di studi, che tratta solo minimamente l'ambito _
 L'unico corso rilevante in merito trattava l'architettura degli elaboratori, da cui l'omonimo nome del corso, in cui
 si parlava anche di microcontrollori.
 Al contrario, è stato molto semplice adattarsi all'ambiente di lavoro in termini di processi adottati, in quanto vengono
-ampliamente studiati, e soprattutto provati sul campo, in corsi come "Ingegneria del software" e "Metodi e tecnologie
-per lo sviluppo software".
+ampliamente studiati, e soprattutto provati sul campo, in corsi come "Ingegneria del _software_" e "Metodi e tecnologie
+per lo sviluppo _software_".
 In aggiunta, diversi corsi prevedono un progetto, di gruppo, in cui il coordinamento tra tutti i membri è fondamentale
 per la sua buona riuscita. Di conseguenza, la capacità degli individui di lavorare in _team_ aumenta, apportando
 benefici anche nel mondo lavorativo.
