@@ -149,7 +149,7 @@ impl EvadcModule<Initialized> {
         );
     }
 }
-```, caption: [esempio di rappresentazione e utilizzo di una _tuple_ in _Rust_ e d.])
+```, caption: [esempio di rappresentazione e utilizzo di una _tuple_ in _Rust_])
 I tipi composti, come in questo caso, non sono facilmente rappresentabili in notazione _UML_ e quindi
 sono ricorso alla creazione di una classe apposita, avente membri chiamati con i numeri.
 Per definire poi _tuple_ di diverso tipo, ho usato la notazione tra parentesi angolate, utilizzando lettere
@@ -169,6 +169,7 @@ Questa caratteristica impone una serie di regole su come sono gestiti i valori:
 + quando il proprietario esce dal contesto, il valore viene liberato.
 Per fare un esempio pratico:
 #figure(
+
 ```rust
 pub struct PrimaryClusterParts<G: ConverterGroup> {
     pub ch0: EvadcChannel<Unitialized, G>,
@@ -181,8 +182,9 @@ pub struct PrimaryClusterParts<G: ConverterGroup> {
 // g0_parts è di tipo PrimaryClusterParts, che contiente tre canali
 let ch0 = g0_parts.ch0.initialize(&config);
 
-// Un errore di battitura come questo, in cui proviamo a reinizializzare il ch0, ci da un errore di compilazione,
-// spiegandoci che il ch0 è già stato "preso" nella riga sopra
+// Un errore di battitura come questo, in cui proviamo a reinizializzare il ch0, ci
+// da un errore di compilazione, spiegandoci che il ch0 è già stato "preso" nella
+// riga sopra
 let ch1 = g0_parts.ch0.initialize(&config); // ERRORE DI COMPILAZIONE
 ```,
   caption: [esempio del concetto di _ownership_ in _Rust_.]
@@ -268,36 +270,21 @@ privo di discrepanze tra versioni per diversi microcontrollori.
 ```rust
 // Definisco gli stati che il modulo può assumere
 pub trait ModuleState {}
-
 pub struct Unitialized {}
 pub struct Initialized {}
-pub struct Disabled {}
-pub struct Enabled {}
 
-impl ModuleState for Unitialized {}
-impl ModuleState for Initialized {}
-impl ModuleState for Disabled {}
-impl ModuleState for Enabled {}
+// [...]
 
 // L'unica azione permessa quando, si ha un modulo non inizializzato, è inizializzarlo con una configurazione
 impl EvadcModule<Unitialized> {
     pub fn initialize(self, config: &EvadcModuleConfig) -> EvadcModule<Initialized> {
-        let evadc = pac::EVADC;
-
-        Self::enable_clock();
-
         // [...]
     }
 }
 
 impl EvadcModule<Initialized> {
     pub fn split(self) -> ModuleSections {
-        return ModuleSections(
-            ModuleParts::new(),
-            ModuleMode::Disabled(EvadcModule {
-                _marker: PhantomData,
-            }),
-        );
+        // [...]
     }
 }
 
