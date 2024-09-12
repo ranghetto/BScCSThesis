@@ -23,7 +23,7 @@
 #text(style: "italic", [
   In questo capitolo espongo le idee che hanno messo le basi per la
   realizzazione della proposta di stage, assieme alla risposta formalizzata al fine di
-  risolverle.
+  realizzarle.
 ])
 #v(1em)
 
